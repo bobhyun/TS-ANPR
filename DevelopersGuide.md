@@ -2,8 +2,7 @@
 ===
 
 ## 목차
-- [응용 프로그램 개발 가이드](#응용-프로그램-개발-가이드)
-  - [목차](#목차)
+
   - [1. DLL entry points](#1-dll-entry-points)
     - [1.1. anpr\_initialize](#11-anpr_initialize)
     - [1.2. anpr\_read\_file](#12-anpr_read_file)
@@ -15,6 +14,7 @@
     - [2.4. `xml`](#24-xml)
   - [3. 오류 코드표](#3-오류-코드표)
   - [4. 예제](#4-예제)
+
 
 ## 1. DLL entry points
 
@@ -243,11 +243,11 @@ error
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <data>
-  <license-plate text="01가2345" elapsed="0.20">        <!-- 첫번째 번호판, text: 차량 번호, elapsed: 소요 시간 (초 단위) -->
+  <license-plate text="01가2345" elapsed="0.20">                      <!-- 첫번째 번호판, text: 차량 번호, elapsed: 소요 시간 (초 단위) -->
     <area x="1217" y="2083" width="92" height="175" angle="12.45"/>   <!-- 번호판 사각형 영역 (픽셀 단위), x, y: 좌측 상단 좌표, angle: 번호판 기울기 -->
-    <conf ocr="0.75" plate="0.83"/>                     <!-- 신뢰도 (범위: 0 ~ 1), ocr: 문자 인식 신뢰도, plate: 번호판 인식 신뢰도 -->
+    <conf ocr="0.75" plate="0.83"/>                                   <!-- 신뢰도 (범위: 0 ~ 1), ocr: 문자 인식 신뢰도, plate: 번호판 인식 신뢰도 -->
   </license-plate>
-  <license-plate text="67나8901" elapsed="0.11">        <!-- 두번째 번호판 -->
+  <license-plate text="67나8901" elapsed="0.11">                      <!-- 두번째 번호판 -->
     <area x="1108" y="1317" width="67" height="217"/>
     <conf ocr="0.76" plate="0.89"/>
   </license-plate>
@@ -264,6 +264,7 @@ error
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <error code="1" message="Invalid parameters" />
+```
 ```
 
 ## 3. 오류 코드표
@@ -287,25 +288,28 @@ error
 - 디렉토리 구성
     ```
     /examples
-      /bin            # ANPR 엔진 및 컴파일된 바이너리
-        /x64          # 64bit 바이너리 (amd64)
-        /x86          # 32bit 바이너리
-      /img            # 테스트용 샘플 이미지
-      /cpp            # C++ 예제
-      /csharp         # C#  예제
-      /javascript     # Javascript 예제
-      /python         # Python 예제
-      /go             # Golang 예제
+      /bin                  # ANPR 엔진 및 컴파일된 바이너리
+        /x64                # 64bit 바이너리 (amd64)
+        /x86                # 32bit 바이너리
+      /img                  # 테스트용 샘플 이미지
+      /cpp                  # C++ 예제
+      /csharp               # C#  예제
+      /vb                   # Visual Basic 예제
+      /javascript/nodejs    # Javascript 예제
+      /python               # Python 예제
+      /go                   # Golang 예제
+      /pascal/delphi        # Pascal/Delphi 예제
     ```
 
 - *TS-ANPR 엔진 디렉토리를 `/examples/bin` 디렉토리에 복사해 넣고 예제를 실행하면 됩니다.*
 
-|    언어    |     설명     |  예제                                      |
-|:----------:|:------------:|:------------------------------------------|
-| C/C++      | Importlib    | [examples/cpp/anprCpp1](https://github.com/bobhyun/TS-ANPR/tree/main/examples/cpp/anprCpp1)
-| *''*       | LoadLibrary  | [examples/cpp/anprCpp2](https://github.com/bobhyun/TS-ANPR/tree/main/examples/cpp/anprCpp2)
-| C#         | Managed      | [examples/csharp/anprCsharp1](https://github.com/bobhyun/TS-ANPR/tree/main/examples/csharp/anprCsharp1)
-| *''*       | .Net         | [examples/csharp/anprCsharpDotnet1](https://github.com/bobhyun/TS-ANPR/tree/main/examples/csharp/anprCsharpDotnet1)
-| Python     | ctypes       | [examples/python](https://github.com/bobhyun/TS-ANPR/tree/main/examples/python)
-| JavaScript | Node.js, ffi | [examples/javascript/nodejs](https://github.com/bobhyun/TS-ANPR/tree/main/examples/javascript/nodejs)
-| Go         | C, syscall   | [examples/go](https://github.com/bobhyun/TS-ANPR/tree/main/examples/go)
+|      언어     |       설명       |  예제                                     |
+|:-------------:|:---------------:|:------------------------------------------|
+| C/C++         | Importlib       | [examples/cpp/anprCpp1](https://github.com/bobhyun/TS-ANPR/tree/main/examples/cpp/anprCpp1)
+| *''*          | LoadLibrary     | [examples/cpp/anprCpp2](https://github.com/bobhyun/TS-ANPR/tree/main/examples/cpp/anprCpp2)
+| C#            | .Net            | [examples/csharp/anprCsharpDotnet1](https://github.com/bobhyun/TS-ANPR/tree/main/examples/csharp/anprCsharpDotnet1)
+| Visual Basic  | .Net            | [examples/go](https://github.com/bobhyun/TS-ANPR/tree/main/examples/vb/anprVbDotnet1)
+| Python        | ctypes          | [examples/python](https://github.com/bobhyun/TS-ANPR/tree/main/examples/python)
+| JavaScript    | Node.js, ffi    | [examples/javascript/nodejs](https://github.com/bobhyun/TS-ANPR/tree/main/examples/javascript/nodejs)
+| Go            | C, syscall      | [examples/go](https://github.com/bobhyun/TS-ANPR/tree/main/examples/go)
+| Pascal        | Delphi          | [examples/go](https://github.com/bobhyun/TS-ANPR/tree/main/examples/pascal/delphi)
