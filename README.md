@@ -2,6 +2,7 @@ TS-ANPR
 ===
 
 TS-ANPR은 딥러닝 기반의 대한민국 차량 번호 인식 모듈입니다.
+## 차번 인식 데모: http://tsnvr.ipdisk.co.kr/
 
 ## 특징
 
