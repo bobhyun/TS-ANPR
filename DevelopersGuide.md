@@ -3,6 +3,8 @@
 
 ## 목차
 
+- [응용 프로그램 개발 가이드](#응용-프로그램-개발-가이드)
+  - [목차](#목차)
   - [1. DLL entry points](#1-dll-entry-points)
     - [1.1. anpr\_initialize](#11-anpr_initialize)
     - [1.2. anpr\_read\_file](#12-anpr_read_file)
@@ -123,11 +125,11 @@ const char* WINAPI anpr_read_pixels(
     - `IYUV`: YUV420 (12bpp) 
     - `NV12`: YUV420 (12bpp)
     - `NV21`: YUV420 (12bpp)
-- `outputFormat`: *(`readFile`과 동일)*
-- `options`: *(`readFile`과 동일)*
+- `outputFormat`: *(`anpr_read_file`과 동일)*
+- `options`: *(`anpr_read_file`과 동일)*
 
-**Return value**: *(`readFile`과 동일)*
-**Remarks**: *(`readFile`과 동일)*
+**Return value**: *(`anpr_read_file`과 동일)*
+**Remarks**: *(`anpr_read_file`과 동일)*
 
 
 ## 2. Output Format
@@ -185,7 +187,7 @@ error: (1) Invalid parameters
 ]
 ```
 
-차량 번호가 인식되지 않은 경우는 아래와 같이 빈 데이터를 츨력합니다.
+차량 번호가 인식되지 않은 경우는 아래와 같이 빈 데이터를 출력합니다.
 ```jsx
 []
 ```
@@ -227,7 +229,7 @@ error: (1) Invalid parameters
   elapsed: 0.10
 ````
 
-차량 번호가 인식되지 않은 경우는 아래와 같이 빈 데이터를 츨력합니다.
+차량 번호가 인식되지 않은 경우는 아래와 같이 빈 데이터를 출력합니다.
 ```yaml
 ```
 
@@ -254,7 +256,7 @@ error
 </data>
 ```
 
-차량 번호가 인식되지 않은 경우는 아래와 같이 빈 데이터를 츨력합니다.
+차량 번호가 인식되지 않은 경우는 아래와 같이 빈 데이터를 출력합니다.
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <data />
