@@ -18,7 +18,7 @@
 #pragma comment(lib, "gdiplus.lib")
 
 
-#define IMG_PATH  "..\\..\\img\\"
+#define IMG_PATH  "..\\..\\..\\img\\"
 
 HMODULE hdll;
 const char* (WINAPI* anpr_initialize)(const char* outputFormat); // [IN] 오류 발생시 출력 데이터 형식
@@ -112,14 +112,6 @@ int loadEngineModule()
     return -2;
   }
 
-  const char* error = anpr_initialize("verbose");
-  if (error) {
-    printf("anpr_initialize() failed (error=%s)\n", error);
-    FreeLibrary(hdll);
-    hdll = NULL;
-    return -3;
-  }
-
   anpr_read_file = (const char* (WINAPI*)(const char*, const char*, const char*))GetProcAddress(hdll, "anpr_read_file");
   if (!anpr_read_file) {
     printf("anpr_read_file() not found.\n");
@@ -162,7 +154,13 @@ int main(int ac, char** av)
   if (res < 0)
     return res;
 
-  anpr_initialize("text");
+  const char* error = anpr_initialize("text");
+  if (error[0]) {
+    printf("anpr_initialize() failed (error=%s)\n", error);
+    unloadEngineModule();
+    return -3;
+  }
+
 
   anprDemo1("text");
   anprDemo1("json");

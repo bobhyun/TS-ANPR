@@ -22,7 +22,7 @@
 #pragma comment(lib, "tsanpr.lib")
 
 
-#define IMG_PATH  "..\\..\\img\\"
+#define IMG_PATH  "..\\..\\..\\img\\"
 
 
 void readFile(const char* imgfile, const char* outputFormat, const char *options)
@@ -92,7 +92,7 @@ int main(int ac, char** av)
   SetConsoleOutputCP(65001);                // 콘솔에 한글 출력 모드
 
   const char *error = anpr_initialize("text");
-  if (error) {
+  if (error[0]) {
     printf("%s\n", error);
     return -1;
   }

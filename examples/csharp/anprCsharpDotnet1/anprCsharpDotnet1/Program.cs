@@ -34,6 +34,8 @@ namespace anprCsharpDotnet1
 
     static string ptrToUtf8(IntPtr nativeUtf8)
     {
+      if (nativeUtf8 == IntPtr.Zero)
+        return "";
       int len = 0;
       while (Marshal.ReadByte(nativeUtf8, len) != 0) ++len;
       byte[] buffer = new byte[len];
@@ -86,10 +88,11 @@ namespace anprCsharpDotnet1
     {
       Console.OutputEncoding = System.Text.Encoding.UTF8;
 
-      IntPtr error = anpr_initialize("text");
-      if (error != IntPtr.Zero)
+      IntPtr ptr = anpr_initialize("text");
+      string error = ptrToUtf8(ptr);
+      if (error != "")
       {
-        Console.WriteLine(ptrToUtf8(error));
+        Console.WriteLine(error);
         return;
       }
 
