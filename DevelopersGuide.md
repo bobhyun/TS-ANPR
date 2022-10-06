@@ -36,7 +36,7 @@ const char* WINAPI anpr_initialize(const char* outputFormat); // [IN] 오류 발
   - 지원하는 데이터 형식: `text`, `json`, `yaml`, `xml` *(기본값: `text`)*
   
 **Return value**:
-  - 정상 처리된 경우 `NULL (0x00)`을 반환합니다.
+  - 정상 처리된 경우 빈 텍스트`NULL terminated string (0x00)`을 반환합니다.
   - 오류가 발생한 경우는 `outputFormat`에 지정한 데이터 형식의 문자열(utf-8 인코딩)로 오류 내용을 반환합니다.
 
 
