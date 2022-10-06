@@ -296,15 +296,17 @@ error
       /cpp                  # C++ 예제
       /csharp               # C#  예제
       /vb                   # Visual Basic 예제
-      /javascript/nodejs    # Javascript 예제
+      /javascript/nodejs    # Javascript/Node.js 예제
       /python               # Python 예제
       /go                   # Golang 예제
       /pascal/delphi        # Pascal/Delphi 예제
+      /perl                 # Perl 예제
+      /ruby                 # Ruby 예제
     ```
 
 - *TS-ANPR 엔진 디렉토리를 `/examples/bin` 디렉토리에 복사해 넣고 예제를 실행하면 됩니다.*
 
-|      언어     |       설명       |  예제                                     |
+|      언어     |       호출방식       |  예제                                     |
 |:-------------:|:---------------:|:------------------------------------------|
 | C/C++         | Importlib       | [examples/cpp/anprCpp1](https://github.com/bobhyun/TS-ANPR/tree/main/examples/cpp/anprCpp1)
 | *''*          | LoadLibrary     | [examples/cpp/anprCpp2](https://github.com/bobhyun/TS-ANPR/tree/main/examples/cpp/anprCpp2)
@@ -314,3 +316,5 @@ error
 | JavaScript    | Node.js, ffi    | [examples/javascript/nodejs](https://github.com/bobhyun/TS-ANPR/tree/main/examples/javascript/nodejs)
 | Go            | C, syscall      | [examples/go](https://github.com/bobhyun/TS-ANPR/tree/main/examples/go)
 | Pascal        | Delphi          | [examples/pascal/delphi](https://github.com/bobhyun/TS-ANPR/tree/main/examples/pascal/delphi)
+| Perl          | Win32::API      | [examples/perl](https://github.com/bobhyun/TS-ANPR/tree/main/examples/perl)
+| Ruby          | ffi             | [examples/ruby](https://github.com/bobhyun/TS-ANPR/tree/main/examples/ruby)
