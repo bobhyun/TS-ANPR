@@ -63,6 +63,11 @@ namespace anprCsharpDotnet1
 
       IntPtr result = anpr_read_pixels(bmpData.Scan0, bmpData.Width, bmpData.Height, bmpData.Stride, "BGR", outputFormat, options);
       Console.WriteLine(ptrToUtf8(result));
+
+      // Fixed: 2022.10.28. Bob Hyun.
+      // Don't forget to release bitmap memory
+      bmp.UnlockBits(bmpData);
+      bmp.Dispose();
     }
 
     static void anprDemo1(string outputFormat)
