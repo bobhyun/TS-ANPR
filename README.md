@@ -7,7 +7,7 @@ TS-ANPR은 딥러닝 기반의 대한민국 차량 번호 인식 엔진입니다
   - `[2022-10-28]` v1.0.5 출시
     - 응용에서 멀티스레드로 병렬 호출시 메모리 사용량 및 스레드 스위칭 오버헤드 개선 
     - 영업용 번호판 한글 문자 (`바`, `사`, `아`, `자`) 오인식 개선
-#### 응용 프로그램 개발 가이드: [DevelopersGuid.md](https://github.com/bobhyun/TS-ANPR/blob/main/DevelopersGuide.md) 
+#### 응용 프로그램 개발 가이드: [DevelopersGuide.md](https://github.com/bobhyun/TS-ANPR/blob/main/DevelopersGuide.md) 
 - [DLL entry points](https://github.com/bobhyun/TS-ANPR/blob/main/DevelopersGuide.md#1-dll-entry-points)
 - [입력 이미지 파일 형식 (`bmp`, `jpg`, `png`, `pnm`, `pbm`, `pgm`, `ppm`, `jfif`, `webp`)](https://github.com/bobhyun/TS-ANPR/blob/main/DevelopersGuide.md#12-anpr_read_file)
 - [입력 이미지 픽셀 형식 (`GRAY`, `BGRA`, `RGBA`, `RGB`, `BGR`, `BGR555`, `BGR565`, `HSV`, `YCrCb`, `I420`, `YV12`, `IYUV`, `NV12`, `NV21`)](https://github.com/bobhyun/TS-ANPR/blob/main/DevelopersGuide.md#13-anpr_read_pixels)
