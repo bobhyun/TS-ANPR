@@ -22,12 +22,13 @@ TS-ANPR은 딥러닝 기반의 대한민국 차량 번호 인식 엔진입니다
 - [pdf 문서 다운로드](https://github.com/bobhyun/TS-ANPR/raw/main/TS-ANPR-Manual.pdf)
 
 
-<div style="margin:40px 0 50px 0">
+<br/>
 
 - 개발 문의: bobhyun@gmail.com
 - 구매 문의: skju3922@naver.com 
 - 📞 전화: <a href="tel:02-6084-3922">02-6084-3922</a>
-</div>
+  
+<br/>
 
 
 ## 특징
