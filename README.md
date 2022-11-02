@@ -2,18 +2,33 @@ TS-ANPR
 ===
 
 TS-ANPR은 딥러닝 기반의 대한민국 차량 번호 인식 엔진입니다.
-#### 차번 인식 데모: [http://tsnvr.ipdisk.co.kr/](http://tsnvr.ipdisk.co.kr/)
+#### 차번 인식 데모: [http://tsnvr.ipdisk.co.kr/](http://tsnvr.ipdisk.co.kr/) 
+<img style="margin-left:20px" src="img/demo.png" width="180" />
+
 #### 최신 엔진 다운로드: [https://github.com/bobhyun/TS-ANPR/releases/](https://github.com/bobhyun/TS-ANPR/releases/)
+<img style="margin-left:20px" src="img/releases.png" width="180" />
+
   - `[2022-10-28]` v1.0.5 출시
     - 응용에서 멀티스레드로 병렬 호출시 메모리 사용량 및 스레드 스위칭 오버헤드 개선 
     - 영업용 번호판 한글 문자 (`바`, `사`, `아`, `자`) 오인식 개선
-#### 응용 프로그램 개발 가이드: [DevelopersGuide.md](https://github.com/bobhyun/TS-ANPR/blob/main/DevelopersGuide.md) 
+#### 응용 프로그램 개발 가이드: [https://github.com/bobhyun/TS-ANPR/blob/main/DevGuide.md](https://github.com/bobhyun/TS-ANPR/blob/main/DevGuide.md) 
+<img style="margin-left:20px" src="img/dev-guide.png" width="180" />
+
 - [DLL entry points](https://github.com/bobhyun/TS-ANPR/blob/main/DevelopersGuide.md#1-dll-entry-points)
 - [입력 이미지 파일 형식 (`bmp`, `jpg`, `png`, `pnm`, `pbm`, `pgm`, `ppm`, `jfif`, `webp`)](https://github.com/bobhyun/TS-ANPR/blob/main/DevelopersGuide.md#12-anpr_read_file)
 - [입력 이미지 픽셀 형식 (`GRAY`, `BGRA`, `RGBA`, `RGB`, `BGR`, `BGR555`, `BGR565`, `HSV`, `YCrCb`, `I420`, `YV12`, `IYUV`, `NV12`, `NV21`)](https://github.com/bobhyun/TS-ANPR/blob/main/DevelopersGuide.md#13-anpr_read_pixels)
 - [결과 출력 형식 (`text`, `json`, `yaml`, `xml`)](https://github.com/bobhyun/TS-ANPR/blob/main/DevelopersGuide.md#2-output-format)
-- [프로그래밍 언어별 예제 소스 코드](https://github.com/bobhyun/TS-ANPR/blob/main/DevelopersGuide.md#4-%EC%98%88%EC%A0%9C)
+- [프로그래밍 언어별 예제 소스 코드 (`C/C++`, `C#`, `Visual Basic`, `Python`, `JavaScript/Node.js`, `Go`, `Pascal/Delphi`, `Perl`, `Ruby`)](https://github.com/bobhyun/TS-ANPR/blob/main/DevelopersGuide.md#4-%EC%98%88%EC%A0%9C)
 - [pdf 문서 다운로드](https://github.com/bobhyun/TS-ANPR/raw/main/TS-ANPR-Manual.pdf)
+
+
+<div style="margin:40px 0 50px 20px">
+
+개발 문의: bobhyun@gmail.com
+구매 문의: skju3922@naver.com 
+📞 전화: <a href="tel:02-6084-3922">02-6084-3922</a>
+</div>
+
 
 ## 특징
 
@@ -84,6 +99,3 @@ TS-ANPR 엔진 바이너리는 **상용 라이선스**로 제공됩니다.
 | `TS-ANPR 기본`       | 차량 장착(v), 단일 인식                      | 라이선스에 준함     |
 | `TS-ANPR 프로`       | 차량 장착(v), 다중 인식(m), 서라운드 인식(s)  | 라이선스에 준함     |
 
-
-- 개발 문의: bobhyun@gmail.com
-- 구매 문의: skju3922@naver.com TEL: 02-6084-3922
