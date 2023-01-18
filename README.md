@@ -8,14 +8,6 @@ TS-ANPR은 딥러닝 기반의 대한민국 차량 번호 인식 엔진입니다
 #### 최신 엔진 다운로드: [https://github.com/bobhyun/TS-ANPR/releases/](https://github.com/bobhyun/TS-ANPR/releases/)
 <img style="margin-left:20px" src="img/releases.png" width="180" />
 
-  - `[2022-12-19]` v1.0.6 출시
-    - 1996년 개정 후 폐지된 구형 번호판 (녹색 바탕 명조체 한글) 인식률 개선
-     
-     ![구형 번호판](img/80s.jpg)
-     `[이미지 출처: 보배드림]`
-  - `[2022-10-28]` v1.0.5 출시
-    - 응용에서 멀티스레드로 병렬 호출시 메모리 사용량 및 스레드 스위칭 오버헤드 개선 
-    - 영업용 번호판 한글 문자 (`바`, `사`, `아`, `자`) 오인식 개선
 #### 응용 프로그램 개발 가이드: [https://github.com/bobhyun/TS-ANPR/blob/main/DevGuide.md](https://github.com/bobhyun/TS-ANPR/blob/main/DevGuide.md) 
 <img style="margin-left:20px" src="img/dev-guide.png" width="180" />
 
@@ -27,13 +19,20 @@ TS-ANPR은 딥러닝 기반의 대한민국 차량 번호 인식 엔진입니다
 - [pdf 문서 다운로드](https://github.com/bobhyun/TS-ANPR/raw/main/TS-ANPR-Manual.pdf)
 
 
-<br/>
+## 최신 버전 정보
+#### **`[2023-1-18]` v1.1.0 출시**
 
-- 개발 문의: bobhyun@gmail.com
-- 구매 문의: skju3922@naver.com 
-- 📞 전화: <a href="tel:02-6084-3922">02-6084-3922</a>
-  
-<br/>
+- 덤프 트럭, 중장비 번호판 인식률 개선
+  ![](img/20200814000665_0.jpg)
+    `[이미지 출처: 헤럴드경제]`
+  ![](img/000424-20190130010598-2.jpg)
+    `[이미지 출처: 부동산미래]`
+  ![](img/236FA0455124830802.jfif)
+    `[이미지 출처: jumbocar.tistory.com]`
+- 친환경 전기 자동차 인식 기능 추가
+  - Output Format에 `ev` 항목 추가됨 [(개발 가이드 참고)](https://github.com/bobhyun/TS-ANPR/blob/main/DevGuide.md#2-output-format)
+    ![](img/517830_32591_5954.jpg)
+    `[이미지 출처: 부울경뉴스]`
 
 
 ## 특징
@@ -67,41 +66,36 @@ TS-ANPR은 딥러닝 기반의 대한민국 차량 번호 인식 엔진입니다
 <br/>`[이미지 출처: KBS]`
 <br/>![](img/surround2.jpg)
 
-## 라이선스
 
-### 1. 예제 소스 코드
-제공되는 예제 소스 코드는 **MIT 라이선스**를 따릅니다.
+## 사용법
 
+엔진 파일을 다운로드한 후 압축을 풀면 아래와 같이 디렉토리가 구성되어 있습니다. 
 ```
-The MIT License (MIT)
-Copyright © 2022 TS-Solution Corp.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to all conditions.
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+  /x64                    # 64bit (amd64) 바이너리 디렉토리  
+    tsanpr.dll            # 공유 라이브러리 (API 제공)
+    lpvr-xxxxx.eon        # 딥러닝 모델 #1
+    lpocr_kr-xxxxx.eon    # 딥러닝 모델 #2
+    tshelper.exe          # 도우미 앱 (라이선스 관리, Github 링크 제공)
+  /x86                    # 32bit 바이너리 디렉토리
+    tsanpr.dll            # 공유 라이브러리 (API 제공)
+    lpvr-xxxxx.eon        # 딥러닝 모델 #1
+    lpocr_kr-xxxxx.eon    # 딥러닝 모델 #2
+    tshelper.exe          # 도우미 앱 (라이선스 관리, Github 링크 제공)
 ```
 
-### 2. TS-ANPR 엔진 바이너리
-TS-ANPR 엔진 바이너리는 **상용 라이선스**로 제공됩니다.
-아래 세 종류의 라이선스를 사용할 수 있습니다.
+`tshelper.exe` 파일을 실행하면 해당 컴퓨터에 `30일 평가판 라이선스`가 자동으로 설치되며, 이 후 30일 동안 `TS-ANPR 프로`의 모든 기능을 사용해 볼 수 있습니다. 
+![](img/evalationLicense.jpg)
 
-|         구분         |  기능                                       | 기간 제한  |
-|:---------------------|:-------------------------------------------|:----------:|
-| `TS-ANPR 무료 평가판` | 차량 장착(v), 다중 인식(m), 서라운드 인식(s)  | 30일      |
-| `TS-ANPR 기본`       | 차량 장착(v), 단일 인식                      | 라이선스에 준함     |
-| `TS-ANPR 프로`       | 차량 장착(v), 다중 인식(m), 서라운드 인식(s)  | 라이선스에 준함     |
+- 응용 프로그램 개발 전 단계의 기본적인 성능 테스트는 [온라인 데모 사이트 http://tsnvr.ipdisk.co.kr/](http://tsnvr.ipdisk.co.kr/) 를 이용하실 수 있습니다.
+- 응용 프로그램 개발 단계에서는 [응용 프로그램 개발 가이드](https://github.com/bobhyun/TS-ANPR/blob/main/DevGuide.md) 와 포함된 프로그래밍 언어별 예제들을 참고하시기 바랍니다.
+- 개발 관련 질문이나 요청 사항들은 [Issues](https://github.com/bobhyun/TS-ANPR/issues)에 등록해 주시면 적극적으로 지원하겠습니다.
+
+
+<br/>
+
+- 개발 문의: bobhyun@gmail.com
+- 구매 문의: skju3922@naver.com 
+- 📞 전화: <a href="tel:02-6084-3922">02-6084-3922</a>
+  
+<br/>
 
