@@ -167,6 +167,7 @@ error: (1) Invalid parameters
       "ocr": 0.75,          // 문자 인식 신뢰도
       "plate": 0.84         // 번호판 인식 신뢰도
     },
+    "ev": true,             // 친환경 전기자동차 여부
     "elapsed": 0.27,        // 소요 시간 (초 단위)
   },
   {                         // 두번째 번호판
@@ -182,6 +183,7 @@ error: (1) Invalid parameters
       "ocr": 0.76,
       "plate": 0.89
     },
+    "ev": false,            // 친환경 전기자동차 여부
     "elapsed": 0.14
   }
 ]
@@ -215,6 +217,7 @@ error: (1) Invalid parameters
   conf:                 # 신뢰도 (범위: 0 ~ 1)
     ocr: 0.75           # 문자 인식 신뢰도
     plate: 0.83         # 번호판 인식 신뢰도
+  ev: true              # 친환경 전기자동차 여부
   elapsed: 0.20         # 소요 시간 (초 단위)
 - text: 67나8901        # 두번째 번호판
   area:
@@ -226,6 +229,7 @@ error: (1) Invalid parameters
   conf:
     ocr: 0.76
     plate: 0.89
+  ev: false             # 친환경 전기자동차 여부
   elapsed: 0.10
 ````
 
@@ -245,11 +249,11 @@ error
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <data>
-  <license-plate text="01가2345" elapsed="0.20">                      <!-- 첫번째 번호판, text: 차량 번호, elapsed: 소요 시간 (초 단위) -->
+  <license-plate text="01가2345" ev="true" elapsed="0.20">            <!-- 첫번째 번호판, text: 차량 번호, ev: 친환경 전기자동차 여부, elapsed: 소요 시간 (초 단위) -->
     <area x="1217" y="2083" width="92" height="175" angle="12.45"/>   <!-- 번호판 사각형 영역 (픽셀 단위), x, y: 좌측 상단 좌표, angle: 번호판 기울기 -->
     <conf ocr="0.75" plate="0.83"/>                                   <!-- 신뢰도 (범위: 0 ~ 1), ocr: 문자 인식 신뢰도, plate: 번호판 인식 신뢰도 -->
   </license-plate>
-  <license-plate text="67나8901" elapsed="0.11">                      <!-- 두번째 번호판 -->
+  <license-plate text="67나8901" ev="false" elapsed="0.11">           <!-- 두번째 번호판 -->
     <area x="1108" y="1317" width="67" height="217"/>
     <conf ocr="0.76" plate="0.89"/>
   </license-plate>
