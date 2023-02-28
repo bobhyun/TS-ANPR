@@ -3,13 +3,13 @@ TS-ANPR
 
 TS-ANPR은 딥러닝 기반의 대한민국 차량 번호 인식 엔진입니다.
 #### 차번 인식 데모: [http://tsnvr.ipdisk.co.kr/](http://tsnvr.ipdisk.co.kr/) 
-<img style="margin-left:20px" src="img/demo.png" width="180" />
+<img style="margin-left:20px" src="img/demo.png" width="150" />
 
 #### 최신 엔진 다운로드: [https://github.com/bobhyun/TS-ANPR/releases/](https://github.com/bobhyun/TS-ANPR/releases/)
-<img style="margin-left:20px" src="img/releases.png" width="180" />
+<img style="margin-left:20px" src="img/releases.png" width="150" />
 
 #### 응용 프로그램 개발 가이드: [https://github.com/bobhyun/TS-ANPR/blob/main/DevGuide.md](https://github.com/bobhyun/TS-ANPR/blob/main/DevGuide.md) 
-<img style="margin-left:20px" src="img/dev-guide.png" width="180" />
+<img style="margin-left:20px" src="img/dev-guide.png" width="150" />
 
 - [DLL entry points](https://github.com/bobhyun/TS-ANPR/blob/main/DevGuide.md#1-dll-entry-points)
 - [입력 이미지 파일 형식 (`bmp`, `jpg`, `png`, `pnm`, `pbm`, `pgm`, `ppm`, `jfif`, `webp`)](https://github.com/bobhyun/TS-ANPR/blob/main/DevGuide.md#12-anpr_read_file)
@@ -20,19 +20,10 @@ TS-ANPR은 딥러닝 기반의 대한민국 차량 번호 인식 엔진입니다
 
 
 ## 최신 버전 정보
-#### **`[2023-1-18]` v1.1.0 출시**
+#### **`[2023-2-28]` v1.2.0 출시 🎉**
 
-- 덤프 트럭, 중장비 번호판 인식률 개선
-  ![](img/20200814000665_0.jpg)
-  <br/>  `[이미지 출처: 헤럴드경제]`
-  ![](img/000424-20190130010598-2.jpg)
-  <br/>  `[이미지 출처: 부동산미래]`
-  ![](img/236FA0455124830802.jfif)
-  <br/>  `[이미지 출처: jumbocar.tistory.com]`
-- 친환경 전기 자동차 인식 기능 추가
-  - Output Format에 `ev` 항목 추가됨 [(개발 가이드 참고)](https://github.com/bobhyun/TS-ANPR/blob/main/DevGuide.md#2-output-format)
-    ![](img/517830_32591_5954.jpg)
-    <br/>  `[이미지 출처: 부울경뉴스]`
+- 다중 차량 인식시 일부 번호판이 미인식되는 현상 개선
+- 화질이 좋지 않은 번호판 이미지에서 문자 오인식 개선
 
 
 ## 특징
