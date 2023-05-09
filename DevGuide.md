@@ -5,7 +5,7 @@
 
 - [응용 프로그램 개발 가이드](#응용-프로그램-개발-가이드)
   - [목차](#목차)
-  - [1. DLL entry points](#1-dll-entry-points)
+  - [1. Entry points](#1-entry-points)
     - [1.1. anpr\_initialize](#11-anpr_initialize)
     - [1.2. anpr\_read\_file](#12-anpr_read_file)
     - [1.3. anpr\_read\_pixels](#13-anpr_read_pixels)
@@ -18,16 +18,26 @@
   - [4. 예제](#4-예제)
 
 
-## 1. DLL entry points
+## 1. Entry points
+
+모든 함수 원형은 아래와 같습니다.
+```cpp
+#ifdef WIN32
+#define TS_ANPR_ENTRY extern "C" __declspec(dllexport) const char* WINAPI
+#else
+#define TS_ANPR_ENTRY extern "C" const char* 
+#endif
+```
+**-* 장황해지지 않도록 이하는 `TS_ANPR_ENTRY`로 표기합니다.*
 
 ### 1.1. anpr_initialize
 
 라이브러리를 초기화 합니다.
 라이브러리를 사용하기 위해 다른 함수보다 먼저 한 번 호출해야 합니다.
 
+
 ```cpp
-__declspec(dllimport) 
-const char* WINAPI anpr_initialize(const char* outputFormat); // [IN] 오류 발생시 출력 데이터 형식
+TS_ANPR_ENTRY anpr_initialize(const char* outputFormat); // [IN] 오류 발생시 출력 데이터 형식
 ```
 
 **Parameters**:
@@ -45,8 +55,7 @@ const char* WINAPI anpr_initialize(const char* outputFormat); // [IN] 오류 발
 이미지 파일에서 차량 번호를 인식합니다.
 
 ```cpp
-__declspec(dllimport) 
-const char* WINAPI anpr_read_file(
+TS_ANPR_ENTRY anpr_read_file(
   const char* imgFileName,  // [IN] 입력 이미지 파일명
   const char* outputFormat, // [IN] 출력 데이터 형식
   const char* options);     // [IN] 기능 옵션
@@ -88,8 +97,7 @@ const char* WINAPI anpr_read_file(
 로딩된 이미지의 메모리 버퍼에서 차량 번호를 인식합니다.
 
 ```cpp
-__declspec(dllimport)
-const char* WINAPI anpr_read_pixels(
+TS_ANPR_ENTRY anpr_read_pixels(
   const unsigned char* pixels,  // [IN] 이미지 픽셀 시작 주소
   const unsigned long width,    // [IN] 이미지 가로 픽셀 수
   const unsigned long height,   // [IN] 이미지 세로 픽셀 수
@@ -286,6 +294,8 @@ error
   |  `102` | `Not initialized`          | 엔진이 초기화되지 않은 상태
   |  `103` | `Too many workers`         | 라이브러리 호출 쓰레드 수가 한계를 초과한 경우 (최대 256개)
   |  `104` | `Resource exhausted`       | 더 이상 자원을 할당할 수 없는 경우
+  |  `105` | `License not installed`    | 라이선스가 설치되지 않은 상태 (리눅스에서 무료 평가판 라이센스가 설치되지 않은 경우 발생함)
+  |  `106` | `USB dongle I/O error`     | USB 라이선스 동글 읽기 실패시 발생
   |  `200` | `Unknown`                  | 기타 정의되지 않은 오류
   
 ## 4. 예제
@@ -293,9 +303,11 @@ error
 - 디렉토리 구성
     ```
     /examples
-      /bin                  # ANPR 엔진 및 컴파일된 바이너리
-        /x64                # 64bit 바이너리 (amd64)
-        /x86                # 32bit 바이너리
+      /bin                  # 각 플랫폼별 ANPR 엔진
+        /windows-x86_64
+        /windows-x86
+        /linux-x86_64
+        /linux-aarch64
       /img                  # 테스트용 샘플 이미지
       /cpp                  # C++ 예제
       /csharp               # C#  예제
