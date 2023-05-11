@@ -9,7 +9,7 @@ TS-ANPR은 딥러닝 기반의 대한민국 차량 번호 인식 엔진입니다
 #### [응용 프로그램 개발 가이드](https://github.com/bobhyun/TS-ANPR/blob/main/DevGuide.md) 
 
 - [Entry points](https://github.com/bobhyun/TS-ANPR/blob/main/DevGuide.md#1-entry-points)
-- [pdf 문서 다운로드](https://github.com/bobhyun/TS-ANPR/doc/raw/main/doc/TS-ANPR-Manual.pdf)
+- [pdf 문서 다운로드](https://github.com/bobhyun/TS-ANPR/blob/main/doc/TS-ANPR-Manual.pdf)
 
 #### [설치 방법](https://github.com/bobhyun/TS-ANPR/blob/main/Usage.md)
 
