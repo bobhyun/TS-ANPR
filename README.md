@@ -8,8 +8,8 @@ TS-ANPR은 딥러닝 기반의 대한민국 차량 번호 인식 엔진입니다
 
 #### [응용 프로그램 개발 가이드](https://github.com/bobhyun/TS-ANPR/blob/main/DevGuide.md) 
 
-- [entry points](https://github.com/bobhyun/TS-ANPR/blob/main/DevGuide.md#1-entry-points)
-- [pdf 문서 다운로드](https://github.com/bobhyun/TS-ANPR/doc/raw/main/TS-ANPR-Manual.pdf)
+- [Entry points](https://github.com/bobhyun/TS-ANPR/blob/main/DevGuide.md#1-entry-points)
+- [pdf 문서 다운로드](https://github.com/bobhyun/TS-ANPR/doc/raw/main/doc/TS-ANPR-Manual.pdf)
 
 #### [설치 방법](https://github.com/bobhyun/TS-ANPR/blob/main/Usage.md)
 
@@ -28,14 +28,14 @@ TS-ANPR은 딥러닝 기반의 대한민국 차량 번호 인식 엔진입니다
 - 번호판 각도
   <div>
     <img style="margin-right:-5px" width="120" src="img/ex/angle1.jpg" />
-    <img style="margin-right:-5px" width="120" src="img/ex/angle2.jpg" />
     <img style="margin-right:-5px" width="120" src="img/ex/angle3.jpg" />
-    <img style="margin-right:-5px" width="120" src="img/ex/angle4.jpg" />
+    <img style="margin-right:-5px" width="120" src="img/ex/angle2.jpg" />
     <img style="margin-right:-5px" width="120" src="img/ex/angle5.jpg" />
+    <img style="margin-right:-5px" width="120" src="img/ex/angle4.jpg" />
     <img style="margin-right:-5px" width="120" src="img/ex/angle6.jpg" />
     <img style="margin-right:-5px" width="120" src="img/ex/angle7.jpg" />
-    <img style="margin-right:-5px" width="120" src="img/ex/angle8.jpg" />
     <img style="margin-right:-5px" width="120" src="img/ex/angle9.jpg" />
+    <img style="margin-right:-5px" width="120" src="img/ex/angle8.jpg" />
     <img style="margin-right:-5px" width="120" src="img/ex/angle10.jpg" />
     <img style="margin-right:-5px" width="120" src="img/ex/angle11.jpg" />
     <img style="margin-right:-5px" width="120" src="img/ex/angle12.jpg" />
@@ -43,13 +43,13 @@ TS-ANPR은 딥러닝 기반의 대한민국 차량 번호 인식 엔진입니다
 - 날씨 / 조명
   <div>
     <img style="margin-right:-5px" width="120" src="img/ex/light1.jpg" />
-    <img style="margin-right:-5px" width="120" src="img/ex/light2.jpg" />
+    <img style="margin-right:-5px" width="120" src="img/ex/light6.jpg" />
     <img style="margin-right:-5px" width="120" src="img/ex/light3.jpg" />
     <img style="margin-right:-5px" width="120" src="img/ex/light4.jpg" />
     <img style="margin-right:-5px" width="120" src="img/ex/light5.jpg" />
-    <img style="margin-right:-5px" width="120" src="img/ex/light6.jpg" />
-    <img style="margin-right:-5px" width="120" src="img/ex/light7.jpg" />
+    <img style="margin-right:-5px" width="120" src="img/ex/light2.jpg" />
     <img style="margin-right:-5px" width="120" src="img/ex/light8.jpg" />
+    <img style="margin-right:-5px" width="120" src="img/ex/light7.jpg" />
     <img style="margin-right:-5px" width="120" src="img/ex/light9.jpg" />
     <img style="margin-right:-5px" width="120" src="img/ex/light10.jpg" />
   </div>
@@ -62,12 +62,12 @@ TS-ANPR은 딥러닝 기반의 대한민국 차량 번호 인식 엔진입니다
     <img style="margin-right:-5px" width="120" src="img/ex/dirty5.jpg" />
     <img style="margin-right:-5px" width="120" src="img/ex/dirty6.jpg" />
     <img style="margin-right:-5px" width="120" src="img/ex/dirty7.jpg" />
-    <img style="margin-right:-5px" width="120" src="img/ex/dirty8.jpg" />
-    <img style="margin-right:-5px" width="120" src="img/ex/dirty9.jpg" />
     <img style="margin-right:-5px" width="120" src="img/ex/dirty10.jpg" />
+    <img style="margin-right:-5px" width="120" src="img/ex/dirty9.jpg" />
+    <img style="margin-right:-5px" width="120" src="img/ex/dirty8.jpg" />
   </div>
   
-#### 2. 각종 번호판 종류 지원
+#### 2. 각종 번호판 지원
 - 360도 어안 카메라 이미지
 - 덤프트럭, 중장비 번호판
 - 특수 번호판 (임시, 외교, 군용)
