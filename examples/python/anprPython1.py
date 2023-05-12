@@ -1,17 +1,39 @@
+#  이 예제는 TS-ANPR 엔진 파일을 다운로드받아 example/bin/ 디렉토리에 
+#  압축을 풀어 아래와 같은 디렉토리 구조로 만들어진 상태에서 동작합니다.
+#
+#  example
+#    /bin
+#      /windows-x86_64
+#      /windows-x86
+#      /linux-x86_64
+#      /linux-aarch64
+#      /eon
+#
 # readPixels()를 사용하는 경우 OpenCV, Pillow 두 가지 예제로 구현함
-# pip install pillow
+# pip install pillow numpy
 # pip install opencv-python
 
 from ctypes import *
 import numpy as np
 import cv2
 from PIL import Image
-import sys
+import sys, os, platform
+
 
 sys.stdout.reconfigure(encoding='utf-8')
 
-IMG_PATH = '..\\img\\'
-dll = cdll.LoadLibrary('..\\bin\\x64\\tsanpr.dll')
+# Python에서 사용하는 이름이 library path와 일부 달라서 맞춰줌
+_OS = platform.system().lower()
+_ARCH = platform.machine().lower()
+if _ARCH == 'amd64': 
+  _ARCH = 'x86_64'
+
+LIB_NAME = 'tsanpr.dll' if _OS == 'windows' else 'libtsanpr.so'
+DLL_PATH = os.path.join('..', 'bin', _OS + '-' + _ARCH, LIB_NAME)
+print('DLL_PATH=', DLL_PATH)
+
+IMG_PATH = '../img/'
+dll = cdll.LoadLibrary(DLL_PATH)
 
 """
 const char* WINAPI anpr_initialize(const char* outputFormat); // [IN] 오류 발생시 출력 데이터 형식
@@ -69,20 +91,20 @@ def readPixels(imgFile, outputFormat, options):
   print(result.decode('utf8'))
 
 def anprDemo1(outputFormat):
-  readFile(IMG_PATH + 'licensePlate.jpg', outputFormat, 'v')
-  readFile(IMG_PATH + 'licensePlate.jpg', outputFormat, '')
-  readFile(IMG_PATH + 'multiple.jpg', outputFormat, 'vm')
-  readFile(IMG_PATH + 'multiple.jpg', outputFormat, '')
-  readFile(IMG_PATH + 'surround.jpg', outputFormat, 'vms')
-  readFile(IMG_PATH + 'surround.jpg', outputFormat, '')
+  readFile(os.path.join(IMG_PATH, 'licensePlate.jpg'), outputFormat, 'v')
+  readFile(os.path.join(IMG_PATH, 'licensePlate.jpg'), outputFormat, '')
+  readFile(os.path.join(IMG_PATH, 'multiple.jpg'), outputFormat, 'vm')
+  readFile(os.path.join(IMG_PATH, 'multiple.jpg'), outputFormat, '')
+  readFile(os.path.join(IMG_PATH, 'surround.jpg'), outputFormat, 'vms')
+  readFile(os.path.join(IMG_PATH, 'surround.jpg'), outputFormat, '')
 
 def anprDemo2(outputFormat):
-  readPixels(IMG_PATH + 'licensePlate.jpg', outputFormat, 'v')
-  readPixels(IMG_PATH + 'licensePlate.jpg', outputFormat, '')
-  readPixels(IMG_PATH + 'multiple.jpg', outputFormat, 'vm')
-  readPixels(IMG_PATH + 'multiple.jpg', outputFormat, '')
-  readPixels(IMG_PATH + 'surround.jpg', outputFormat, 'vms')
-  readPixels(IMG_PATH + 'surround.jpg', outputFormat, '')
+  readPixels(os.path.join(IMG_PATH, 'licensePlate.jpg'), outputFormat, 'v')
+  readPixels(os.path.join(IMG_PATH, 'licensePlate.jpg'), outputFormat, '')
+  readPixels(os.path.join(IMG_PATH, 'multiple.jpg'), outputFormat, 'vm')
+  readPixels(os.path.join(IMG_PATH, 'multiple.jpg'), outputFormat, '')
+  readPixels(os.path.join(IMG_PATH, 'surround.jpg'), outputFormat, 'vms')
+  readPixels(os.path.join(IMG_PATH, 'surround.jpg'), outputFormat, '')
 
 def main():
   error = initialize()
