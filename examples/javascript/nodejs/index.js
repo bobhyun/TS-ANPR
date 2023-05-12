@@ -1,5 +1,5 @@
 /*
-  이 예제는 TS-ANPR 엔진 파일을 다운로드받아 example/bin/ 디렉토리에 
+  이 예제는 TS-ANPR 엔진 파일을 다운로드받아 examples/bin/ 디렉토리에 
   압축을 풀어 아래와 같은 디렉토리 구조로 만들어진 상태에서 동작합니다.
 
   examples
