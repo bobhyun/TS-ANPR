@@ -1,12 +1,38 @@
+/*
+  이 예제는 TS-ANPR 엔진 파일을 다운로드받아 example/bin/ 디렉토리에 
+  압축을 풀어 아래와 같은 디렉토리 구조로 만들어진 상태에서 동작합니다.
+
+  example
+    /bin
+      /windows-x86_64
+      /windows-x86
+      /linux-x86_64
+      /linux-aarch64
+      /eon
+*/
+
 const path = require('path')
 const fs = require('fs')
 const ffi = require('ffi-napi')
 const ref = require('ref-napi')
 const jpeg = require('jpeg-js')
 
-const IMG_PATH = "..\\..\\img\\"
-const DLL_PATH = path.resolve(path.join(__dirname, '..', '..', 'bin', process.arch, 'tsanpr.dll'))
+// nodejs에서 사용하는 이름이 library path와 일부 달라서 맞춰줌
+let _OS = process.platform
+if (_OS == 'win32')
+  _OS = 'windows'
+let _ARCH = process.arch
+switch (_ARCH) {
+  case 'x64': _ARCH = 'x86_64'; break
+  case 'ia32': _ARCH = 'x86'; break
+  case 'arm64': _ARCH = 'aarch64'; break
+}
+
+const IMG_PATH = '../../img'
+const LIB_NAME = (_OS === 'windows') ? 'tsanpr.dll' : 'libtsanpr.so'
+const DLL_PATH = path.resolve(path.join(__dirname, '..', '..', 'bin', `${_OS}-${_ARCH}`, LIB_NAME))
 console.log('DLL_PATH=', DLL_PATH)
+
 const dll = ffi.Library(DLL_PATH, {
   /*
   const char* WINAPI anpr_initialize(const char* outputFormat); // [IN] 오류 발생시 출력 데이터 형식
@@ -52,21 +78,21 @@ function readPixels(imgFile, outputFormat, options) {
 }
 
 function anprDemo1(outputFormat) {
-  readFile(IMG_PATH + 'licensePlate.jpg', outputFormat, 'v')
-  readFile(IMG_PATH + 'licensePlate.jpg', outputFormat, '')
-  readFile(IMG_PATH + 'multiple.jpg', outputFormat, 'vm')
-  readFile(IMG_PATH + 'multiple.jpg', outputFormat, '')
-  readFile(IMG_PATH + 'surround.jpg', outputFormat, 'vms')
-  readFile(IMG_PATH + 'surround.jpg', outputFormat, '')
+  readFile(path.join(IMG_PATH, 'licensePlate.jpg'), outputFormat, 'v')
+  readFile(path.join(IMG_PATH, 'licensePlate.jpg'), outputFormat, '')
+  readFile(path.join(IMG_PATH, 'multiple.jpg'), outputFormat, 'vm')
+  readFile(path.join(IMG_PATH, 'multiple.jpg'), outputFormat, '')
+  readFile(path.join(IMG_PATH, 'surround.jpg'), outputFormat, 'vms')
+  readFile(path.join(IMG_PATH, 'surround.jpg'), outputFormat, '')
 }
 
 function anprDemo2(outputFormat) {
-  readPixels(IMG_PATH + 'licensePlate.jpg', outputFormat, 'v')
-  readPixels(IMG_PATH + 'licensePlate.jpg', outputFormat, '')
-  readPixels(IMG_PATH + 'multiple.jpg', outputFormat, 'vm')
-  readPixels(IMG_PATH + 'multiple.jpg', outputFormat, '')
-  readPixels(IMG_PATH + 'surround.jpg', outputFormat, 'vms')
-  readPixels(IMG_PATH + 'surround.jpg', outputFormat, '')
+  readPixels(path.join(IMG_PATH, 'licensePlate.jpg'), outputFormat, 'v')
+  readPixels(path.join(IMG_PATH, 'licensePlate.jpg'), outputFormat, '')
+  readPixels(path.join(IMG_PATH, 'multiple.jpg'), outputFormat, 'vm')
+  readPixels(path.join(IMG_PATH, 'multiple.jpg'), outputFormat, '')
+  readPixels(path.join(IMG_PATH, 'surround.jpg'), outputFormat, 'vms')
+  readPixels(path.join(IMG_PATH, 'surround.jpg'), outputFormat, '')
 }
 
 (function () {
