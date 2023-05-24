@@ -16,6 +16,10 @@ TS-ANPR은 딥러닝 기반의 대한민국 차량 번호 인식 엔진입니다
 
 ## 최신 버전 정보
 #### v1.4.0 출시🎉 (2023-5-9)
+- **windows-x86 `v1.4.1` patch 안내**
+  - windows-x86 dll (32-bit) `v1.4.0` dll의 entry point naming 오류로 인해 동작하지 않는 문제 수정 `v1.4.1`
+  - 나머지 windows-x86_64, linux 파일들은 문제가 없어 기존 버전 유지 `v1.4.0`
+  - 이에 따라 수정된 windows-x86 dll (32-bit) `v1.4.1`이 포함된 `ts-anpr-v1.4.1-all.zip`, `ts-anpr-v1.4.1-windows-x86.zip` 파일만 변경됨
 
 - 리눅스🐧(`linux-x86_64`, `linux-aarch64`) 지원 *(라이브러리 인터페이스는 기존 윈도우즈와 동일)*
 - 인식 속도 향상 (v1.2.0 대비 약 2.5배 빠름🚀)
