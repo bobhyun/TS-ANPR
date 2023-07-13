@@ -55,7 +55,7 @@ TS_ANPR_ENTRY anpr_initialize(const char* mode); // [IN] 라이브러리 동작 
       - `103: Too many workers`    라이브러리 호출 쓰레드 수가 한계를 초과한 경우 (최대 256개)
       - `104: Resource exhausted`  더 이상 자원을 할당할 수 없는 경우
     - 복잡한 비동기 쓰레드 관리를 신경쓰지 않아도 되는 반면 쓰레드 락(lock)을 사용하는 방식이므로 성능은 다소 떨어질 수 있음
-    - `sync=true` 또는 `sync=false` 로 표현할 수 있으며, 간단히 `sync`만 사용해도 됨 (저정안하면 기본값 `sync=false`로 동작) 
+    - `sync=true` 또는 `sync=false` 로 표현할 수 있으며, 간단히 `sync`만 사용해도 됨 (지정안하면 기본값 `sync=false`로 동작) 
   
 **Return value**:
   - 정상 처리된 경우 빈 텍스트 `NULL terminated string (0x00)`을 반환합니다.
