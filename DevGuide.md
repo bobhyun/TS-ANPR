@@ -37,17 +37,29 @@
 
 
 ```cpp
-TS_ANPR_ENTRY anpr_initialize(const char* outputFormat); // [IN] 오류 발생시 출력 데이터 형식
+TS_ANPR_ENTRY anpr_initialize(const char* mode); // [IN] 라이브러리 동작 방식 설정
 ```
 
 **Parameters**:
-- `outputFormat`: 
-  - 출력 데이터 형식
-  - 지원하는 데이터 형식: `text`, `json`, `yaml`, `xml` *(기본값: `text`)*
+- `mode`
+  - 라이브러리 동작 방식을 지정하는 목적으로 사용 (기존 `outputFormat`에서 용도 확장)
+  - 세미콜론(`;`) 문자로 구분하여 여러 설정을 표현할 수 있음 (예: `json;sync`)
+- 지정 가능한 항목
+  - `outputFormat`: 
+    - 출력 데이터 형식
+    - 지원하는 데이터 형식: `text`, `json`, `yaml`, `xml` *(기본값: `text`)*
+    - `outputFormat`생략하고 간단히 `text`, `json`으로 사용 가능
+  - `sync`:
+    - 동기 모드로 실행 (쓰레드 lock을 걸고 호출한 순서대로 처리)
+    - 미리 생성된 고정 갯수의 쓰레드풀 형태가 아니고 쓰레드가 계속 새로 생성되는 구조의 응용 프로그램에서 호출하는 경우, 아래와 같은 오류 코드 발생시 사용을 고려할 수 있음
+      - `103: Too many workers`    라이브러리 호출 쓰레드 수가 한계를 초과한 경우 (최대 256개)
+      - `104: Resource exhausted`  더 이상 자원을 할당할 수 없는 경우
+    - 복잡한 비동기 쓰레드 관리를 신경쓰지 않아도 되는 반면 쓰레드 락(lock)을 사용하는 방식이므로 성능은 다소 떨어질 수 있음
+    - `sync=true` 또는 `sync=false` 로 표현할 수 있으며, 간단히 `sync`만 사용해도 됨 (저정안하면 기본값 `sync=false`로 동작) 
   
 **Return value**:
-  - 정상 처리된 경우 빈 텍스트`NULL terminated string (0x00)`을 반환합니다.
-  - 오류가 발생한 경우는 `outputFormat`에 지정한 데이터 형식의 문자열(utf-8 인코딩)로 오류 내용을 반환합니다.
+  - 정상 처리된 경우 빈 텍스트 `NULL terminated string (0x00)`을 반환합니다.
+  - 오류가 발생한 경우는 `mode`의 `outputFormat`으로 지정한 데이터 형식의 문자열(utf-8 인코딩)로 오류 내용을 반환합니다.
 
 
 ### 1.2. anpr_read_file

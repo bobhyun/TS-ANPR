@@ -73,7 +73,7 @@ tar -xvf ts-anpr-v*-linux-aarch64.tar.gz
 ```sh
 ./tshelper
 
-TS-ANPR v1.4.0 (linux-x86_64)
+TS-ANPR v1.5.0 (linux-x86_64)
 (C) 2022-2023. TS Solution Corp. all rights reserved.
 
 https://github.com/bobhyun/TS-ANPR
@@ -105,7 +105,7 @@ https://github.com/bobhyun/TS-ANPR
 ```sh
 sudo ./tshelper -t
 
-TS-ANPR v1.4.0 (linux-x86_64)
+TS-ANPR v1.5.0 (linux-x86_64)
 (C) 2022-2023. TS Solution Corp. all rights reserved.
 
 https://github.com/bobhyun/TS-ANPR
@@ -124,7 +124,7 @@ https://github.com/bobhyun/TS-ANPR
 ```sh
 sudo ./tshelper -r
 
-TS-ANPR v1.4.0 (linux-x86_64)
+TS-ANPR v1.5.0 (linux-x86_64)
 (C) 2022-2023. TS Solution Corp. all rights reserved.
 
 https://github.com/bobhyun/TS-ANPR
@@ -142,7 +142,7 @@ https://github.com/bobhyun/TS-ANPR
 ```sh
 sudo ./tshelper -c C20230414-TS-ANPR-8f5b0de4e9eabab6d727ab5c0d4c97e3.cert
 
-TS-ANPR v1.4.0 (linux-x86_64)
+TS-ANPR v1.5.0 (linux-x86_64)
 (C) 2022-2023. TS Solution Corp. all rights reserved.
 
 https://github.com/bobhyun/TS-ANPR
@@ -157,7 +157,7 @@ USB 동글 라이선스는 시스템에 USB 동글을 장착하면 즉시 적용
 단, 리눅스이 경우는 USB 동글을 최초로 삽입하기 전에 아래 명령을 한 번 실행한 후부터 자동 인식됩니다.
 ```sh
 sudo ./tshelper -d
-TS-ANPR v1.4.0 (linux-x86_64)
+TS-ANPR v1.5.0 (linux-x86_64)
 (C) 2022-2023. TS Solution Corp. all rights reserved.
 
 https://github.com/bobhyun/TS-ANPR
