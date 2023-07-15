@@ -22,7 +22,7 @@ extern "C" {
 #endif
 
 // 라이브러리 초기화
-TS_ANPR_ENTRY anpr_initialize(const char* outputFormat); // [IN] 오류 발생시 출력 데이터 형식
+TS_ANPR_ENTRY anpr_initialize(const char* mode); // [IN] 라이브러리 동작 방식 설정
 
 // 이미지 파일에서 번호인식
 TS_ANPR_ENTRY anpr_read_file(
