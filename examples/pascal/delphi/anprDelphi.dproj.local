@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
 	<Transactions>
-    <Transaction>2022/09/16 17:09:52.000.654,C:\src\ts\TS-ANPR\examples\delphi\Project1.dproj=C:\Users\bob\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
-    <Transaction>2022/09/16 17:10:40.000.556,C:\src\ts\TS-ANPR\examples\delphi\anprDelphi.dproj=C:\src\ts\TS-ANPR\examples\delphi\Project1.dproj</Transaction>
+    <Transaction>2022/09/16 17:09:52.000.654,C:\Users\bob\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\src\ts\TS-ANPR\examples\delphi\Project1.dproj</Transaction>
+    <Transaction>2022/09/16 17:10:40.000.556,C:\src\ts\TS-ANPR\examples\delphi\Project1.dproj=C:\src\ts\TS-ANPR\examples\delphi\anprDelphi.dproj</Transaction>
   </Transactions>
 </BorlandProject>
