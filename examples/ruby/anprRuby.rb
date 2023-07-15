@@ -1,19 +1,96 @@
 ﻿#!/usr/bin/ruby -w
 
-#gem install ffi ruby-vips
+#
+#  이 예제는 TS-ANPR 엔진 파일을 다운로드받아 examples/bin/ 디렉토리에 
+#  압축을 풀어 아래와 같은 디렉토리 구조로 만들어진 상태에서 동작합니다.
+#
+#  examples
+#    /bin
+#      /windows-x86_64
+#      /windows-x86
+#      /linux-x86_64
+#      /linux-aarch64
+#
+#  Dependency install:
+#   Debina/Ubuntu:
+#     sudo apt-get install build-essential ruby-dev libvips
+#   Centos/RHEL:
+#     sudo yum groupinstall 'Development Tools'
+#
+#   sudo gem install ffi ruby-vips
 
 
 require 'ffi'
 require 'pathname'
 require 'vips'
+require 'rbconfig'
 
 IMG_PATH = '../img/'
 
+
+def getLibPath ()
+  os_name = RbConfig::CONFIG['host_os']
+  arch_name = RbConfig::CONFIG['host_cpu']
+  printf("os_name=%s, arch_name=%s\n" % [os_name, arch_name])
+
+  if ['win32', 'mingw32'].include?(os_name)
+    if ['x86_64', 'x64'].include?(arch_name)      
+      return File.expand_path(
+        File.join(
+          __dir__,
+          '..',
+          'bin',
+          'windows-x86_64',
+          'tsanpr.dll'
+        )
+      )
+
+    elsif ['ia32', 'x86'].include?(arch_name)
+      return File.expand_path(
+        File.join(
+          __dir__,
+          '..',
+          'bin',
+          'windows-x86',
+          'tsanpr.dll'
+        )
+      )
+    end
+
+  elsif os_name.include?('linux')
+    if arch_name == 'x86_64'
+      return File.expand_path(
+        File.join(
+          __dir__,
+          '..',
+          'bin',
+          'linux-x86_64',
+          'libtsanpr.so'
+        )
+      )
+        
+    elsif arch_name == 'arm64'
+      return File.expand_path(
+        File.join(
+          __dir__,
+          '..',
+          'bin',
+          'linux-aarch64',
+          'libtsanpr.so'
+        )
+      )
+    end
+  end
+
+  puts("Unsupported target platform\n")
+  exit(-1)
+end
+
 module Anpr
   extend FFI::Library
-  ffi_lib Pathname.new('../bin/x64/tsanpr.dll').realpath  # use absolute path
+  ffi_lib Pathname.new(getLibPath).realpath  # use absolute path
 
-  # const char* WINAPI anpr_initialize(const char* outputFormat); // [IN] 오류 발생시 출력 데이터 형식
+  # const char* WINAPI anpr_initialize(const char* outputFormat); // [IN] 라이브러리 동작 방식 설정
   attach_function :initialize, :anpr_initialize, [:string], :string
 
   # const char* WINAPI anpr_read_file(
@@ -30,73 +107,81 @@ module Anpr
   #   const char* pixelFormat,      // [IN] 이미지 픽셀 형식 
   #   const char* outputFormat,     // [IN] 출력 데이터 형식
   #   const char* options);         // [IN] 기능 옵션
-  attach_function :read_pixels, :anpr_read_pixels, [:string, :int, :int, :int, :string, :string, :string], :string
+  attach_function :read_pixels, :anpr_read_pixels, [:pointer, :int, :int, :int, :string, :string, :string], :string
 end
 
 
 def readFile (imgFile, outputFormat, options)
-  print '%s outputFormat=\"%s\", options=\"%s\") => ' % [imgFile, outputFormat, options]
-  result = Anpr.read_file imgFile, outputFormat, options
-  puts result
+  print('%s outputFormat=\"%s\", options=\"%s\") => ' % [imgFile, outputFormat, options])
+  result = Anpr.read_file(imgFile, outputFormat, options)
+  puts(result)
+end
+
+
+def get_stride(buffer)
+  """Gets the stride of a memory buffer."""
+  shape = buffer.shape
+  stride = shape[1] * shape[2]
+  return stride
 end
 
 def readPixels (imgFile, outputFormat, options)
-  print '%s outputFormat=\"%s\", options=\"%s\") => ' % [imgFile, outputFormat, options]
+  print('%s outputFormat=\"%s\", options=\"%s\") => ' % [imgFile, outputFormat, options])
   
-  img = Vips::Image.new_from_file imgFile
-  
-  # [알림]
-  # 제가 Ruby 프로그래밍에 익숙하지 못해
-  # 로딩된 이미지의 픽셀 버퍼 주소를 직접 얻는 방법을 모르겠네요.
-  # 아래 주석 처리한 Anpr.read_pixels(img.buffer, ...) 부분을 마무리하지 못했습니다.
-  #
-  # 만약 방법을 알고 계시면
-  # 아래 저희 프로젝트 게시판에 글을 남겨주시면 고맙겠습니다. ^^;
-  # https://github.com/bobhyun/TS-ANPR/issues/new
+  img = Vips::Image.new_from_file(imgFile)
+  if img.nil?    
+    puts("Failed to load the image.\n")
+    return
+  end
 
-  #result = Anpr.read_pixels(img.buffer, img.width, img.height, 0, 'BGR', outputFormat, options);
-  #puts result
+  # 이미지를 메모리로 로드
+  img.get_fields
+
+  # 이미지를 디코딩한 메모리 버퍼를 얻기
+  buffer = img.write_to_memory
+
+  # 픽셀 버퍼 입력으로 차번 인식
+  result = Anpr.read_pixels(buffer, img.width, img.height, 0, 'BGR', outputFormat, options)
+  puts(result)
 end
   
-def anprDemo1 (outputFormat)
-  return
-  
-  readFile IMG_PATH + 'licensePlate.jpg', outputFormat, 'v'
-  readFile IMG_PATH + 'licensePlate.jpg', outputFormat, ''
-  readFile IMG_PATH + 'multiple.jpg', outputFormat, 'vm'
-  readFile IMG_PATH + 'multiple.jpg', outputFormat, ''
-  readFile IMG_PATH + 'surround.jpg', outputFormat, 'vms'
-  readFile IMG_PATH + 'surround.jpg', outputFormat, ''
+def anprDemo1 (outputFormat)  
+  readFile(IMG_PATH + 'licensePlate.jpg', outputFormat, 'v')
+  readFile(IMG_PATH + 'licensePlate.jpg', outputFormat, '')
+  readFile(IMG_PATH + 'multiple.jpg', outputFormat, 'vm')
+  readFile(IMG_PATH + 'multiple.jpg', outputFormat, '')
+  readFile(IMG_PATH + 'surround.jpg', outputFormat, 'vms')
+  readFile(IMG_PATH + 'surround.jpg', outputFormat, '')
 end
 
 def anprDemo2 (outputFormat)
-  readPixels IMG_PATH + 'licensePlate.jpg', outputFormat, 'v'
-  readPixels IMG_PATH + 'licensePlate.jpg', outputFormat, ''
-  readPixels IMG_PATH + 'multiple.jpg', outputFormat, 'vm'
-  readPixels IMG_PATH + 'multiple.jpg', outputFormat, ''
-  readPixels IMG_PATH + 'surround.jpg', outputFormat, 'vms'
-  readPixels IMG_PATH + 'surround.jpg', outputFormat, ''
+  readPixels(IMG_PATH + 'licensePlate.jpg', outputFormat, 'v')
+  readPixels(IMG_PATH + 'licensePlate.jpg', outputFormat, '')
+  readPixels(IMG_PATH + 'multiple.jpg', outputFormat, 'vm')
+  readPixels(IMG_PATH + 'multiple.jpg', outputFormat, '')
+  readPixels(IMG_PATH + 'surround.jpg', outputFormat, 'vms')
+  readPixels(IMG_PATH + 'surround.jpg', outputFormat, '')
 end
 
 def main
   
-  error = Anpr.initialize 'text'
+  error = Anpr.initialize('text')
   if error != ''
-    print error
-    exit 1
+    printf("%s\n" % error)
+    exit(1)
   end
  
-  anprDemo1 'text'
-  anprDemo1 'json'
-  anprDemo1 'yaml'
-  anprDemo1 'xml'
-  anprDemo1 'csv'
+  # 이미지 파일을 입력으로 사용하는 예제
+  anprDemo1('text')
+  anprDemo1('json')
+  anprDemo1('yaml')
+  anprDemo1('xml')
  
-  anprDemo2 'text'
-  anprDemo2 'json'
-  anprDemo2 'yaml'
-  anprDemo2 'xml'
-  anprDemo2 'csv'
+  # 픽셀 버퍼를 입력으로 사용하는 예제
+  anprDemo2('text')
+  anprDemo2('json')
+  anprDemo2('yaml')
+  anprDemo2('xml')
 end
 
 main
