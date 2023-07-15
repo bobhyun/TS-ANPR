@@ -8,7 +8,7 @@ use Imager;
 use Data::Buffer;
 
 my $IMG_PATH = "..\\img\\";
-my $DLL_NAME = "..\\bin\\x64\\tsanpr.dll";
+my $DLL_NAME = "..\\bin\\windows-x86_64\\tsanpr.dll";
 
 my $anpr_initialize = Win32::API->Import($DLL_NAME, "char *anpr_initialize(char *outputFormat)");
 die unless defined $anpr_initialize;
