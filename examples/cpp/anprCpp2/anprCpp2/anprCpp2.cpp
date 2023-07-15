@@ -21,7 +21,7 @@
 #define IMG_PATH  "..\\..\\..\\img\\"
 
 HMODULE hdll;
-const char* (WINAPI* anpr_initialize)(const char* outputFormat); // [IN] 오류 발생시 출력 데이터 형식
+const char* (WINAPI* anpr_initialize)(const char* mode); // [IN] 라이브러리 동작 방식 설정
 const char* (WINAPI* anpr_read_file)(
   const char* imgFileName,      // [IN] 입력 이미지 파일명
   const char* outputFormat,     // [IN] 출력 데이터 형식
