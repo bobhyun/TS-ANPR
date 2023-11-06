@@ -2,16 +2,18 @@ TS-ANPR
 ===
 
 TS-ANPR은 딥러닝 기반의 대한민국 차량 번호 인식 엔진입니다.
-#### [차번 인식 데모](http://tsnvr.ipdisk.co.kr/) 
 
-#### [최신 엔진 다운로드](https://github.com/bobhyun/TS-ANPR/releases/)
+*아래 **차번 인식 데모** 사이트에서 가지고 계신 차량 이미지로 직접 테스트해 보세요.*
+#### [🚘 차번 인식 데모](http://tsnvr.ipdisk.co.kr/)
 
-#### [응용 프로그램 개발 가이드](DevGuide.md) 
+#### [⚡️ 최신 엔진 다운로드](https://github.com/bobhyun/TS-ANPR/releases/)
+
+#### [💻 응용 프로그램 개발 가이드](DevGuide.md) 
 
 - [Entry points](DevGuide.md#1-entry-points)
 - [pdf 문서 다운로드](https://github.com/bobhyun/TS-ANPR/blob/main/doc/TS-ANPR-Manual.pdf)
 
-#### [설치 방법](Usage.md)
+#### [🎁 설치 방법](Usage.md)
 
 
 ## 최신 버전 정보
@@ -23,8 +25,38 @@ TS-ANPR은 딥러닝 기반의 대한민국 차량 번호 인식 엔진입니다
 
 
 ## 특장점
-#### 1. 문자 인식 능력
-- 번호판 각도
+#### 1. 차번 인식 능력
+아래와 같은 다양한 환경 요인에 대해 뛰어난 적응력을 보입니다.
+- 반사 필름
+  <div>
+    <img style="margin-right:-5px" width="120" src="img/ex/film1.jpg" />
+    <img style="margin-right:-5px" width="120" src="img/ex/film2.jpg" />
+    <img style="margin-right:-5px" width="120" src="img/ex/film3.jpg" />
+    <img style="margin-right:-5px" width="120" src="img/ex/film4.jpg" />
+    <img style="margin-right:-5px" width="120" src="img/ex/film5.jpg" />
+    <img style="margin-right:-5px" width="120" src="img/ex/film6.jpg" />
+    <img style="margin-right:-5px" width="120" src="img/ex/film7.jpg" />
+    <img style="margin-right:-5px" width="120" src="img/ex/film8.jpg" />
+    <img style="margin-right:-5px" width="120" src="img/ex/film9.jpg" />
+    <img style="margin-right:-5px" width="120" src="img/ex/film10.jpg" />
+    <img style="margin-right:-5px" width="120" src="img/ex/film11.jpg" />
+    <img style="margin-right:-5px" width="120" src="img/ex/film12.jpg" />
+    <img style="margin-right:-5px" width="120" src="img/ex/film13.jpg" />
+    <img style="margin-right:-5px" width="120" src="img/ex/film14.jpg" />
+  <div>
+- 야간 노이즈
+  <div>
+    <img style="margin-right:-5px" width="120" src="img/ex/noise1.jpg" />
+    <img style="margin-right:-5px" width="120" src="img/ex/noise2.jpg" />
+    <img style="margin-right:-5px" width="120" src="img/ex/noise3.jpg" />
+    <img style="margin-right:-5px" width="120" src="img/ex/noise4.jpg" />
+    <img style="margin-right:-5px" width="120" src="img/ex/noise5.jpg" />
+    <img style="margin-right:-5px" width="120" src="img/ex/noise6.jpg" />
+    <img style="margin-right:-5px" width="120" src="img/ex/noise7.jpg" />
+    <img style="margin-right:-5px" width="120" src="img/ex/noise8.jpg" />
+    <img style="margin-right:-5px" width="120" src="img/ex/noise9.jpg" />
+  <div>
+- 촬영 각도
   <div>
     <img style="margin-right:-5px" width="120" src="img/ex/angle1.jpg" />
     <img style="margin-right:-5px" width="120" src="img/ex/angle3.jpg" />
@@ -65,13 +97,53 @@ TS-ANPR은 딥러닝 기반의 대한민국 차량 번호 인식 엔진입니다
     <img style="margin-right:-5px" width="120" src="img/ex/dirty9.jpg" />
     <img style="margin-right:-5px" width="120" src="img/ex/dirty8.jpg" />
   </div>
-  
-#### 2. 각종 번호판 지원
 - 360도 어안 카메라 이미지
+  - *이미지를 펼치지 않고 원본 이미지에서 여러 대의 차량 번호를 인식합니다.*
+  <div>
+    <img style="margin-right:-5px" src="img/ex/fisheye1.jpg" />
+  </div>
+
+#### 2. 각종 번호판 지원
+아래와 같은 다양한 번호판 규격을 지원합니다.
 - 덤프트럭, 중장비 번호판
+  <div>    
+    <img style="margin-right:-5px" width="120" src="img/ex/eq1.jpg" />
+    <img style="margin-right:-5px" width="120" src="img/ex/eq2.jpg" />
+    <img style="margin-right:-5px" width="120" src="img/ex/eq3.jpg" />
+    <img style="margin-right:-5px" width="120" src="img/ex/eq4.jpg" />
+    <img style="margin-right:-5px" width="120" src="img/ex/eq5.jpg" />
+    <img style="margin-right:-5px" width="120" src="img/ex/eq6.jpg" />
+  </div>
 - 특수 번호판 (임시, 외교, 군용)
-- 친환경 전기차 번호판 *(인식 결과 데이터에 `ev`항목이 `true / false`로 구분)*
+  <div>
+    <img style="margin-right:-5px" width="120" src="img/ex/temp1.jpg" />
+    <img style="margin-right:-5px" width="120" src="img/ex/temp2.jpg" />
+    <img style="margin-right:-5px" width="120" src="img/ex/temp3.jpg" />
+    <img style="margin-right:-5px" width="120" src="img/ex/temp4.jpg" />
+    <img style="margin-right:-5px" width="120" src="img/ex/dep1.jpg" />
+    <img style="margin-right:-5px" width="120" src="img/ex/dep2.jpg" />
+    <img style="margin-right:-5px" width="120" src="img/ex/dep3.jpg" />
+    <img style="margin-right:-5px" width="120" src="img/ex/dep4.jpg" />
+    <img style="margin-right:-5px" width="120" src="img/ex/dep5.jpg" />
+    <img style="margin-right:-5px" width="120" src="img/ex/mil1.jpg" />
+    <img style="margin-right:-5px" width="120" src="img/ex/mil2.jpg" />
+    <img style="margin-right:-5px" width="120" src="img/ex/mil3.jpg" />
+  </div>
+- 친환경 전기차 번호판
+  - *차번 인식 결과 데이터의 `ev`항목에 `true` 또는 `false`로 구분합니다.*
+  - *단, 영업용 차량 번호판처럼 번호판 규격상 내연기관 차량과 구분되지 않는 경우는 판단이 불가능합니다.*
+  <div>
+    <img style="margin-right:-5px" width="120" src="img/ex/ev2.jpg" />
+    <img style="margin-right:-5px" width="120" src="img/ex/ev1.jpg" />
+  </div>
 - ’80, ’90년대 구형 번호판
+  - *1996년도 번호판 규격 개정 이전에 사용되던 `처`, `퍼`, `차`, `파`, `추` ~ `후`, `그` ~ `흐` 문자를 지원합니다.*
+  <div>    
+    <img style="margin-right:-5px" width="120" src="img/ex/801.jpg" />
+    <img style="margin-right:-5px" width="120" src="img/ex/802.jpg" />
+    <img style="margin-right:-5px" width="120" src="img/ex/803.jpg" />
+    <img style="margin-right:-5px" width="120" src="img/ex/804.jpg" />
+  </div>
 #### 3. 주요 운영체제 / CPU 아키텍처 지원
 - 윈도우즈
   - 인텔 계열 64비트(`windows-x86_64`), 32비트(`windows-x84`)
