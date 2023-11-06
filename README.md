@@ -6,16 +6,19 @@ TS-ANPR은 딥러닝 기반의 대한민국 차량 번호 인식 엔진입니다
 
 #### [최신 엔진 다운로드](https://github.com/bobhyun/TS-ANPR/releases/)
 
-#### [응용 프로그램 개발 가이드](https://github.com/bobhyun/TS-ANPR/blob/main/DevGuide.md) 
+#### [응용 프로그램 개발 가이드](DevGuide.md) 
 
-- [Entry points](https://github.com/bobhyun/TS-ANPR/blob/main/DevGuide.md#1-entry-points)
+- [Entry points](DevGuide.md#1-entry-points)
 - [pdf 문서 다운로드](https://github.com/bobhyun/TS-ANPR/blob/main/doc/TS-ANPR-Manual.pdf)
 
-#### [설치 방법](https://github.com/bobhyun/TS-ANPR/blob/main/Usage.md)
+#### [설치 방법](Usage.md)
 
 
 ## 최신 버전 정보
-#### v1.5.1 출시🎉 (2023-9-4)
+#### v1.6.0 출시🎉 (2023-11-6)
+- 차번 인식 결과 출력 개선
+  - [csv 형식 지원](DevGuide.md#22-csv)
+  - 문자 인식 신뢰도(`conf.ocr`) 값이 높은 순으로 정렬
 - 인식률 향상
 
 
@@ -80,17 +83,17 @@ TS-ANPR은 딥러닝 기반의 대한민국 차량 번호 인식 엔진입니다
 
 #### 4. 다양한 개발 환경 지원
 - 특정 프로그래밍 언어에 종속되지 않는 범용 라이브러리 인터페이스
-- [프로그래밍 언어별 예제 제공](https://github.com/bobhyun/TS-ANPR/blob/main/DevGuide.md#4-%EC%98%88%EC%A0%9C) (C, C++, C#, Visual Basic, Python, JavaScript/Node.js, Go, Pascal/Delphi, Perl, Ruby)
-- [입력 이미지 파일 형식](https://github.com/bobhyun/TS-ANPR/blob/main/DevGuide.md#12-anpr_read_file) (bmp, jpg, png, pnm, pbm, pgm, ppm, jfif, webp)
-- [입력 이미지 메모리 버퍼 픽셀 형식](https://github.com/bobhyun/TS-ANPR/blob/main/DevGuide.md#13-anpr_read_pixels) (GRAY, BGRA, RGBA, RGB, BGR, BGR555, BGR565, HSV, YCrCb, I420, YV12, IYUV, NV12, NV21)
-- [인식 결과 출력 형식](https://github.com/bobhyun/TS-ANPR/blob/main/DevGuide.md#2-output-format) (text, json, yaml, xml)
+- [프로그래밍 언어별 예제 제공](DevGuide.md#4-%EC%98%88%EC%A0%9C) (C, C++, C#, Visual Basic, Python, JavaScript/Node.js, Go, Pascal/Delphi, Perl, Ruby)
+- [입력 이미지 파일 형식](DevGuide.md#12-anpr_read_file) (bmp, jpg, png, pnm, pbm, pgm, ppm, jfif, webp)
+- [입력 이미지 메모리 버퍼 픽셀 형식](DevGuide.md#13-anpr_read_pixels) (GRAY, BGRA, RGBA, RGB, BGR, BGR555, BGR565, HSV, YCrCb, I420, YV12, IYUV, NV12, NV21)
+- [인식 결과 출력 형식](DevGuide.md#2-output-format) (text, json, yaml, xml)
 
 #### 5. 다양한 라이선스 제공
 - 무료 평가판 라이선스
   - 개발 및 데모용으로 시스템당 설치 이후 30일간 무료 사용 기간 제공
 - 상용 라이선스
   - 매체별: USB 동글, 또는 소프트웨어 라이선스 중 선택
-  - 기능 및 성능별: `IoT`, `Basic`, `Pro`, `Server` 중 응용 소프트웨어 요구사항에 따라 선택  
+  - 기능 및 성능별: `IoT`, `Basic`, `Pro`, `Server` 중 응용 소프트웨어 요구사항에 따라 선택 가능 ([자세히](LICENSE.md#2-ts-anpr-%EC%97%94%EC%A7%84-%EB%B0%94%EC%9D%B4%EB%84%88%EB%A6%AC))
 
 ## 인식 옵션
 #### 1. 차량 장착 검사 (Vehicle Mounted)
@@ -124,7 +127,7 @@ TS-ANPR은 딥러닝 기반의 대한민국 차량 번호 인식 엔진입니다
 
 
 - 응용 프로그램 개발 전 단계의 기본적인 성능 테스트는 [온라인 데모 사이트 http://tsnvr.ipdisk.co.kr/](http://tsnvr.ipdisk.co.kr/) 를 이용하실 수 있습니다.
-- 응용 프로그램 개발 단계에서는 [응용 프로그램 개발 가이드](https://github.com/bobhyun/TS-ANPR/blob/main/DevGuide.md) 와 포함된 프로그래밍 언어별 예제들을 참고하시기 바랍니다.
+- 응용 프로그램 개발 단계에서는 [응용 프로그램 개발 가이드](DevGuide.md) 와 포함된 프로그래밍 언어별 예제들을 참고하시기 바랍니다.
 - 개발 관련 질문이나 요청 사항들은 [Issues](https://github.com/bobhyun/TS-ANPR/issues)에 등록해 주시면 적극적으로 지원하겠습니다.
 
 

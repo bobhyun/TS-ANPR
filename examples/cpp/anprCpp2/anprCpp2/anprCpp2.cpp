@@ -166,6 +166,7 @@ int main(int ac, char** av)
   anprDemo1("json");
   anprDemo1("yaml");
   anprDemo1("xml");
+  anprDemo1("csv");
 
   // image file을 로딩하기 위해 사용함
   Gdiplus::GdiplusStartupInput gdiplusStartupInput;
@@ -176,6 +177,7 @@ int main(int ac, char** av)
   anprDemo2("json");
   anprDemo2("yaml");
   anprDemo2("xml");
+  anprDemo1("csv");
 
   Gdiplus::GdiplusShutdown(gdiplusToken);
 

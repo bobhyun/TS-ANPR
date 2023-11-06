@@ -121,12 +121,14 @@ Module Module1
     anprDemo1("json")
     anprDemo1("yaml")
     anprDemo1("xml")
+    anprDemo1("csv")
 
     '메모리 버퍼를 입력으로 사용하는 예제
     anprDemo2("text")
     anprDemo2("json")
     anprDemo2("yaml")
     anprDemo2("xml")
+    anprDemo2("csv")
   End Sub
 
 End Module

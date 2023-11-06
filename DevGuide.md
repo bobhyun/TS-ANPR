@@ -11,9 +11,10 @@
     - [1.3. anpr\_read\_pixels](#13-anpr_read_pixels)
   - [2. Output Format](#2-output-format)
     - [2.1. `text`](#21-text)
-    - [2.2. `json`](#22-json)
-    - [2.3. `yaml`](#23-yaml)
-    - [2.4. `xml`](#24-xml)
+    - [2.2. `csv`](#22-csv)
+    - [2.3. `json`](#23-json)
+    - [2.4. `yaml`](#24-yaml)
+    - [2.5. `xml`](#25-xml)
   - [3. 오류 코드표](#3-오류-코드표)
   - [4. 예제](#4-예제)
 
@@ -47,7 +48,7 @@ TS_ANPR_ENTRY anpr_initialize(const char* mode); // [IN] 라이브러리 동작 
 - 지정 가능한 항목
   - `outputFormat`: 
     - 출력 데이터 형식
-    - 지원하는 데이터 형식: `text`, `json`, `yaml`, `xml` *(기본값: `text`)*
+    - 지원하는 데이터 형식: `text`, `json`, `yaml`, `xml`, `csv` *(기본값: `text`)*
     - `outputFormat`생략하고 간단히 `text`, `json`으로 사용 가능
   - `sync`:
     - 동기 모드로 실행 (쓰레드 lock을 걸고 호출한 순서대로 처리)
@@ -79,7 +80,7 @@ TS_ANPR_ENTRY anpr_read_file(
   - 지원하는 이미지 파일 형식: `bmp`, `jpg`, `png`, `pnm`, `pbm`, `pgm`, `ppm`, `jfif`, `webp`
 - `outputFormat`: 
   - 출력 데이터 형식
-  - 지원하는 데이터 형식: `text`, `json`, `yaml`, `xml` *(기본값: `text`)*
+  - 지원하는 데이터 형식: `text`, `json`, `yaml`, `xml`, `csv` *(기본값: `text`)*
 - `options`: 
   - 아래 문자를 조합하여 번호 인식 알고리즘의 옵션을 지정합니다.
     - **v**ehicle-mounted (차량에 장착된 번호판만 인식)
@@ -170,7 +171,29 @@ TS_ANPR_ENTRY anpr_read_pixels(
 error: (1) Invalid parameters
 ```
 
-### 2.2. `json`
+##### 2.2. `csv`
+차량 번호와 속성을 `csv` 형식으로 출력합니다. 
+인식된 차량 번호 당 한 라인 씩으로 구성되며 각 컬럼은 콤마 문자(`,`)로 구분됩니다.
+```csv
+01가2345,1217,2083,92,175,12.45,0.75,0.83,0.20,ev
+67나8901,1108,1317,67,217,12.45,0.76,0.89,0.10,
+```
+
+각 컬럼의 의미는 다음과 같습니다.
+```csv
+차량번호, x픽셀 좌표, y픽셀 좌표, 폭,          높이,        문자 인식 신뢰도, 번호판 인식 신뢰도, 소요 시간 (초),   친환경 전기자동차 여부
+text,    area.x,    area.y,     area.width, area.height, conf.ocr,        conf.plate,        elapsed time(s), ev
+``` 
+
+차량 번호가 인식되지 않은 경우는 빈 텍스트`NULL terminated string (0x00)`를 출력합니다.
+
+오류가 반환되는 경우는 아래와 같은 텍스트 형식으로 출력합니다.
+```csv
+error,1,Invalid parameters
+```
+
+
+### 2.3. `json`
 차량 번호와 속성을 `json` 형식으로 출력합니다.
 ```jsx
 [
@@ -224,7 +247,7 @@ error: (1) Invalid parameters
 }
 ```
 
-### 2.3. `yaml`
+### 2.4. `yaml`
 차량 번호와 속성을 `yaml` 형식으로 출력합니다.
 ````yaml
 - text: 01가2345        # 첫번째 번호판
@@ -264,7 +287,7 @@ error
   message: Invalid parameters
 ```
 
-### 2.4. `xml`
+### 2.5. `xml`
 차량 번호와 속성을 `xml` 형식으로 출력합니다.
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -291,6 +314,7 @@ error
 <?xml version="1.0" encoding="utf-8"?>
 <error code="1" message="Invalid parameters" />
 ```
+
 
 ## 3. 오류 코드표
 전체 오류 목록은 아래 표와 같습니다.
