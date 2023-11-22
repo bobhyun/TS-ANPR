@@ -17,7 +17,10 @@ TS-ANPR은 딥러닝 기반의 대한민국 차량 번호 인식 엔진입니다
 
 
 ## 최신 버전 정보
-#### v1.6.1 출시🎉 (2023-11-7)
+#### v1.6.3 출시🎉 (2023-11-22)
+- 인식률 향상
+
+#### v1.6.1 출시 (2023-11-7)
 - Bugfix: `v1.6.0`에서 임시번호판의 `임`자가 출력되지 않는 문제 수정
 
 #### v1.6.0 출시 (2023-11-6)
@@ -161,7 +164,7 @@ TS-ANPR은 딥러닝 기반의 대한민국 차량 번호 인식 엔진입니다
 - [프로그래밍 언어별 예제 제공](DevGuide.md#4-%EC%98%88%EC%A0%9C) (C, C++, C#, Visual Basic, Python, JavaScript/Node.js, Go, Pascal/Delphi, Perl, Ruby)
 - [입력 이미지 파일 형식](DevGuide.md#12-anpr_read_file) (bmp, jpg, png, pnm, pbm, pgm, ppm, jfif, webp)
 - [입력 이미지 메모리 버퍼 픽셀 형식](DevGuide.md#13-anpr_read_pixels) (GRAY, BGRA, RGBA, RGB, BGR, BGR555, BGR565, HSV, YCrCb, I420, YV12, IYUV, NV12, NV21)
-- [인식 결과 출력 형식](DevGuide.md#2-output-format) (text, json, yaml, xml)
+- [인식 결과 출력 형식](DevGuide.md#2-output-format) (text, json, yaml, xml, csv)
 
 #### 5. 다양한 라이선스 제공
 - 무료 평가판 라이선스
