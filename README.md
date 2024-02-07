@@ -26,8 +26,7 @@ TS-ANPR은 딥러닝 기반의 대한민국 차량 번호 인식 엔진입니다
 2. 인식률 향상
     - 30도 이상 기울어진 번호판 이미지에서 인식률 향상
 3. 2003년까지 사용되던 주한 미군 개인 승용차 번호판 지원
-    ![](https://i.namu.wiki/i/KdiB7p0CqBY3Q9dZ17S4mhAkgYRW_CWf9Ux7iua4hhh5l3qJFV5HuY2fYLj_-w16zKTXMlrNOKtO5ZuGT7xsWl9UrQOB9Iz4wUKn7M0yloFmCKH8AgesvYYtfwyKgYvMWRaJJXOEJdgOq6TFedYYwQ.webp)
-    `[이미지 출처: 나무위키]`
+    - ![](https://i.namu.wiki/i/KdiB7p0CqBY3Q9dZ17S4mhAkgYRW_CWf9Ux7iua4hhh5l3qJFV5HuY2fYLj_-w16zKTXMlrNOKtO5ZuGT7xsWl9UrQOB9Iz4wUKn7M0yloFmCKH8AgesvYYtfwyKgYvMWRaJJXOEJdgOq6TFedYYwQ.webp) `[이미지 출처: 나무위키]`
 
 ## 인식 속도 비교표
 |CPU                             | 코어| 쓰레드|    클럭|    운영체제     |실행환경 | 일반 버전 | lite 버전|
