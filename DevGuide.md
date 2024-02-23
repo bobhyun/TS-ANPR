@@ -332,6 +332,8 @@ error
   |  `104` | `Resource exhausted`       | 더 이상 자원을 할당할 수 없는 경우
   |  `105` | `License not installed`    | 라이선스가 설치되지 않은 상태 (리눅스에서 무료 평가판 라이센스가 설치되지 않은 경우 발생함)
   |  `106` | `USB dongle I/O error`     | USB 라이선스 동글 읽기 실패시 발생
+  |  `107` | `License required`				  | 설치된 라이선스로 가용하지 않은 기능을 사용하려고 하는 경우
+  |  `108` | `Unsupported platform`     | 지원되지 않는 환경에서 실행시 발생
   |  `200` | `Unknown`                  | 기타 정의되지 않은 오류
   
 ## 4. 예제
