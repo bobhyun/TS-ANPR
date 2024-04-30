@@ -8,24 +8,22 @@ anpr 엔진 파일을 설치할 디렉토리에 압축을 해제합니다.
 
 ##### x86 64비트 윈도우즈 (windows-x86_64)
 ```
-  /windows-x86_64         # 윈도우즈용 64bit (amd64) 바이너리 디렉토리  
+  /windows-x86_64         # 윈도우즈용 64bit 바이너리 디렉토리  
     tsanpr.dll            # 공유 라이브러리 (API 제공)
-    lpvr-xxxxx.eon        # 딥러닝 모델 #1
-    lpocr_kr-xxxxx.eon    # 딥러닝 모델 #2
-    tshelper.exe          # 도우미 앱 (라이선스 관리, Github 링크 제공)
+    tsanpr-kr-xxxxx.eon   # 딥러닝 모델
+    tshelper.exe          # 도우미 앱 (라이선스 관리)
 ```
 
 ##### x86 32비트 윈도우즈 (windows-x86)
 ```
   /windows-x86            # 윈도우즈용 32bit 바이너리 디렉토리
     tsanpr.dll            # 공유 라이브러리 (API 제공)
-    lpvr-xxxxx.eon        # 딥러닝 모델 #1
-    lpocr_kr-xxxxx.eon    # 딥러닝 모델 #2
-    tshelper.exe          # 도우미 앱 (라이선스 관리, Github 링크 제공)
+    tsanpr-kr-xxxxx.eon   # 딥러닝 모델
+    tshelper.exe          # 도우미 앱 (라이선스 관리)
 ```
 
 `tshelper.exe` 파일을 실행하면 해당 컴퓨터에 `30일 평가판 라이선스`가 자동으로 설치되며, 이 후 30일 동안 `TS-ANPR 프로`의 모든 기능을 사용해 볼 수 있습니다. 
-![](img/evalationLicense.jpg)
+![](img/trialLicense.png)
 
 ## 리눅스용
 
@@ -44,9 +42,8 @@ tar -xvf ts-anpr-v*-linux-x86_64.tar.gz
 ```
   /linux-x86_64
     libtsanpr.so          # 공유 라이브러리 (API 제공)
-    lpvr-xxxxx.eon        # 딥러닝 모델 #1
-    lpocr_kr-xxxxx.eon    # 딥러닝 모델 #2
-    tshelper              # 도우미 앱 (라이선스 관리, Github 링크 제공)
+    tsanpr-kr-xxxxx.eon   # 딥러닝 모델
+    tshelper              # 도우미 앱 (라이선스 관리)
 ```
 
 ##### ARM 64비트 리눅스 (linux-aarch64)
@@ -59,9 +56,8 @@ tar -xvf ts-anpr-v*-linux-aarch64.tar.gz
 ```
   /linux-aarch64 
     libtsanpr.so          # 공유 라이브러리 (API 제공)
-    lpvr-xxxxx.eon        # 딥러닝 모델 #1
-    lpocr_kr-xxxxx.eon    # 딥러닝 모델 #2
-    tshelper              # 도우미 앱 (라이선스 관리, Github 링크 제공)
+    tsanpr-kr-xxxxx.eon   # 딥러닝 모델
+    tshelper              # 도우미 앱 (라이선스 관리)
 ```
 
 
@@ -73,8 +69,8 @@ tar -xvf ts-anpr-v*-linux-aarch64.tar.gz
 ```sh
 ./tshelper
 
-TS-ANPR v1.5.0 (linux-x86_64)
-(C) 2022-2023. TS Solution Corp. all rights reserved.
+TS-ANPR v2.1.0 (linux-x86_64)
+(C) 2022-2024. TS Solution Corp. all rights reserved.
 
 https://github.com/bobhyun/TS-ANPR
 
@@ -105,8 +101,8 @@ https://github.com/bobhyun/TS-ANPR
 ```sh
 sudo ./tshelper -t
 
-TS-ANPR v1.5.0 (linux-x86_64)
-(C) 2022-2023. TS Solution Corp. all rights reserved.
+TS-ANPR v2.1.0 (linux-x86_64)
+(C) 2022-2024. TS Solution Corp. all rights reserved.
 
 https://github.com/bobhyun/TS-ANPR
 
@@ -114,42 +110,45 @@ https://github.com/bobhyun/TS-ANPR
 
 현재 라이선스:
   TS-ANPR 서버, 30일 평가판 (30일 남음)
+  동시 인식 차량 수: 최대 15
 ```
 
 ##### 1.2.2 정품 라이선스 (소프트웨어 라이선스)
 소프트웨어 라이선스는 시스템별 고유 ID를 식별하여 해당 시스템에서만 동작하는 라이선스를 발급받아 설치하는 방식으로 관리합니다.
 
-###### 1) 라이선스 요청서 만들기
+###### (1) 라이선스 요청서 만들기
 아래 명령으로 생성된 라이선스 요청서 파일을 보내주시면 해당 시스템용 인증서 파일을 발급해 드립니다. 
 ```sh
 sudo ./tshelper -r
 
-TS-ANPR v1.5.0 (linux-x86_64)
-(C) 2022-2023. TS Solution Corp. all rights reserved.
+TS-ANPR v2.1.0 (linux-x86_64)
+(C) 2022-2024. TS Solution Corp. all rights reserved.
 
 https://github.com/bobhyun/TS-ANPR
 
 현재 라이선스:
   TS-ANPR 서버, 30일 평가판 (30일 남음)
+  동시 인식 차량 수: 최대 15
 
 라이선스 요청서 파일이 저장되었습니다.
 
 파일명: O20230414-TS-ANPR-8f5b0de4e9eabab6d727ab5c0d4c97e3.req
 ```
 
-###### 2) 인증서 설치하기
+###### (2) 인증서 설치하기
 발급받은 정품 인증서 파일은 아래 명령으로 설치합니다. 
 ```sh
 sudo ./tshelper -c C20230414-TS-ANPR-8f5b0de4e9eabab6d727ab5c0d4c97e3.cert
 
-TS-ANPR v1.5.0 (linux-x86_64)
-(C) 2022-2023. TS Solution Corp. all rights reserved.
+TS-ANPR v2.1.0 (linux-x86_64)
+(C) 2022-2024. TS Solution Corp. all rights reserved.
 
 https://github.com/bobhyun/TS-ANPR
 
 새 라이선스가 설치되었습니다.
 현재 라이선스:
   TS-ANPR 서버, 정품 라이선스
+  동시 인식 차량 수: 최대 15
 ```
 
 ##### 1.2.3 정품 라이선스 (USB 동글 라이선스)
@@ -157,8 +156,8 @@ USB 동글 라이선스는 시스템에 USB 동글을 장착하면 즉시 적용
 단, 리눅스이 경우는 USB 동글을 최초로 삽입하기 전에 아래 명령을 한 번 실행한 후부터 자동 인식됩니다.
 ```sh
 sudo ./tshelper -d
-TS-ANPR v1.5.0 (linux-x86_64)
-(C) 2022-2023. TS Solution Corp. all rights reserved.
+TS-ANPR v2.1.0 (linux-x86_64)
+(C) 2022-2024. TS Solution Corp. all rights reserved.
 
 https://github.com/bobhyun/TS-ANPR
 

@@ -90,22 +90,33 @@ Module Module1
   End Function
 
   Private Sub anprDemo1(ByVal outputFormat As String)
+		'anpr
     readFile(IMG_PATH + "licensePlate.jpg", outputFormat, "v")
     readFile(IMG_PATH + "licensePlate.jpg", outputFormat, "")
     readFile(IMG_PATH + "multiple.jpg", outputFormat, "vm")
     readFile(IMG_PATH + "multiple.jpg", outputFormat, "")
     readFile(IMG_PATH + "surround.jpg", outputFormat, "vms")
     readFile(IMG_PATH + "surround.jpg", outputFormat, "")
+		
+		'object detection
+    readFile(IMG_PATH + "surround.jpg", outputFormat, "dms")
+    readFile(IMG_PATH + "surround.jpg", outputFormat, "dmsr")
   End Sub
 
   Private Sub anprDemo2(ByVal outputFormat As String)
-    readPixels(IMG_PATH & "licensePlate.jpg", outputFormat, "v")
-    readPixels(IMG_PATH & "licensePlate.jpg", outputFormat, "")
-    readPixels(IMG_PATH & "multiple.jpg", outputFormat, "vm")
-    readPixels(IMG_PATH & "multiple.jpg", outputFormat, "")
-    readPixels(IMG_PATH & "surround.jpg", outputFormat, "vms")
-    readPixels(IMG_PATH & "surround.jpg", outputFormat, "")
+		'anpr
+    readPixels(IMG_PATH + "licensePlate.jpg", outputFormat, "v")
+    readPixels(IMG_PATH + "licensePlate.jpg", outputFormat, "")
+    readPixels(IMG_PATH + "multiple.jpg", outputFormat, "vm")
+    readPixels(IMG_PATH + "multiple.jpg", outputFormat, "")
+    readPixels(IMG_PATH + "surround.jpg", outputFormat, "vms")
+    readPixels(IMG_PATH + "surround.jpg", outputFormat, "")
+		
+		'object detection
+    readPixels(IMG_PATH + "surround.jpg", outputFormat, "dms")
+    readPixels(IMG_PATH + "surround.jpg", outputFormat, "dmsr")
   End Sub
+	
   Sub Main()
     Console.OutputEncoding = System.Text.Encoding.UTF8
 

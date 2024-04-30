@@ -112,21 +112,31 @@ function readPixels(imgFile, outputFormat, options) {
 }
 
 function anprDemo1(outputFormat) {
+	// anpr
   readFile(path.join(IMG_PATH, "licensePlate.jpg"), outputFormat, "v");
   readFile(path.join(IMG_PATH, "licensePlate.jpg"), outputFormat, "");
   readFile(path.join(IMG_PATH, "multiple.jpg"), outputFormat, "vm");
   readFile(path.join(IMG_PATH, "multiple.jpg"), outputFormat, "");
   readFile(path.join(IMG_PATH, "surround.jpg"), outputFormat, "vms");
   readFile(path.join(IMG_PATH, "surround.jpg"), outputFormat, "");
+	
+	// object detection
+	readFile(path.join(IMG_PATH, "surround.jpg"), outputFormat, "dms");
+	readFile(path.join(IMG_PATH, "surround.jpg"), outputFormat, "dmsr");
 }
 
 function anprDemo2(outputFormat) {
+	// anpr
   readPixels(path.join(IMG_PATH, "licensePlate.jpg"), outputFormat, "v");
   readPixels(path.join(IMG_PATH, "licensePlate.jpg"), outputFormat, "");
   readPixels(path.join(IMG_PATH, "multiple.jpg"), outputFormat, "vm");
   readPixels(path.join(IMG_PATH, "multiple.jpg"), outputFormat, "");
   readPixels(path.join(IMG_PATH, "surround.jpg"), outputFormat, "vms");
   readPixels(path.join(IMG_PATH, "surround.jpg"), outputFormat, "");
+	
+	// object detection
+	readPixels(path.join(IMG_PATH, "surround.jpg"), outputFormat, "dms");
+	readPixels(path.join(IMG_PATH, "surround.jpg"), outputFormat, "dmsr");
 }
 
 (function () {

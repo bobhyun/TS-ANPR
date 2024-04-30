@@ -106,20 +106,30 @@ def readPixels(imgFile, outputFormat, options):
   print(result.decode('utf8'))
 
 def anprDemo1(outputFormat):
+  # anpr
   readFile(os.path.join(IMG_PATH, 'licensePlate.jpg'), outputFormat, 'v')
   readFile(os.path.join(IMG_PATH, 'licensePlate.jpg'), outputFormat, '')
   readFile(os.path.join(IMG_PATH, 'multiple.jpg'), outputFormat, 'vm')
   readFile(os.path.join(IMG_PATH, 'multiple.jpg'), outputFormat, '')
   readFile(os.path.join(IMG_PATH, 'surround.jpg'), outputFormat, 'vms')
   readFile(os.path.join(IMG_PATH, 'surround.jpg'), outputFormat, '')
+  
+  # object detection  
+  readFile(os.path.join(IMG_PATH, 'surround.jpg'), outputFormat, 'dms')
+  readFile(os.path.join(IMG_PATH, 'surround.jpg'), outputFormat, 'dmsr')
 
 def anprDemo2(outputFormat):
+  # anpr
   readPixels(os.path.join(IMG_PATH, 'licensePlate.jpg'), outputFormat, 'v')
   readPixels(os.path.join(IMG_PATH, 'licensePlate.jpg'), outputFormat, '')
   readPixels(os.path.join(IMG_PATH, 'multiple.jpg'), outputFormat, 'vm')
   readPixels(os.path.join(IMG_PATH, 'multiple.jpg'), outputFormat, '')
   readPixels(os.path.join(IMG_PATH, 'surround.jpg'), outputFormat, 'vms')
   readPixels(os.path.join(IMG_PATH, 'surround.jpg'), outputFormat, '')
+  
+  # object detection  
+  readPixels(os.path.join(IMG_PATH, 'surround.jpg'), outputFormat, 'dms')
+  readPixels(os.path.join(IMG_PATH, 'surround.jpg'), outputFormat, 'dmsr')
 
 def main():
   error = initialize()
