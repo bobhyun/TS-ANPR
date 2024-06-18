@@ -1,11 +1,11 @@
 ﻿/**
 * anprCppLinux.cpp: 
-*		dlsym 함수를 사용한 run-time binding 예제
-*		이미지 파일 로딩은 opencv 이용
+*   dlsym 함수를 사용한 run-time binding 예제
+*   이미지 파일 로딩은 opencv 이용
 *
 * 1. 엔진 파일 복사
 *    사용하는 리눅스 플랫폼용 엔진 파일을 examples/bin/linux-`arch`/ 디렉토리에 압축 해제
-*		 tar xvpf tsanpr-*-linunx-`arch`.tar.xz
+*    tar xvpf tsanpr-*-linunx-`arch`.tar.xz
 *
 * 2. 빌드 환경 설치
 *    Debian/Ubuntu:
