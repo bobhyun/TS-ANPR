@@ -192,6 +192,7 @@ TS_ANPR_ENTRY anpr_read_file(
 ### 1.3. anpr_read_pixels
 
 로딩된 이미지의 메모리 버퍼에서 차량 번호를 인식합니다.
+`v2.3.0`부터는 인코딩된 이미지 버퍼를 입력할 수 있습니다.
 
 ```cpp
 TS_ANPR_ENTRY anpr_read_pixels(
@@ -209,10 +210,13 @@ TS_ANPR_ENTRY anpr_read_pixels(
   - 이미지 픽셀 시작 주소
 - `width`: 
   - 이미지 가로 픽셀 수
+  - 인코딩된 이미지인 경우 총 바이트 수
 - `height`: 
   - 이미지 세로 픽셀 수
+  - 인코딩된 이미지인 경우 사용안함 (기본값 `0`으로 지정)
 - `stride`: 
   - 이미지 한 라인의 바이트 수 (`0`이면 padding영역이 없는 것으로 간주하고 자동 계산)
+  - 인코딩된 이미지인 경우 사용안함 (기본값 `0`으로 지정)
 - `pixelFormat`: 
   - 이미지 픽셀 포멧
   - 지원하는 픽셀 포멧: 
@@ -230,6 +234,9 @@ TS_ANPR_ENTRY anpr_read_pixels(
     - `IYUV`: YUV420 (12bpp) 
     - `NV12`: YUV420 (12bpp)
     - `NV21`: YUV420 (12bpp)
+  - 지원하는 이미지 인코딩 형식
+    - `bmp`, `jpg`, `jpeg`, `png`, `pnm`, `pbm`, `pgm`, `ppm`, `jfif`, `webp`
+    - `encoded`로 지정하면 이미지 형식 자동 인식 
 - `outputFormat`: *(`anpr_read_file`과 동일)*
 - `options`: *(`anpr_read_file`과 동일)*
 
