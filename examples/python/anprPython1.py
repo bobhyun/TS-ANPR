@@ -86,6 +86,21 @@ def readFile(imgFile, outputFormat, options):
   result = lib.anpr_read_file(imgFile.encode('utf-8'), outputFormat.encode('utf-8'), options.encode('utf-8'))
   print(result.decode('utf8'))
 
+def getPixelFormat(shape, dtype):
+  if len(shape) == 2:
+    if dtype == np.uint8:
+        return 'GRAY'
+    
+    elif len(shape) == 3:
+        channels = shape[2]
+        if channels == 3:
+            if dtype == np.uint8:
+                return 'RGB'            
+        elif channels == 4:
+            if dtype == np.uint8:
+                return 'RGBA'
+  return 'UNKNOWN'
+
 def readPixels(imgFile, outputFormat, options):
   print('{0} (outputFormat=\"{1}\", options=\"{2}\") => '.format(imgFile, outputFormat, options), end='')
 
@@ -99,9 +114,10 @@ def readPixels(imgFile, outputFormat, options):
   img = np.array(Image.open(imgFile))
   height = img.shape[0]
   width = img.shape[1]
+  pixelFormat = getPixelFormat(img.shape, img.dtype)
 
   # 픽셀 버퍼 입력으로 차번 인식
-  result = lib.anpr_read_pixels(bytes(img), width, height, 0, 'RGB'.encode('utf-8'), outputFormat.encode('utf-8'), options.encode('utf-8'))
+  result = lib.anpr_read_pixels(bytes(img), width, height, 0, pixelFormat.encode('utf-8'), outputFormat.encode('utf-8'), options.encode('utf-8'))
 
   print(result.decode('utf8'))
 
