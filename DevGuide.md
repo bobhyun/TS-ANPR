@@ -63,7 +63,13 @@ TS_ANPR_ENTRY anpr_initialize(const char* mode); // [IN] 라이브러리 동작 
       - `104: Resource exhausted`  더 이상 자원을 할당할 수 없는 경우
     - 복잡한 비동기 쓰레드 관리를 신경쓰지 않아도 되는 반면 쓰레드 락(lock)을 사용하는 방식이므로 성능은 다소 떨어질 수 있음
     - `sync=true` 또는 `sync=false` 로 표현할 수 있으며, 간단히 `sync`만 사용해도 됨 (지정안하면 기본값 `sync=false`로 동작) 
-  
+  - `minChar`:
+    - 번호인식이 성공하기 위한 최소 문자수를 지정
+    - `minChar`를 지정하지 않거나 `0` 또는 음수 또는 숫자가 아니면 기본값 `4`가 적용됨
+      - 올바른 예: `minChar=5` (5글자 이상 문자인식되야 번호인식 성공)
+      - 잘못된 예: `minChar=0`, `minChar=-10`, `minChar=두글자` (지정된 값은 무시되고 기본값 `4`가 적용됨)
+
+
 **Return value**:
   - 정상 처리된 경우 빈 텍스트 `NULL terminated string (0x00)`을 반환합니다.
   - 오류가 발생한 경우는 `mode`의 `outputFormat`으로 지정한 데이터 형식의 문자열(utf-8 인코딩)로 오류 내용을 반환합니다.
