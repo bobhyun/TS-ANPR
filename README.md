@@ -4,7 +4,7 @@ English | [한국어](doc.i18n/ko-KR/README.md) | [日本語](doc.i18n/ja-JP/REA
 
 **TS-ANPR** is a deep learning-based vehicle license plate recognition engine that supports the license plate standards of Korea, Japan, and Vietnam.
 
-##### <img src="img/icons/video.png" style="vertical-align:-1em; width:20px; height:20px;"/> Application Example (TS-IVR)
+##### 🎬 Application Example (TS-IVR)
 
 https://github.com/user-attachments/assets/71a2977a-4d1f-479b-a909-21c03fd9f013
 
@@ -12,18 +12,18 @@ https://github.com/user-attachments/assets/71a2977a-4d1f-479b-a909-21c03fd9f013
 
 ##### [🚀 Download the Latest Engine](https://github.com/bobhyun/TS-ANPR/releases/)
 
-##### <img src="img/icons/coding.png" style="vertical-align:bottom; width:20px;"/> Code Samples in Popular Languages
+##### 🔗 Code Samples in Popular Languages
 
 - [C](examples/C/) | [C#](examples/C#/) | [C++](examples/C++/) | [Clojure](examples/Clojure/) | [Dart](examples/Dart/) | [Delphi](examples/Delphi/) | [F#](examples/F#/) | [Go](examples/Go/) | [Haskell](examples/Haskell/) | [Java](examples/Java/) | [JavaScript](examples/JavaScript/) | [Julia](examples/Julia/) | [Kotlin](examples/Kotlin/) | [Lua](examples/Lua/) | [Perl](examples/Perl/) | [Python](examples/Python/) | [Ruby](examples/Ruby/) | [Rust](examples/Rust/) | [Scala](examples/Scala/) | [Swift](examples/Swift/) | [TypeScript](examples/TypeScript/) | [VB.NET](examples/VB.NET/)
 
-##### <img src="img/icons/link.png" style="vertical-align:bottom; width:20px;"/> Application Development Guide
+##### 🗂 Application Development Guide
 
 - [TS-ANPR](DevGuide.md)
 - [TS-CAM](https://github.com/bobhyun/TS-CAM/blob/main/DevGuide.md)
 
-##### [<img src="img/icons/install.png" style="vertical-align:bottom; width:20px;"/> How to install](Usage.md)
+##### [🎁 How to install](Usage.md)
 
-##### [<img src="img/icons/license.png" style="vertical-align:bottom; width:20px;"/> License](LICENSE.md)
+##### [⚖️ License](LICENSE.md)
 
 _If you have any questions or requests, please feel free to open an [Issues](https://github.com/bobhyun/TS-ANPR/issues).
 We are happy to assist and welcome your feedback!_
