@@ -16,7 +16,7 @@ https://github.com/user-attachments/assets/71a2977a-4d1f-479b-a909-21c03fd9f013
 
 - [C](examples/C/) | [C#](examples/C#/) | [C++](examples/C++/) | [Clojure](examples/Clojure/) | [Dart](examples/Dart/) | [Delphi](examples/Delphi/) | [F#](examples/F#/) | [Go](examples/Go/) | [Haskell](examples/Haskell/) | [Java](examples/Java/) | [JavaScript](examples/JavaScript/) | [Julia](examples/Julia/) | [Kotlin](examples/Kotlin/) | [Lua](examples/Lua/) | [Perl](examples/Perl/) | [Python](examples/Python/) | [Ruby](examples/Ruby/) | [Rust](examples/Rust/) | [Scala](examples/Scala/) | [Swift](examples/Swift/) | [TypeScript](examples/TypeScript/) | [VB.NET](examples/VB.NET/)
 
-##### 📋 Application Development Guide
+##### 📖 Application Development Guide
 
 - [TS-ANPR](DevGuide.md)
 - [TS-CAM](https://github.com/bobhyun/TS-CAM/blob/main/DevGuide.md)
