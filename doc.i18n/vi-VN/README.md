@@ -64,7 +64,7 @@ Chúng tôi luôn sẵn sàng hỗ trợ và rất mong nhận được phản h
      ![](../../img/options/roi.png)
 3. Thêm tính năng cài đặt kích thước tối thiểu biển số
 
-   - Khi cài đặt kích thước tối thiểu, các vùng biển số nhỏ hơn sẽ bị bỏ qua. ([Chi tiết](DevGuide#24-thiết-lập-kích-thước-tối-thiểu-của-biển-số))
+   - Khi cài đặt kích thước tối thiểu, các vùng biển số nhỏ hơn sẽ bị bỏ qua. ([Chi tiết](DevGuide.md#24-thiết-lập-kích-thước-tối-thiểu-của-biển-số))
 
 4. Cải thiện tỷ lệ nhận diện
    - Độ chính xác nhận diện biển số được nâng cao nhờ cải tiến thuật toán.
