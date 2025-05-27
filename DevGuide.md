@@ -1,232 +1,200 @@
-응용 프로그램 개발 가이드
-===
+English | [日本語](doc.i18n/ja-JP/DevGuide.md) | [한국어](doc.i18n/ko-KR/DevGuide.md) | [Tiếng Việt](doc.i18n/vi-VN/DevGuide.md)
 
-## 목차
+# Application Development Guide
 
-- [응용 프로그램 개발 가이드](#응용-프로그램-개발-가이드)
-  - [목차](#목차)
-  - [1. Entry points](#1-entry-points)
-    - [1.1. anpr\_initialize](#11-anpr_initialize)
-    - [1.2. anpr\_read\_file](#12-anpr_read_file)
-    - [1.3. anpr\_read\_pixels](#13-anpr_read_pixels)
-  - [2. Output Format](#2-output-format)
-    - [2.1. 차량 번호 인식 결과](#21-차량-번호-인식-결과)
-      - [2.1.1. `text`](#211-text)
-      - [2.1.2. `csv`](#212-csv)
-      - [2.1.3. `json`](#213-json)
-      - [2.1.4. `yaml`](#214-yaml)
-      - [2.1.5. `xml`](#215-xml)
-    - [2.2. 객체 인식 결과](#22-객체-인식-결과)
-      - [2.2.1. `csv`, `text`](#221-csv-text)
-      - [2.2.2. `json`](#222-json)
-      - [2.2.3. `yaml`](#223-yaml)
-      - [2.2.4. `xml`](#224-xml)
-  - [3. 오류 코드표](#3-오류-코드표)
-  - [4. 예제](#4-예제)
+## Table of Contents
 
+- [1. Entry Points](#1-entry-points)
+  - [1.1. anpr_initialize](#11-anpr_initialize)
+  - [1.2. anpr_read_file](#12-anpr_read_file)
+  - [1.3. anpr_read_pixels](#13-anpr_read_pixels)
+- [2. Options](#2-options)
+  - [2.1. Supported Options by License Type](#21-supported-options-by-license-type)
+  - [2.2. Option Selection Guide](#22-option-selection-guide)
+  - [2.3. Setting Region of Interest (RoI) / Region of Uninterest (RoU)](#23-setting-region-of-interest-roi--region-of-uninterest-rou)
+  - [2.4. Setting Minimum License Plate Size](#24-setting-minimum-license-plate-size)
+- [3. Output Data Formats](#3-output-data-formats)
+  - [3.1. Vehicle License Plate Recognition Results](#31-vehicle-license-plate-recognition-results)
+    - [3.1.1. text](#311-text)
+    - [3.1.2. csv](#312-csv)
+    - [3.1.3. json](#313-json)
+    - [3.1.4. yaml](#314-yaml)
+    - [3.1.5. xml](#315-xml)
+  - [3.2. Object Detection Results](#32-object-detection-results)
+    - [3.2.1. csv, text](#321-csv-text)
+    - [3.2.2. json](#322-json)
+    - [3.2.3. yaml](#323-yaml)
+    - [3.2.4. xml](#324-xml)
+- [4. Error Code Table](#4-error-code-table)
 
-## 1. Entry points
+## 1. Entry Points
 
-모든 함수 원형은 아래와 같습니다.
+The prototype for all functions is as follows:
+
 ```cpp
 #ifdef WIN32
 #define TS_ANPR_ENTRY extern "C" __declspec(dllexport) const char* WINAPI
 #else
-#define TS_ANPR_ENTRY extern "C" const char* 
+#define TS_ANPR_ENTRY extern "C" const char*
 #endif
 ```
-**-* 장황해지지 않도록 이하는 `TS_ANPR_ENTRY`로 표기합니다.*
+
+_To avoid being verbose, the following will be denoted as `TS_ANPR_ENTRY`._
 
 ### 1.1. anpr_initialize
 
-라이브러리를 초기화 합니다.
-라이브러리를 사용하기 위해 다른 함수보다 먼저 한 번 호출해야 합니다.
-
+Initializes the library.
+This function must be called once before using any other functions in the library.
 
 ```cpp
-TS_ANPR_ENTRY anpr_initialize(const char* mode); // [IN] 라이브러리 동작 방식 설정
+TS_ANPR_ENTRY anpr_initialize(const char* mode); // [IN] Sets the library operation mode
 ```
 
 **Parameters**:
-- `mode`
-  - 라이브러리 동작 방식을 지정하는 목적으로 사용 (기존 `outputFormat`에서 용도 확장)
-  - 세미콜론(`;`) 문자로 구분하여 여러 설정을 표현할 수 있음 (예: `json;sync`)
-- 지정 가능한 항목
-  - `outputFormat`: 
-    - 출력 데이터 형식
-    - 지원하는 데이터 형식: `text`, `json`, `yaml`, `xml`, `csv` *(기본값: `text`)*
-    - `outputFormat`생략하고 간단히 `text`, `json`으로 사용 가능
-  - `sync`:
-    - 동기 모드로 실행 (쓰레드 lock을 걸고 호출한 순서대로 처리)
-    - 미리 생성된 고정 갯수의 쓰레드풀 형태가 아니고 쓰레드가 계속 새로 생성되는 구조의 응용 프로그램에서 호출하는 경우, 아래와 같은 오류 코드 발생시 사용을 고려할 수 있음
-      - `103: Too many workers`    라이브러리 호출 쓰레드 수가 한계를 초과한 경우 (최대 256개)
-      - `104: Resource exhausted`  더 이상 자원을 할당할 수 없는 경우
-    - 복잡한 비동기 쓰레드 관리를 신경쓰지 않아도 되는 반면 쓰레드 락(lock)을 사용하는 방식이므로 성능은 다소 떨어질 수 있음
-    - `sync=true` 또는 `sync=false` 로 표현할 수 있으며, 간단히 `sync`만 사용해도 됨 (지정안하면 기본값 `sync=false`로 동작) 
-  - `minChar`:
-    - 번호인식이 성공하기 위한 최소 문자수를 지정
-    - `minChar`를 지정하지 않거나 `0` 또는 음수 또는 숫자가 아니면 기본값 `4`가 적용됨
-      - 올바른 예: `minChar=5` (5글자 이상 문자인식되야 번호인식 성공)
-      - 잘못된 예: `minChar=0`, `minChar=-10`, `minChar=두글자` (지정된 값은 무시되고 기본값 `4`가 적용됨)
 
+- `mode`
+  - Used to specify the library's operation mode (the purpose has been expanded from the previous `outputFormat`)
+  - Multiple settings can be specified, separated by a semicolon (`;`) (e.g., `json;sync`)
+    ```python
+      # Python Example
+      # Multiple settings
+      err = anpr_initialize(b'json;sync')
+    ```
+- Available options:
+  - `outputFormat`:
+    - Specifies the output data format
+    - Supported formats: `text`, `json`, `yaml`, `xml`, `csv` _(default: `text`)_
+    - You can simply use `text` or `json` without specifying `outputFormat`
+  - `sync`:
+    - Runs in synchronous mode (processes requests in the order they are called with thread locking)
+    - If your application creates threads dynamically (not using a fixed-size thread pool) and you encounter the following error codes, consider using this option:
+      - `103: Too many workers` – The number of library call threads exceeds the limit (maximum 256)
+      - `104: Resource exhausted` – No more resources can be allocated
+    - This mode eliminates the need for complex asynchronous thread management, but since it uses thread locks, parallel processing performance may be reduced
+    - Can be specified as `sync=true` or `sync=false`, or simply as `sync` (if not specified, the default is `sync=false`)
+      ```python
+        # Python Example
+        # Runs in synchronous mode
+        err = anpr_initialize(b'sync')
+      ```
+  - `minChar`:
+    - Specifies the minimum number of characters required for successful license plate recognition
+    - If `minChar` is not specified, is `0`, negative, or not a number, the default value `4` is applied
+      - Correct example: `minChar=5` (recognition succeeds only if at least 5 characters are detected)
+        ```python
+          # Python Example
+          # Set number recognition to succeed only if there are 5 or more characters
+          err = anpr_initialize(b'minChar=5')
+        ```
+      - Incorrect examples: `minChar=0`, `minChar=-10`, `minChar=Two` (the specified value is ignored and the default `4` is used)
+  - `country`:
+    - Specifies the country for the license plate recognition model.
+      - Example: `country=JP` (set for Japanese license plates)
+    - Available country codes:
+      - `KR`: Korean license plates
+      - `JP`: Japanese license plates
+      - `VN`: Vietnamese license plates
+        ```python
+        # Python example
+        # How to specify country
+        err = anpr_initialize(b'country=KR')  # Korean license plates (default)
+        err = anpr_initialize(b'country=JP')  # Japanese license plates
+        err = anpr_initialize(b'country=VN')  # Vietnamese license plates
+        ```
+    - For the free trial, you can specify the country code in the application, but for the commercial license, the supported country is determined by the purchased license.
+  - `symbol`: _(For Japanese license plates only)_
+    - Specifies how to output the `·` and `-` characters included in Japanese license plates
+      - `none`: Do not output either `·` or `-` (default value)
+      - `zero`: Output `·` as `0`, do not output `-`
+      - `dot`: Output `·` as is, do not output `-`
+      - `full`: Output both `·` and `-` as is
+        ```python
+          # Python Example
+          # Output both · and - as is
+          err = anpr_initialize(b'symbol=full')
+        ```
 
 **Return value**:
-  - 정상 처리된 경우 빈 텍스트 `NULL terminated string (0x00)`을 반환합니다.
-  - 오류가 발생한 경우는 `mode`의 `outputFormat`으로 지정한 데이터 형식의 문자열(utf-8 인코딩)로 오류 내용을 반환합니다.
 
+- If successful, returns an empty `NULL-terminated string (0x00)`.
+- If an error occurs, returns an error message as a string in the data format specified by the `outputFormat` in `mode` (UTF-8 encoded).
 
 ### 1.2. anpr_read_file
 
-이미지 파일에서 차량 번호를 인식합니다.
+Recognizes vehicle license plates from an image file.
 
 ```cpp
 TS_ANPR_ENTRY anpr_read_file(
-  const char* imgFileName,  // [IN] 입력 이미지 파일명
-  const char* outputFormat, // [IN] 출력 데이터 형식
-  const char* options);     // [IN] 기능 옵션
+  const char* imgFileName,  // [IN] Input image file name
+  const char* outputFormat, // [IN] Output data format
+  const char* options);     // [IN] Feature options
 ```
 
 **Parameters**:
-- `imgFileName`: 
-  - 입력 이미지 파일명 *(utf-8 인코딩)*
-  - 지원하는 이미지 파일 형식: `bmp`, `jpg`, `png`, `pnm`, `pbm`, `pgm`, `ppm`, `jfif`, `webp`
-- `outputFormat`: 
-  - 출력 데이터 형식
-  - 지원하는 데이터 형식: `text`, `json`, `yaml`, `xml`, `csv` *(기본값: `text`)*
-  - 객체 인식 옵션을 사용할 경우 `text`는 `csv`로 출력됩니다.
-- `options`: 
-  - 아래 문자들을 조합하여 번호 인식 알고리즘의 옵션을 지정합니다.
-      | 문자     | 의미                             | 적용 라이선스
-      |---------|----------------------------------|---------------
-      | `v`     | 번호판 차량 부착 여부 판단        | 전체
-      | `m`     | 여러 대의 차량 번호판을 모두 인식 (다중 인식)         | `객체인식`, `프로`, `서버`
-      | `s`     | 360° 모든 각도의 차량에서 번호판 인식 (서라운드 인식) | `객체인식`, `프로`, `서버`
-      | `d`     | 객체 인식 (만.공차용)               | 전체
-      | `r`     | 인식된 객체(차량)의 차량 번호 인식  | 전체
-      
-  - 라이선스 종류에 따라 기능 및 다중 인식 차량 수가 다르게 적용됩니다. ([참고: TS-ANPR 엔진 바이너리](LICENSE.md#2-ts-anpr-엔진-바이너리))
-  
 
-  - 옵션 선택 안내
-    아래 플로우차트에서 `시작`에서 `선택완료`까지 조건을 따라 이동하면서 지나간 초록색 원의 문자들을 모아 옵션 값으로 사용하면 됩니다. (문자의 순서는 무관합니다.)
-    예) 이동 경로가 `시작` → `v` → `s` → `m` → `선택완료` 이면 `"vsm"`가 옵션 값입니다.
-    
-    ```mermaid
-    flowchart TD
-      
-      start[/시작/]-->attach{{번호판 차량 부착 여부?}}
-      attach-->|상관없음|multi
-      attach-->|차량에 부착된 번호판만|v((v)):::opt
-      
-      v-->angle{{차량 각도?}}
-      angle-->|바로 선 차량만|multi{{다중인식?}}
-      angle-->|360° 모든 각도|s((s)):::opt
-      s-->multi
-      multi-->|예|m((m)):::opt
-      multi-->|아니오|done[/선택완료/]
-      m-->done      
-
-      start-->d((d)):::opt
-      d-->angle2{{차량 각도?}}
-      angle2-->|바로 선 차량만|multi2{{다중인식?}}
-      angle2-->|360° 모든 각도|s2((s)):::opt
-      s2-->multi2
-      multi2-->|예|m2((m)):::opt
-      multi2-->|아니오|read
-      m2-->read{{번호 인식?}}
-      
-      read-->|예|r((r)):::opt
-      read-->|아니오|done
-      r-->done
-     
-
-      subgraph "번호 인식"
-        attach
-        v
-        angle
-        multi
-        m
-        s
-      end
-
-      subgraph "객체 인식"
-        read
-        angle2
-        multi2
-        s2
-        m2
-        d
-        r
-      end
-
-      classDef opt fill:#6F6,stroke:#CCC,stroke-width:4px,padding:10px,font-weight:bold
-    ```
-
-  - 번호 인식 옵션 사용 예            
-      | options | 의미
-      |---------|------------------------------------------------------------
-      |         | 모든 번호판 중 하나 인식
-      | `v`     | 차량 부착된 번호판 중 하나 인식
-      | `m`     | 모든 번호판, 다중 인식
-      | `vm`    | 차량 부착된 번호판, 다중 인식
-      | `vs`    | 차량 부착된 번호판, 360° 서라운드, 하나 인식
-      | `vsm`   | 차량 부착된 번호판, 360° 서라운드, 다중 인식
-  
-  - 객체 인식 옵션 사용 예
-      | options | 의미
-      |---------|------------------------------------------------------------
-      | `d`     | 단일 객체 인식 (차량 번호 인식 안함)
-      | `dr`    | 단일 객체, 차량 번호 인식
-      | `ds`    | 단일 객체, 360° 서라운드 인식 (차량 번호 인식 안함)
-      | `dsr`   | 단일 객체, 360° 서라운드, 차량 번호 인식
-      | `dm`    | 다중 객체 인식 (차량 번호 인식 안함)
-      | `dmr`   | 다중 객체, 차량 번호 인식 (차량 번호 인식 안함)
-      | `dms`   | 다중 객체, 360° 서라운드 (차량 번호 인식 안함)
-      | `dmsr`  | 다중 객체, 360° 서라운드, 차량 번호 인식
+- `imgFileName`:
+  - Input image file name (UTF-8 encoded)
+  - Supported image file formats: `bmp`, `jpg`, `png`, `pnm`, `pbm`, `pgm`, `ppm`, `jfif`, `webp`
+- `outputFormat`:
+  - Output data format
+  - Supported formats: `text`, `json`, `yaml`, `xml`, `csv` _(default: `text`)_
+  - When using object detection options, `text` output will be provided in `csv` format.
+- `options`:
+  - Specifies options for the license plate recognition algorithm. (See: [2. Options](#2-options))
 
 **Return value**:
-  - `outputFormat`에 지정한 데이터 형식의 문자열(utf-8 인코딩)로 번호 인식 결과를 반환합니다.
-  - 사용한 `options`이 번호인식과 객체인식 계열에 따라 `outputFormat` 형식이 이원화되어 있습니다. ([참고: 2. Output Format](#2-output-format))
+
+- Returns the recognition result as a string in the data format specified by `outputFormat` (UTF-8 encoded).
+- Depending on the `options` used (license plate recognition or object detection), the `outputFormat` may differ. (See: [3. Output Format](#3-output-format))
+
+  ```python
+    # Python Example
+    result = anpr_read_file(b'input-image.jpg', b'json', b'vms')
+    if len(result) > 0:
+        print(result.decode('utf8'))
+  ```
 
 **Remarks**:
-  - `Return value`에 사용되는 문자열 버퍼는 라이브러리 내부에서 관리되며 응용 프로그램에서는 문자열 버퍼를 참조하기만 하면 됩니다.
-  - 이 문자열 버퍼는 thread-safe하며 각 thread 별로 다음 호출 전까지 결과 값이 유지됩니다.
-  - 참고 사이트
-    - https://docs.microsoft.com/ko-kr/windows/win32/medfound/image-stride
-    - https://docs.microsoft.com/ko-kr/windows/win32/medfound/video-fourccs
+
+- The string buffer used for the `return value` is managed internally by the library; the application only needs to reference the string buffer.
+- This string buffer is thread-safe, and the result is maintained for each thread until the next call.
+- Reference sites:
+  - https://docs.microsoft.com/ko-kr/windows/win32/medfound/image-stride
+  - https://docs.microsoft.com/ko-kr/windows/win32/medfound/video-fourccs
 
 ### 1.3. anpr_read_pixels
 
-로딩된 이미지의 메모리 버퍼에서 차량 번호를 인식합니다.
-`v2.3.0`부터는 인코딩된 이미지 버퍼를 입력할 수 있습니다.
+Recognizes vehicle license plates from the memory buffer of a loaded image.
+Since `TS-ANPR v2.3.0`, encoded image buffers are supported.
 
 ```cpp
 TS_ANPR_ENTRY anpr_read_pixels(
-  const unsigned char* pixels,  // [IN] 이미지 픽셀 시작 주소
-  const unsigned long width,    // [IN] 이미지 가로 픽셀 수
-  const unsigned long height,   // [IN] 이미지 세로 픽셀 수
-  const unsigned long stride,   // [IN] 이미지 한 라인의 바이트 수
-  const char* pixelFormat,      // [IN] 이미지 픽셀 형식 
-  const char* outputFormat,     // [IN] 출력 데이터 형식
-  const char* options);         // [IN] 기능 옵션
+  const unsigned char* pixels,  // [IN] Starting address of the image pixels
+  const unsigned long width,    // [IN] Number of pixels in image width
+  const unsigned long height,   // [IN] Number of pixels in image height
+  const long stride,            // [IN] Number of bytes per image line
+  const char* pixelFormat,      // [IN] Image pixel format
+  const char* outputFormat,     // [IN] Output data format
+  const char* options);         // [IN] Feature options
 ```
 
 **Parameters**:
-- `pixels`: 
-  - 이미지 픽셀 시작 주소
-- `width`: 
-  - 이미지 가로 픽셀 수
-  - 인코딩된 이미지인 경우 총 바이트 수
-- `height`: 
-  - 이미지 세로 픽셀 수
-  - 인코딩된 이미지인 경우 사용안함 (기본값 `0`으로 지정)
-- `stride`: 
-  - 이미지 한 라인의 바이트 수 (`0`이면 padding영역이 없는 것으로 간주하고 자동 계산)
-  - 인코딩된 이미지인 경우 사용안함 (기본값 `0`으로 지정)
-- `pixelFormat`: 
-  - 이미지 픽셀 포멧
-  - 지원하는 픽셀 포멧: 
-    - `GRAY`: 흑백 이미지 (8bpp)
+
+- `pixels`:
+  - Starting address of the image pixels
+- `width`:
+  - Number of pixels in the image width
+  - For encoded images, this is the total number of bytes
+- `height`:
+  - Number of pixels in the image height
+  - Not used for encoded images (set to default value `0`)
+- `stride`:
+  - Number of bytes per image line (if `0`, it is assumed there is no padding and calculated automatically)
+  - Not used for encoded images (set to default value `0`)
+- `pixelFormat`:
+  - Image pixel format
+  - Supported pixel formats:
+    - `GRAY`: Grayscale image (8bpp)
     - `BGRA`: BGRA (32bpp)
     - `RGBA`: RGBA (32bpp)
     - `RGB`: RGB (24bpp)
@@ -237,123 +205,320 @@ TS_ANPR_ENTRY anpr_read_pixels(
     - `YCrCb`: YUV444 (32bpp)
     - `I420`: YUV420 (12bpp)
     - `YV12`: YUV420 (12bpp)
-    - `IYUV`: YUV420 (12bpp) 
+    - `IYUV`: YUV420 (12bpp)
     - `NV12`: YUV420 (12bpp)
     - `NV21`: YUV420 (12bpp)
-  - 지원하는 이미지 인코딩 형식
+  - Supported image encoding formats:
     - `bmp`, `jpg`, `jpeg`, `png`, `pnm`, `pbm`, `pgm`, `ppm`, `jfif`, `webp`
-    - `encoded`로 지정하면 이미지 형식 자동 인식 
-- `outputFormat`: *(`anpr_read_file`과 동일)*
-- `options`: *(`anpr_read_file`과 동일)*
+    - If set to `encoded`, the image format is automatically detected
+- `outputFormat`: _(Same as `anpr_read_file`)_
+- `options`: _(Same as `anpr_read_file`)_
 
-**Return value**: *(`anpr_read_file`과 동일)*
-**Remarks**: *(`anpr_read_file`과 동일)*
+**Return value**: _(Same as `anpr_read_file`)_
+**Remarks**: _(Same as `anpr_read_file`)_
+
+```python
+  # Python Examples
+
+  # Input a video frame
+  ret, frame = capture.read()
+  height = frame.shape[0]
+  width = frame.shape[1]
+  result = anpr_read_pixels(bytes(frame), width, height, 0, b'BGR', b'json', b'vms')
+  if len(result) > 0:
+      print(result.decode('utf8'))
+
+  # Input an image from the website
+  response = requests.get('https://example.com/image.jpg')
+  if response.status_code == 200:
+      result = anpr_read_pixels(response.content, 0, 0, 0, b'encoded', b'json', b'vms')
+      if len(result) > 0:
+          print(result.decode('utf8'))
+```
+
+## 2. Options
+
+- Various options can be specified to customize the license plate recognition algorithm for your environment.
+
+### 2.1. Supported Options by License Type
+
+| Character | Description                                                                                     | Applicable License                  |
+| --------- | ----------------------------------------------------------------------------------------------- | ----------------------------------- |
+| `v`       | Determines whether a license plate is attached to a car                                         | All                                 |
+| `b`       | Determines whether a license plate is attached to a motorcycle (Vietnamese license plates only) | All                                 |
+| `m`       | Recognizes all license plates in multiple vehicles                                              | `Object Detection`, `Pro`, `Server` |
+| `s`       | Recognizes license plates from vehicles at any 360° angle (surround recognition)                | `Object Detection`, `Pro`, `Server` |
+| `d`       | Object detection (for load/unload status)                                                       | All                                 |
+| `r`       | Recognizes license plates of detected vehicles                                                  | All                                 |
+| `i`       | Sets Region of Interest (RoI)                                                                   | All                                 |
+| `x`       | Sets Region of Uninterest (RoU)                                                                 | All                                 |
+| `a`       | Sets minimum license plate size                                                                 | All                                 |
+
+- Depending on the license type, features and the number of vehicles that can be recognized simultaneously may vary. (See: [TS-ANPR Engine](LICENSE.md#2-ts-anpr-engine))
+
+### 2.2. Option Selection Guide
+
+In the flowchart below, follow the conditions from `Start` to `Done` and collect the characters in the green circles you pass through. Use these collected characters as the option value (the order of the characters does not matter).
+For example, if your path is `Start` → `v` → `s` → `m` → `Done`, the option value would be `"vsm"`.
+
+```mermaid
+flowchart TD
+
+  start[/Start/]-->attach{{License plate<br/>attachment status?}}
+  attach-->|Don't care|multi
+  attach-->|Only license plates<br/>attached to vehicles|v((v)):::opt
+
+  v-->angle{{vehicle angle?}}
+  angle-->|Only upright vehicles|multi{{Multi-recognition?}}
+  angle-->|All 360° angles|s((s)):::opt
+  s-->multi
+  multi-->|Yes|m((m)):::opt
+  multi-->|No|done[/Done/]
+  m-->done
+
+  start-->d((d)):::opt
+  d-->angle2{{vehicle angle?}}
+  angle2-->|Only upright vehicles|multi2{{Multi-recognition?}}
+  angle2-->|All 360° angles|s2((s)):::opt
+  s2-->multi2
+  multi2-->|Yes|m2((m)):::opt
+  multi2-->|No|read
+  m2-->read{{License Plate Recognition?}}
+
+  read-->|Yes|r((r)):::opt
+  read-->|No|done
+  r-->done
 
 
-## 2. Output Format
+  subgraph "License Plate Recognition"
+    attach
+    v
+    angle
+    multi
+    m
+    s
+  end
 
-출력 데이터는 `options`에 `d`가 포함되는 객체 인식과 포함되지 않는 차량 번호 인식 두 가지 형식으로 구분됩니다.
+  subgraph "Object detection"
+    read
+    angle2
+    multi2
+    s2
+    m2
+    d
+    r
+  end
 
-### 2.1. 차량 번호 인식 결과
+  classDef opt fill:#6F6,stroke:#CCC,stroke-width:4px,padding:10px,font-weight:bold
+```
 
-### 2.1.1. `text`
-차량 번호 텍스트만 출력합니다. 
-번호판이 여러 개인 경우는 줄바꿈 문자 `CR (0x0d)`로 구분합니다.
+- Examples of License Plate Recognition Options  
+   | Options | Description
+  |---------|------------------------------------------------------------
+  | | Recognizes one license plate among all plates
+  | `v` | Recognizes one license plate attached to a vehicle
+  | `b` | Recognizes one license plate attached to a motorcycle (Vietnamese license plates only)
+  | `m` | Recognizes all license plates (multi-recognition)
+  | `vm` | Recognizes all license plates attached to vehicles (multi-recognition)
+  | `vs` | Recognizes one license plate attached to a vehicle, 360° surround recognition
+  | `vsm` | Recognizes all license plates attached to vehicles, 360° surround recognition (multi-recognition)
+
+- Examples of Object Detection Options
+  | Options | Description
+  |---------|------------------------------------------------------------
+  | `d` | Single object detection (does not recognize vehicle license plates)
+  | `dr` | Single object detection with vehicle license plate recognition
+  | `ds` | Single object detection, 360° surround detection (does not recognize vehicle license plates)
+  | `dsr` | Single object detection, 360° surround detection with vehicle license plate recognition
+  | `dm` | Multi-object detection (does not recognize vehicle license plates)
+  | `dmr` | Multi-object detection with vehicle license plate recognition (does not recognize other objects)
+  | `dms` | Multi-object detection, 360° surround detection (does not recognize vehicle license plates)
+  | `dmsr` | Multi-object detection, 360° surround detection with vehicle license plate recognition
+
+### 2.3. Setting Region of Interest (RoI) / Region of Uninterest (RoU)
+
+![](img/options/roi.png)
+
+#### Region of Interest (RoI)
+
+- The region of interest is defined as a polygon by connecting the pixel coordinates of each vertex.
+  - After the character `i`, list the pixel coordinates of each vertex in the order of x, y, separated by commas.
+- Multiple regions of interest can be set, and they can be combined with other license plate recognition options.
+
+#### Region of Uninterest (RoU)
+
+- The region of uninterest is defined as a polygon by connecting the pixel coordinates of each vertex.
+  - After the character `x`, list the pixel coordinates of each vertex in the order of x, y, separated by commas.
+- Multiple regions of uninterest can be set, and they can be combined with other license plate recognition options.
+
+**Note**: If neither a region of interest nor a region of uninterest is specified, license plate recognition will be performed on the entire image.
+If both a region of interest and a region of uninterest are specified and there are overlapping areas, the region of uninterest takes precedence. Therefore, any license plates in the overlapping area will be ignored.
+
+```python
+# Python Example
+# Given the following vertex pixel coordinates for each polygonal region in the image above:
+# RoI = [(810,64), (939,1182), (1486,1182), (1149,571), (879,124), (839,64)]
+# RoI2 = [(771,67), (479,1182), (1793,1182), (801,67)]
+# RoU = [(851,70), (923,134), (1753,1182), (1789,1182), (1789,250), (1176,87), (946,68)]
+
+# Setting a single region of interest (RoI)
+result = anpr_read_file(
+  b'roi.jpg',    # Input file name
+  b'text',       # Output format
+  b'vi810,64,939,1182,1486,1182,1149,571,879,124,839,64') # Use the 'v' option to recognize only license plates attached to vehicles
+
+# Setting two regions of interest (RoI)
+result = anpr_read_file(
+  b'roi.jpg',    # Input file name
+  b'text',       # Output format
+  b'vi810,64,939,1182,1486,1182,1149,571,879,124,839,64i771,67,479,1182,1793,1182,801,67')
+
+# Setting one region of interest and one region of uninterest (RoU)
+result = anpr_read_file(
+  b'roi.jpg',    # Input file name
+  b'text',       # Output format
+  b'vi810,64,939,1182,1486,1182,1149,571,879,124,839,64x851,70,923,134,1753,1182,1789,1182,1789,250,1176,87,946,68')
+
+# Setting a single region of uninterest (RoU)
+result = anpr_read_file(
+  b'roi.jpg',    # Input file name
+  b'text',       # Output format
+  b'vx851,70,923,134,1753,1182,1789,1182,1789,250,1176,87,946,68')
+```
+
+### 2.4. Setting Minimum License Plate Size
+
+- The minimum license plate size is specified after the character `a` as the area of the license plate bounding box (width x height in pixels). For example, if the width is `100` pixels and the height is `40` pixels, enter `a4000`.
+- If a minimum license plate size is set, any license plate smaller than this will be ignored.
+
+  ```python
+  # Python Example
+  # In the image, the license plate size is 156 x 154 = 24,024
+  result = anpr_read_file(
+    b'test.jpg',   # Input file name
+    b'text',       # Output format
+    b'vi7,580, 829,293, 1910,325, 1798,1077, 0,1077a24024'  # Specify RoI and minimum license plate size
+  )
+  ```
+
+## 3. Output Data Formats
+
+The output data is divided into two formats: object detection (when d is included in the options) and vehicle license plate recognition (when d is not included).
+
+### 3.1. Vehicle License Plate Recognition Results
+
+### 3.1.1. `text`
+
+Only the vehicle license plate text is output.
+If there are multiple license plates, they are separated by the line break character CR (0x0d).
+
 ```text
 01가2345
 67나8901
 ```
 
-차량 번호가 인식되지 않은 경우는 빈 텍스트`NULL terminated string (0x00)`를 출력합니다.
+If no license plate is recognized, an empty text (`NULL terminated string (0x00)`) is output.
 
+If an error is returned, it is output in the following text format:
 
-오류가 반환되는 경우는 아래와 같은 텍스트 형식으로 출력합니다.
 ```text
 error: (1) Invalid parameters
 ```
 
-##### 2.1.2. `csv`
-차량 번호와 속성을 `csv` 형식으로 출력합니다. 
-인식된 차량 번호 당 한 라인 씩으로 구성되며 각 컬럼은 콤마 문자(`,`)로 구분됩니다.
+##### 3.1.2. `csv`
+
+Outputs the vehicle license plate and its attributes in `csv` format.
+Each recognized license plate is represented by one line, and each column is separated by a comma (`,`).
+
 ```csv
 01가2345,1217,2083,92,175,12.45,0.75,0.83,0.20,ev
 67나8901,1108,1317,67,217,12.45,0.76,0.89,0.10,
 ```
 
-각 컬럼의 의미는 다음과 같습니다.
-| 컬럼  | 의미                      | 비고
+The meaning of each column is as follows:
+| Column | Description | Notes
 |-----:|---------------------------|------------------------
-| 1    | 차량번호                   | `text`
-| 2    | 번호판 x픽셀 좌표           | `area.x`
-| 3    | 번호판 y픽셀 좌표           | `area.y`
-| 4    | 번호판 폭                  | `area.width`
-| 5    | 번호판 높이                | `area.height`
-| 6    | 번호판 각도                | `area.angle`
-| 7    | 문자 인식 신뢰도            | `conf.ocr`
-| 8    | 번호판 인식 신뢰도          | `conf.plate`
-| 9    | 문자 인식 소요 시간 (초)    | `elapsed`
-| 10<sup>(1)</sup>   | 친환경 전기자동차 여부      | `attr.ev`
-- <sup>(1)</sup> 친환경 전기자동차이면 `ev`가 출력되고 아니면 공란으로 표시됨
+| 1 | Vehicle license plate number | `text`
+| 2 | Top-left x coordinate of license plate | `area.x`
+| 3 | Top-left y coordinate of license plate | `area.y`
+| 4 | License plate width | `area.width`
+| 5 | License plate height | `area.height`
+| 6 | License plate angle | `area.angle`
+| 7 | OCR confidence | `conf.ocr`
+| 8 | Plate recognition confidence | `conf.plate`
+| 9 | OCR elapsed time (seconds) | `elapsed`
+| 10<sup>(1)</sup> | Eco-friendly electric vehicle status | `attr.ev`
 
-차량 번호가 인식되지 않은 경우는 빈 텍스트`NULL terminated string (0x00)`를 출력합니다.
+- <sup>(1)</sup> (For Korean license plates only) If the vehicle is an eco-friendly electric vehicle, `ev` is output; otherwise, the field is left blank.
 
-오류가 반환되는 경우는 아래와 같은 텍스트 형식으로 출력합니다.
+If no license plate is recognized, an empty text (`NULL terminated string (0x00)`) is output.
+
+If an error is returned, it is output in the following text format:
+
 ```csv
 error,1,Invalid parameters
 ```
 
+### 3.1.3. `json`
 
-### 2.1.3. `json`
-차량 번호와 속성을 `json` 형식으로 출력합니다.
+Outputs the vehicle license plate and its attributes in `json` format.
+
 ```jsx
 [
-  {                         // 첫번째 번호판  
-    "text": "01가2345",     // 차량 번호
-    "area": {               // 번호판 영역 (픽셀 단위)
-      "x": 1217,            // 좌측 상단 x 좌표
-      "y": 2083,            // 좌측 상단 y 좌표
-      "width": 92,          // 폭
-      "height": 175,        // 높이
-      "angle": 12.45        // 기울기 (도)
+  {
+    // First license plate
+    text: "01가2345", // Vehicle license plate number
+    area: {
+      // License plate area (in pixels)
+      x: 1217, // Top-left x coordinate
+      y: 2083, // Top-left y coordinate
+      width: 92, // Width
+      height: 175, // Height
+      angle: 12.45, // Tilt angle (degrees)
     },
-    "attrs": {              // 번호판 속성
-      "ev": true            // 친환경 전기자동차 여부
+    attrs: {
+      // License plate attributes
+      ev: true, // Eco-friendly electric vehicle status
     },
-    "ev": true,             // deprecated (attrs.ev로 옮김, 추후 버전에서 삭제 예정)
-    "conf": {               // 신뢰도 (범위: 0 ~ 1)
-      "ocr": 0.75,          // 문자 인식 신뢰도
-      "plate": 0.84         // 번호판 인식 신뢰도
+    ev: true, // deprecated (moved to attrs.ev, will be removed in future versions)
+    conf: {
+      // Confidence (range: 0 ~ 1)
+      ocr: 0.75, // OCR confidence
+      plate: 0.84, // Plate recognition confidence
     },
-    "elapsed": 0.27         // 소요 시간 (초 단위)
+    elapsed: 0.27, // Elapsed time (in seconds)
   },
-  {                         // 두번째 번호판
-    "text": "67나8901",
-    "area": {
-      "x": 1108,
-      "y": 1317,
-      "width": 67,
-      "height": 217,
-      "angle": 12.45
+  {
+    // Second license plate
+    text: "67나8901",
+    area: {
+      x: 1108,
+      y: 1317,
+      width: 67,
+      height: 217,
+      angle: 12.45,
     },
-    "attrs": {
-      "ev": false
+    attrs: {
+      ev: false,
     },
-    "ev": false,
-    "conf": {
-      "ocr": 0.76,
-      "plate": 0.89
+    ev: false,
+    conf: {
+      ocr: 0.76,
+      plate: 0.89,
     },
-    "elapsed": 0.14
-  }
-]
+    elapsed: 0.14,
+  },
+];
 ```
 
-차량 번호가 인식되지 않은 경우는 아래와 같이 빈 데이터를 출력합니다.
+If no license plate is recognized, empty data is output as follows:
+
 ```jsx
-[]
+[];
 ```
 
-오류가 반환되는 경우는 아래와 같은 `json` 형식으로 출력합니다.
+If an error is returned, it is output in the following `json` format:
+
 ```jsx
 {
   "error": {
@@ -363,24 +528,26 @@ error,1,Invalid parameters
 }
 ```
 
-### 2.1.4. `yaml`
-차량 번호와 속성을 `yaml` 형식으로 출력합니다.
-````yaml
-- text: 01가2345        # 첫번째 번호판, 차량 번호 
-  area:                 # 번호판 영역 (픽셀 단위)
-    x: 1217             # 좌측 상단 x 좌표
-    y: 2083             # 좌측 상단 y 좌표
-    width: 92           # 폭
-    height: 175         # 높이
-    angle: 12.45        # 기울기 (도)
-  conf:                 # 신뢰도 (범위: 0 ~ 1)
-    ocr: 0.75           # 문자 인식 신뢰도
-    plate: 0.83         # 번호판 인식 신뢰도
-  attrs:                # 번호판 속성
-    ev: true            # 친환경 전기자동차 여부
-  ev: true              # deprecated (attrs.ev로 옮김, 추후 버전에서 삭제 예정)
-  elapsed: 0.20         # 소요 시간 (초)
-- text: 67나8901        # 두번째 번호판
+### 3.1.4. `yaml`
+
+Outputs the vehicle license plate and its attributes in `yaml` format.
+
+```yaml
+- text: 01가2345 # First license plate, vehicle number
+  area: # License plate area (in pixels)
+    x: 1217 # Top-left x coordinate
+    y: 2083 # Top-left y coordinate
+    width: 92 # Width
+    height: 175 # Height
+    angle: 12.45 # Tilt angle (degrees)
+  conf: # Confidence (range: 0 ~ 1)
+    ocr: 0.75 # OCR confidence
+    plate: 0.83 # Plate recognition confidence
+  attrs: # License plate attributes
+    ev: true # Eco-friendly electric vehicle status
+  ev: true # deprecated (moved to attrs.ev, will be removed in future versions)
+  elapsed: 0.20 # Elapsed time (seconds)
+- text: 67나8901 # Second license plate
   area:
     x: 1108
     y: 1317
@@ -392,49 +559,54 @@ error,1,Invalid parameters
     plate: 0.89
   ev: false
   elapsed: 0.10
-````
-
-차량 번호가 인식되지 않은 경우는 아래와 같이 빈 데이터를 출력합니다.
-```yaml
 ```
 
-오류가 반환되는 경우는 아래와 같은 `yaml` 형식으로 출력합니다.
+If no license plate is recognized, empty data is output as follows:
+
+```yaml
+
+```
+
+If an error is returned, it is output in the following `yaml` format:
+
 ```yaml
 error
   code: 1
   message: Invalid parameters
 ```
 
-### 2.1.5. `xml`
-차량 번호와 속성을 `xml` 형식으로 출력합니다.
+### 3.1.5. `xml`
+
+Outputs the vehicle license plate and its attributes in `xml` format.
+
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <data>
-  <!-- 첫번째 번호판 
-    text: 차량 번호
-    ev: deprecated (attrs.ev로 옮김, 추후 버전에서 삭제 예정)
-    elapsed: 소요 시간 (초)
+  <!-- First license plate
+    text: vehicle license plate number
+    ev: deprecated (moved to attrs.ev, will be removed in future versions)
+    elapsed: elapsed time (seconds)
   -->
   <license-plate text="01가2345" ev="true" elapsed="0.20">
-    <!-- 번호판 속성
-      ev: 친환경 전기자동차 여부 
-    -->    
+    <!-- License plate attributes
+      ev: eco-friendly electric vehicle status
+    -->
     <attrs ev="true"/>
-    <!-- 번호판 영역 (픽셀 단위)
-      x: 좌측 상단 x 좌표
-      y:  좌측 상단 y 좌표
-      width: 폭
-      height: 높이
-      angle: 기울기 (도)
+    <!-- License plate area (in pixels)
+      x: top-left x coordinate
+      y: top-left y coordinate
+      width: width
+      height: height
+      angle: tilt angle (degrees)
     -->
     <area x="1217" y="2083" width="92" height="175" angle="12.45"/>
-    <!-- 신뢰도 (범위: 0 ~ 1)
-      ocr: 문자 인식 신뢰도
-      plate: 번호판 인식 신뢰도
+    <!-- Confidence (range: 0 ~ 1)
+      ocr: OCR confidence
+      plate: plate recognition confidence
     -->
     <conf ocr="0.75" plate="0.83"/>
   </license-plate>
-  <!-- 두번째 번호판 -->
+  <!-- Second license plate -->
   <license-plate text="67나8901" ev="false" elapsed="0.11">
     <attrs ev="false"/>
     <area x="1108" y="1317" width="67" height="217"/>
@@ -443,107 +615,115 @@ error
 </data>
 ```
 
-차량 번호가 인식되지 않은 경우는 아래와 같이 빈 데이터를 출력합니다.
+If no license plate is recognized, empty data is output as follows:
+
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <data />
 ```
 
-오류가 반환되는 경우는 아래와 같은 `xml` 형식으로 출력합니다.
+If an error is returned, it is output in the following `xml` format:
+
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <error code="1" message="Invalid parameters" />
 ```
 
+#### 3.2. Object Detection Results
 
-#### 2.2. 객체 인식 결과
-이미지에서 미리 학습한 객체를 찾아냅니다.
-차별화된 특징은 360° 어안 렌즈 카메라로 촬영된 원본 이미지에서 외곡된 형태의 객체를 인식합니다.
-현재 지원하는 객체 목록은 아래와 같습니다.
-| class        | 이름                             
+Detects pre-trained objects in the image.
+A distinguishing feature is that it can recognize distorted objects in original images taken with a 360° fisheye lens camera.
+Currently supported object classes are as follows:
+| class | Name  
 |--------------|----------------------------------
-| `car`        | 차량
-| `motorcycle` | 오토바이
+| `car` | Car
+| `motorcycle` | Motorcycle
 
-##### 2.2.1. `csv`, `text`
-객체 인식 결과를 cvs 형식의 텍스트로 출력합니다.
-출력 형식을 `text`로 지정한 경우도 csv 형식으로 대체되어 출력됩니다.
+##### 3.2.1. `csv`, `text`
 
-인식된 객체 당 한 라인 씩으로 구성되며 각 컬럼은 콤마 문자(`,`)로 구분됩니다.
+Outputs object detection results in `csv` format text.
+If the output format is specified as `text`, it is also output in `csv` format.
+
+Each detected object is represented by one line, and each column is separated by a comma (`,`).
+
 ```csv
 car,2171,2281,396,521,0.9679,0.2886,51조8969,2420,2295,110,81,147.5933,0.9005,0.7864,0.3913,ev
 car,264,2266,433,543,0.9706,0.2886,41노7656,315,2281,103,81,211.3135,0.9160,0.8299,0.4189,
-car,777,0,579,403,0.9716,0.2886 // 번호판 정보가 없는 경우
+car,777,0,579,403,0.9716,0.2886 // When there is no license plate information
 ```
-각 컬럼의 의미는 다음과 같습니다.
-| 컬럼  | 의미                              | 비고
+
+The meaning of each column is as follows:
+| Column | Description | Notes
 |-----:|-----------------------------------|------------------------
-| 1    | 종류                               | `class`
-| 2    | x픽셀 좌표                         | `area.x`
-| 3    | y픽셀 좌표                         | `area.y`
-| 4    | 폭                                 | `area.width`
-| 5    | 높이                               | `area.height`
-| 6    | 신뢰도                             | `conf`
-| 7    | 소요 시간(초)                      | `elapsed`
-| 8<sup>(1)</sup>    | 차량번호             | `licensePlate.text`
-| 9    | 번호판 x픽셀 좌표                  | `licensePlate.area.x`
-| 10   | 번호판 y픽셀 좌표                  | `licensePlate.area.y`
-| 11   | 번호판 폭                          | `licensePlate.area.width`
-| 12   | 번호판 높이                        | `licensePlate.area.height`
-| 13   | 번호판 각도                        | `licensePlate.area.angle`
-| 14   | 문자 인식 신뢰도                   | `licensePlate.conf.ocr`
-| 15   | 번호판 인식 신뢰도                  | `licensePlate.conf.plate`
-| 16   | 문자 인식 소요 시간 (초)            | `licensePlate.elapsed`
-| 17<sup>(2)</sup> | 친환경 전기자동차 여부  | `licensePlate.attrs.ev`
+| 1 | Class | `class`
+| 2 | x pixel coordinate | `area.x`
+| 3 | y pixel coordinate | `area.y`
+| 4 | Width | `area.width`
+| 5 | Height | `area.height`
+| 6 | Confidence | `conf`
+| 7 | Elapsed time (seconds) | `elapsed`
+| 8<sup>(1)</sup> | License plate number | `licensePlate.text`
+| 9 | Top-left x coordinate of license plate | `licensePlate.area.x`
+| 10 | Top-left y coordinate of license plate | `licensePlate.area.y`
+| 11 | License plate width | `licensePlate.area.width`
+| 12 | License plate height | `licensePlate.area.height`
+| 13 | License plate angle | `licensePlate.area.angle`
+| 14 | OCR confidence | `licensePlate.conf.ocr`
+| 15 | Plate recognition confidence | `licensePlate.conf.plate`
+| 16 | OCR elapsed time (seconds) | `licensePlate.elapsed`
+| 17<sup>(2)</sup> | Eco-friendly electric vehicle status | `licensePlate.attrs.ev`
 
-- <sup>(1)</sup> 8번 컬럼부터는 `r` 옵션을 사용하여 차량 번호가 인식된 경우만 출력되며 아니면 이하 컬럼이 모두 생략됨
-- <sup>(2)</sup> 17번 컬럼은 친환경 전기자동차로 인식된 경우 `ev`로 출력되며 아니면 공란으로 표시됨
+- <sup>(1)</sup> Columns from 8 onward are output only if the `r` option is used and a license plate is recognized; otherwise, all subsequent columns are omitted.
+- <sup>(2)</sup> (For Korean license plates only) Column 17 is output as ev if the vehicle is recognized as an eco-friendly electric vehicle; otherwise, it is left blank.
 
-객체가 인식되지 않은 경우는 빈 텍스트`NULL terminated string (0x00)`를 출력합니다.
+If no object is detected, an empty text (`NULL terminated string (0x00)`) is output.
 
-오류가 반환되는 경우는 아래와 같은 텍스트 형식으로 출력합니다.
+If an error is returned, it is output in the following `text` format:
+
 ```csv
 error,1,Invalid parameters
 ```
 
-##### 2.2.2. `json`
-객체 인식 결과를 `json` 형식으로 출력합니다.
+##### 3.2.2. `json`
+
+Outputs object detection results in `json` format.
+
 ```jsx
  [
-  {                           // 첫번째 객체
-    "class": "car",           // 객체 종류
-    "area": {                 // 객체 영역 (픽셀 단위)
-      "x": 2171,              // 좌측 상단 x 좌표
-      "y": 2281,              // 좌측 상단 y 좌표
-      "width": 396,           // 폭
-      "height": 521           // 높이
+  {                           // First object
+    "class": "car",           // Object class
+    "area": {                 // Object area (in pixels)
+      "x": 2171,              // Top-left x coordinate
+      "y": 2281,              // Top-left y coordinate
+      "width": 396,           // Width
+      "height": 521           // Height
     },
-    "conf": 0.9679,           // 객체 인식 신뢰도 (범위: 0 ~ 1)
-    "elapsed": 0.2513,        // 소요 시간 (초)
-    "licensePlate": [         // 번호판
+    "conf": 0.9679,           // Object detection confidence (range: 0 ~ 1)
+    "elapsed": 0.2513,        // Elapsed time (seconds)
+    "licensePlate": [         // License plate(s)
       {
-        "text": "51조8969"    // 차량 번호
-        "area": {             // 번호판 영역 (픽셀 단위)
-          "x": 2420,          // 좌측 상단 x 좌표
-          "y": 2295           // 좌측 상단 y 좌표
-          "width": 110,       // 폭
-          "height": 81,       // 높이
-          "angle": 147.5933   // 기울기 (도)
+        "text": "51조8969"    // License plate number
+        "area": {             // License plate area (in pixels)
+          "x": 2420,          // Top-left x coordinate
+          "y": 2295           // Top-left y coordinate
+          "width": 110,       // Width
+          "height": 81,       // Height
+          "angle": 147.5933   // Tilt angle (degrees)
         },
-        "attrs": {            // 번호판 속성
-          "ev": true          // 친환경 전기자동차 여부
+        "attrs": {            // License plate attributes
+          "ev": true          // Eco-friendly electric vehicle status
         },
-        "conf": {             // 신뢰도 (범위: 0 ~ 1)
-          "ocr": 0.9005,      // 문자 인식 신뢰도
-          "plate": 0.7864     // 번호판 인식 신뢰도
+        "conf": {             // Confidence (range: 0 ~ 1)
+          "ocr": 0.9005,      // OCR confidence
+          "plate": 0.7864     // Plate recognition confidence
         },
-        "elapsed": 0.3525,    // 소요 시간 (초)
+        "elapsed": 0.3525,    // Elapsed time (seconds)
       }
     ]
   },
-  {                           // 두번째 객체    
+  {                           // Second object
     "class": "car",
-    "area": {      
+    "area": {
       "x": 264,
       "y": 2266,
       "width": 433,
@@ -572,7 +752,7 @@ error,1,Invalid parameters
       }
     ]
   },
-  {                           // 세번째 객체 (번호판 정보가 없는 경우)
+  {                           // Third object (when there is no license plate information)
     "class": "car",
     "area": {
       "x": 777,
@@ -586,12 +766,14 @@ error,1,Invalid parameters
 ]
 ```
 
-객체가 인식되지 않은 경우는 아래와 같이 빈 데이터를 출력합니다.
+If no object is detected, empty data is output as follows:
+
 ```jsx
-[]
+[];
 ```
 
-오류가 반환되는 경우는 아래와 같은 `json` 형식으로 출력합니다.
+If an error is returned, it is output in the following `json` format:
+
 ```jsx
 {
   "error": {
@@ -601,32 +783,34 @@ error,1,Invalid parameters
 }
 ```
 
-##### 2.2.3. `yaml`
-객체 인식 결과를 `yaml` 형식으로 출력합니다.
-````yaml
-- class: car            # 첫번째 객체, 객체 종류
-  area:                 # 객체 영역 (픽셀 단위)
-    x: 2171             # 좌측 상단 x 좌표
-    y: 2281             # 좌측 상단 y 좌표
-    width: 396          # 폭
-    height: 521         # 높이
-  conf: 0.9678          # 객체 인식 신뢰도 (범위: 0 ~ 1)
-  elapsed: 0.3190       # 소요 시간 (초)
-  licensePlate:         # 번호판
-    - text: 51조8969    # 차량 번호
-      area:             # 번호판 영역 (픽셀 단위)
-        x: 2420         # 좌측 상단 x 좌표
-        y: 2295         # 좌측 상단 y 좌표
-        width: 110      # 폭
-        height: 81      # 높이
-        angle: 147.5933 # 기울기 (도)
-      attrs:            # 번호판 속성
-        ev: true        # 친환경 전기자동차 여부
-      conf:             # 신뢰도 (범위: 0 ~ 1)
-        ocr: 0.9005     # 문자 인식 신뢰도
-        plate: 0.7864   # 번호판 인식 신뢰도
-      elapsed: 0.3226   # 소요 시간 (초)
-- class: car            # 두번째 객체
+##### 3.2.3. `yaml`
+
+Outputs object detection results in `yaml` format.
+
+```yaml
+- class: car # First object, object class
+  area: # Object area (in pixels)
+    x: 2171 # Top-left x coordinate
+    y: 2281 # Top-left y coordinate
+    width: 396 # Width
+    height: 521 # Height
+  conf: 0.9678 # Object detection confidence (range: 0 ~ 1)
+  elapsed: 0.3190 # Elapsed time (seconds)
+  licensePlate: # License plate(s)
+    - text: 51조8969 # License plate number
+      area: # License plate area (in pixels)
+        x: 2420 # Top-left x coordinate
+        y: 2295 # Top-left y coordinate
+        width: 110 # Width
+        height: 81 # Height
+        angle: 147.5933 # Tilt angle (degrees)
+      attrs: # License plate attributes
+        ev: true # Eco-friendly electric vehicle status
+      conf: # Confidence (range: 0 ~ 1)
+        ocr: 0.9005 # OCR confidence
+        plate: 0.7864 # Plate recognition confidence
+      elapsed: 0.3226 # Elapsed time (seconds)
+- class: car # Second object
   area:
     x: 264
     y: 2266
@@ -648,7 +832,7 @@ error,1,Invalid parameters
       attrs:
         ev: false
       elapsed: 0.5527
-- class: car            # 세번째 객체 (번호판 정보가 없는 경우)
+- class: car # Third object (when there is no license plate information)
   area:
     x: 777
     y: 0
@@ -656,67 +840,72 @@ error,1,Invalid parameters
     height: 403
   conf: 0.9716
   elapsed: 0.3191
-````
-
-객체가 인식되지 않은 경우는 아래와 같이 빈 데이터를 출력합니다.
-```yaml
 ```
 
-오류가 반환되는 경우는 아래와 같은 `yaml` 형식으로 출력합니다.
+If no object is detected, empty data is output as follows:
+
+```yaml
+
+```
+
+If an error is returned, it is output in the following yaml format:
+
 ```yaml
 error
   code: 1
   message: Invalid parameters
 ```
 
-##### 2.2.4. `xml`
+##### 3.2.4. `xml`
+
 객체 인식 결과를 `xml` 형식으로 출력합니다.
+
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <data>
-  <!-- 첫번째 객체
-    class: 객체 종류
-    conf: 객체 인식 신뢰도 (범위: 0 ~ 1)
-    elapsed: 소요 시간 (초)
+  <!-- First object
+    class: object class
+    conf: object detection confidence (range: 0 ~ 1)
+    elapsed: elapsed time (seconds)
   -->
   <object class="car" conf="0.9679" elapsed="0.3287">
-    <!-- 객체 영역 (픽셀 단위)
-      x: 좌측 상단 x 좌표
-      y: 좌측 상단 y 좌표
-      width: 폭
-      height: 높이
+    <!-- Object area (in pixels)
+      x: top-left x coordinate
+      y: top-left y coordinate
+      width: width
+      height: height
     -->
     <area x="2171" y="2281" width="396" height="521"/>
 
-    <!-- 번호판
-      text: 차량 번호
-      elapsed: 소요 시간 (초)
+    <!-- License plate
+      text: license plate number
+      elapsed: elapsed time (seconds)
     -->
     <license-plate text="51조8969" elapsed="0.3961">
-    
-      <!-- 번호판 속성
-        ev: 친환경 전기자동차 여부
+
+      <!-- License plate attributes
+        ev: eco-friendly electric vehicle status
       -->
       <attrs ev="true"/>
-      
-      <!-- 번호판 영역 (픽셀 단위)
-        x: 좌측 상단 x 좌표
-        y: 좌측 상단 y 좌표
-        width: 폭
-        height: 높이
-        angle: 기울기 (도)
+
+      <!-- License plate area (in pixels)
+        x: top-left x coordinate
+        y: top-left y coordinate
+        width: width
+        height: height
+        angle: tilt angle (degrees)
       -->
       <area x="2420" y="2295" width="110" height="81" angle="147.5933"/>
 
-      <!-- 신뢰도 (범위: 0 ~ 1)
-        ocr: 문자 인식 신뢰도
-        plate: 번호판 인식 신뢰도
+      <!-- Confidence (range: 0 ~ 1)
+        ocr: OCR confidence
+        plate: plate recognition confidence
       -->
       <conf ocr="0.9005" plate="0.7864"/>
     </license-plate>
   </object>
 
-  <!-- 두번째 객체 -->
+  <!-- Second object -->
   <object class="car" conf="0.9706" elapsed="0.3287">
     <area x="264" y="2266" width="433" height="543"/>
     <license-plate text="41노7656" elapsed="0.4364">
@@ -726,79 +915,44 @@ error
     </license-plate>
   </object>
 
-  <!-- 세번째 객체 (번호판 정보가 없는 경우) -->
+  <!-- Third object (when there is no license plate information) -->
   <object class="car" conf="0.9716" elapsed="0.3287">
     <area x="777" y="0" width="579" height="403"/>
   </object>
 </data>
 ```
 
-객체가 인식되지 않은 경우는 아래와 같이 빈 데이터를 출력합니다.
+If no object is detected, empty data is output as follows:
+
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <data />
 ```
 
-오류가 반환되는 경우는 아래와 같은 `xml` 형식으로 출력합니다.
+If an error is returned, it is output in the following xml format:
+
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <error code="1" message="Invalid parameters" />
 ```
 
+## 4. Error Code Table
 
-## 3. 오류 코드표
-전체 오류 목록은 아래 표와 같습니다.
-  
-  |   code | message                    | 설명
-  |-------:|----------------------------|--------------------------------
-  |    `1` | `Invalid parameters`       | 함수 호출 인자가 잘못된 경우
-  |    `2` | `File not found`           | 입력 이미지 파일이 존재하지 않는 경우
-  |    `3` | `Invalid image`            | 입력 이미지 메모리가 형식에 맞지 않는 경우
-  |    `4` | `Unsupported image format` | 입력 이미지가 지원되지 않는 형식인 경우 
-  |  `100` | `License expired`          | 라이선스가 만료된 경우
-  |  `101` | `Corrupted library`        | 라이브러리 구성 파일 중 일부가 없거나 손상된 경우
-  |  `102` | `Not initialized`          | 엔진이 초기화되지 않은 상태
-  |  `103` | `Too many workers`         | 라이브러리 호출 쓰레드 수가 한계를 초과한 경우 (최대 256개)
-  |  `104` | `Resource exhausted`       | 더 이상 자원을 할당할 수 없는 경우
-  |  `105` | `License not installed`    | 라이선스가 설치되지 않은 상태 (리눅스에서 무료 평가판 라이센스가 설치되지 않은 경우 발생함)
-  |  `106` | `USB dongle I/O error`     | USB 라이선스 동글 읽기 실패시 발생
-  |  `107` | `License required`				  | 해당 기능을 사용하기 위한 라이선스가 없음
-  |  `108` | `Unsupported platform`     | 지원되지 않는 환경에서 실행시 발생
-  |  `200` | `Unknown`                  | 기타 정의되지 않은 오류
-  
-## 4. 예제
+The complete list of error codes is as follows:
 
-- 디렉토리 구성
-    ```
-    /examples
-      /bin                  # 각 플랫폼별 ANPR 엔진
-        /windows-x86_64     # x86 64비트 윈도우즈용
-        /windows-x86        # x86 32비트 윈도우즈용
-        /linux-x86_64       # x86 64비트 리눅스용
-        /linux-aarch64      # ARM 64비트 리눅스용
-      /img                  # 테스트용 샘플 이미지
-      /cpp                  # C++ 예제
-      /csharp               # C#  예제
-      /vb                   # Visual Basic 예제
-      /javascript/nodejs    # JavaScript/Node.js 예제
-      /python               # Python 예제
-      /go                   # Golang 예제
-      /pascal/delphi        # Pascal/Delphi 예제
-      /perl                 # Perl 예제
-      /ruby                 # Ruby 예제
-    ```
-
-- *TS-ANPR 엔진 디렉토리를 `/examples/bin` 디렉토리에 복사해 넣고 예제를 실행하면 됩니다.*
-
-|      언어     |     호출방식     |  예제
-|:-------------:|:---------------:|:------------------------------------------
-| C/C++         | Importlib       | [examples/cpp/anprCpp1](https://github.com/bobhyun/TS-ANPR/tree/main/examples/cpp/anprCpp1)
-| (상동)          | LoadLibrary     | [examples/cpp/anprCpp2](https://github.com/bobhyun/TS-ANPR/tree/main/examples/cpp/anprCpp2)
-| C#            | .Net            | [examples/csharp/anprCsharpDotnet1](https://github.com/bobhyun/TS-ANPR/tree/main/examples/csharp/anprCsharpDotnet1)
-| Visual Basic  | .Net            | [examples/vb/anprVbDotnet1](https://github.com/bobhyun/TS-ANPR/tree/main/examples/vb/anprVbDotnet1)
-| Python        | ctypes          | [examples/python](https://github.com/bobhyun/TS-ANPR/tree/main/examples/python)
-| JavaScript    | Node.js, ffi    | [examples/javascript/nodejs](https://github.com/bobhyun/TS-ANPR/tree/main/examples/javascript/nodejs)
-| Go            | C, syscall      | [examples/go](https://github.com/bobhyun/TS-ANPR/tree/main/examples/go)
-| Pascal        | Delphi          | [examples/pascal/delphi](https://github.com/bobhyun/TS-ANPR/tree/main/examples/pascal/delphi)
-| Perl          | Win32::API      | [examples/perl](https://github.com/bobhyun/TS-ANPR/tree/main/examples/perl)
-| Ruby          | ffi             | [examples/ruby](https://github.com/bobhyun/TS-ANPR/tree/main/examples/ruby)
+|  code | message                    | Description                                                                                    |
+| ----: | -------------------------- | ---------------------------------------------------------------------------------------------- |
+|   `1` | `Invalid parameters`       | When function call arguments are invalid                                                       |
+|   `2` | `File not found`           | When the input image file does not exist                                                       |
+|   `3` | `Invalid image`            | When the input image memory does not match the required format                                 |
+|   `4` | `Unsupported image format` | When the input image is in an unsupported format                                               |
+| `100` | `License expired`          | When the license has expired                                                                   |
+| `101` | `Corrupted library`        | When some library configuration files are missing or corrupted                                 |
+| `102` | `Not initialized`          | When the engine has not been initialized                                                       |
+| `103` | `Too many workers`         | When the number of library call threads exceeds the limit (maximum 256)                        |
+| `104` | `Resource exhausted`       | When no more resources can be allocated                                                        |
+| `105` | `License not installed`    | When the license is not installed (occurs if the free trial license is not installed on Linux) |
+| `106` | `USB dongle I/O error`     | When reading the USB license dongle fails                                                      |
+| `107` | `License required`         | When a license is required to use the function                                                 |
+| `108` | `Unsupported platform`     | When running in an unsupported environment                                                     |
+| `200` | `Unknown`                  | Other undefined errors                                                                         |

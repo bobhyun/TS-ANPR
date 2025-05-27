@@ -1,158 +1,116 @@
-TS-ANPR
-===
+English | [한국어](doc.i18n/ko-KR/README.md) | [日本語](doc.i18n/ja-JP/README.md) | [Tiếng Việt](doc.i18n/vi-VN/README.md)
 
-TS-ANPR은 딥러닝 기반의 대한민국 차량 번호 인식 엔진입니다.
+# 😍TS-ANPR
+
+**TS-ANPR** is a deep learning-based vehicle license plate recognition engine that supports the license plate standards of Korea, Japan, and Vietnam.
+
+##### <img src="img/icons/video.png" style="vertical-align:bottom; width:20px;"/> Application example (TS-IVR)
+
+https://github.com/user-attachments/assets/71a2977a-4d1f-479b-a909-21c03fd9f013
+
+##### [😍 Live Demo](http://tsnvr.ipdisk.co.kr/) <span style="font-size:.7em;font-weight:normal;color:grey">👈 Check the number recognition performance directly here.</span>
+
+##### [🚀 Download the Latest Engine](https://github.com/bobhyun/TS-ANPR/releases/)
+
+##### <img src="img/icons/coding.png" style="vertical-align:bottom; width:20px;"/> Code Samples in Popular Languages
+
+- [C](examples/C/) | [C#](examples/C#/) | [C++](examples/C++/) | [Clojure](examples/Clojure/) | [Dart](examples/Dart/) | [Delphi](examples/Delphi/) | [F#](examples/F#/) | [Go](examples/Go/) | [Haskell](examples/Haskell/) | [Java](examples/Java/) | [JavaScript](examples/JavaScript/) | [Julia](examples/Julia/) | [Kotlin](examples/Kotlin/) | [Lua](examples/Lua/) | [Perl](examples/Perl/) | [Python](examples/Python/) | [Ruby](examples/Ruby/) | [Rust](examples/Rust/) | [Scala](examples/Scala/) | [Swift](examples/Swift/) | [TypeScript](examples/TypeScript/) | [VB.NET](examples/VB.NET/)
+
+##### <img src="img/icons/link.png" style="vertical-align:bottom; width:20px;"/> Application Development Guide
+
+- [TS-ANPR](DevGuide.md)
+- [TS-CAM](https://github.com/bobhyun/TS-CAM/blob/main/DevGuide.md)
+
+##### [<img src="img/icons/install.png" style="vertical-align:bottom; width:20px;"/> How to install](Usage.md)
+
+##### [<img src="img/icons/license.png" style="vertical-align:bottom; width:20px;"/> License](LICENSE.md)
+
+_If you have any questions or requests, please feel free to open an [Issues](https://github.com/bobhyun/TS-ANPR/issues).
+We are happy to assist and welcome your feedback!_
+
+- Inquiry: 📧 skju3922@naver.com
 
 ---
 
-#### [😍 차번 인식 라이브 데모](http://tsnvr.ipdisk.co.kr/) <span style="font-size:.7em;font-weight:normal;color:grey">👈 여기서 번호 인식 성능을 테스트해 보세요.</span>
+## Table of Contents
 
-#### [🚀 최신 엔진 다운로드](https://github.com/bobhyun/TS-ANPR/releases/)
-
-#### [💻 TS-ANPR 응용 프로그램 개발 가이드](DevGuide.md) 
-
-#### [💻 TS-CAM 응용 프로그램 개발 가이드](https://github.com/bobhyun/TS-CAM/blob/main/DevGuide.md)
-
-#### [🎁 설치 방법](Usage.md)
-
-#### [⚖️ 라이선스](LICENSE.md)
----
-
-## 목차
-  - [최신 버전 정보](#최신-버전-정보)
-  - [딥러닝 모델별 용도](#딥러닝-모델별-용도)
-  - [딥러닝 모델별 인식 속도 비교](#딥러닝-모델별-인식-속도-비교)
-  - [특장점](#특장점)
-  - [다양한 인식 옵션](#다양한-인식-옵션)
+- [Latest Version Information](#latest-version-information)
+- [Deep Learning Model Types and Their Applications](#deep-learning-model-types-and-their-applications)
+- [Comparison Table of Recognition Speed by Deep Learning Model](#comparison-table-of-recognition-speed-by-deep-learning-model)
+- [Key Features](#key-features)
+- [Various Recognition Options](#various-recognition-options)
 
 <br/>
 
-*관련 질문이나 요청 사항은 [Issues](https://github.com/bobhyun/TS-ANPR/issues)에 등록해 주시면 적극 지원하겠습니다.*
-
-
-- 개발 문의: bobhyun@gmail.com
-- 구매 문의: skju3922@naver.com 
-- 📞 전화: <a href="tel:02-6084-3920">02-6084-3920</a>
-  
 ---
 
-## 최신 버전 정보
+## Latest Version Information
 
-#### v2.4.5 출시 (2025.1.10)🎉
-1. 번호인식이 성공하기 위한 최소 문자수 지정 기능 추가
-```python
-  # 파이썬 예제
-  # 5문자 이상인 경우만 번호인식 성공하도록 설정하는 예
-  err = anpr_initialize('minChar=5')
-```
-2. 인식률 향상 *(특히 **S모델** 인식률이 대폭 향상됨)*
+#### Release v3.0.0 (2025.5.27)🎉
 
-#### v2.4.2 출시 (2024.10.24)🎉 
-1. 오류 수정
-    - TS-ANPR v1.x.x 때 구매한 USB 동글 라이선스의 경우 **동시 인식 차량 수: 최대 0** 으로 표시되는 문제 수정
-    
-#### v2.4.1 출시 (2024.9.11)🎉 
-1. [**TS-CAM** (CCTV 카메라용 차량번호인식 프레임워크)](https://github.com/bobhyun/TS-CAM) 기능 추가
-    - 내장 기능
-      - 루프 센서 입력
-      - 스냅샷 이미지 획득
-      - 차량 번호 인식
-      - 차단기 제어
-      - 이미지 저장
-      - 저장 이미지 웹 서빙
-    - 주요 장점
-      - 차량 번호를 인식에 필요한 제반 기능이 프레임워크에 내장되어 있어  쉽게 불러 사용할 수 있으므로 **응용프로그램 개발 생산성 향상**
-      - CCTV 카메라 시장의 주류인 ONVIF 호환 IP 카메라를 사용할 수 있어 **카메라 선택 폭이 넓어짐**
-      - 32비트 응용프로그램의 경우 64비트 TS-CAM을 사용하면 **멀티코어 CPU에서 약 2 ~ 4배 성능 향상**
-    - *자세한 내용과 개발 자료는 [TS-CAM 저장소](https://github.com/bobhyun/TS-CAM)를 확인해 보세요.*
+1. Added Japanese and Vietnamese vehicle license plate recognition features.
 
-2. 오류 수정
-    - 다중 차량 번호 인식시 차체 영역에 옆 차량 번호판이 겹쳐질 경우, 신뢰도 높은 번호판만 번호 인식하고 나머지는 누락되는 문제 수정
-3. 인식률 향상
+   - Supports 140 regions in Japan, diplomatic, Self-Defense Forces, and old-style plates.
 
-#### v2.3.0 출시 (2024.7.30)🎉 
-1. 인코딩된 이미지 버퍼 입력 지원
-  `jpg`, `png` 등 인코딩된 이미지 버퍼를 입력으로 차번인식하는 방식을 지원합니다.
-  *(네트워크로 전송받은 이미지를 파일에 저장하거나 디코딩하지 않고 즉시 번호인식하는 경우 유용합니다.)*
-```python
-  # 파이썬 예제
-  result = anpr_read_pixels(
-    buffer,       # 이미지 시작 주소
-    length,       # 이미지 바이트 수
-    0,            # 사용안함
-    0,            # 사용안함
-    'jpg',        # 압축 이미지 형식
-    'json',       # 번호인식 결과 출력 형식 
-    'vms'         # 번호인식 옵션
-  )
-```
-2. 인식률 향상 
+   - Supports Vietnamese vehicle and motorcycle plates.
 
-#### v2.1.3 출시 (2024.6.18)🎉 
-1. 인식 성능 향상
-    - 자동차 후면 근접 촬영 이미지에서 미인식 현상 개선
-    - 덤프트럭 번호판 인식률 향상
-2. 오류 수정
-    - 차량 영역이 겹쳐진 경우 동일 차량 번호 중복 출력 문제 수정
+   - Country support based on license:
 
-#### v2.1.0 출시 (2024.4.29)🎉 
-1. 객체 인식 기능 추가
-    - 360° 어안렌즈 카메라로 촬영한 외곡된 형태의 원본 이미지에서 객체 및 차량 번호 인식
-    - 차량 영역을 인식하여 주차면 만.공차 판별용으로 활용
-    - 다중 인식 기능으로 이미지 내의 차량 대수 카운트용으로 활용
-    - 인식 가능한 객체 종류: 차, 오토바이
-2. 라이선스 모델 확장
-    - 기존 번호 인식 라이선스에 객체 인식 기능 포함
-    - 라이선스별 최대 인식 객체 수 제한
-    - 주차면 만.공차 판별 전용 `TS-ANPR 객체인식` 출시 (번호 인식 기능은 없고 객체 인식 기능만 있음)
-      ([참고: TS-ANPR 엔진 바이너리](LICENSE.md#2-ts-anpr-엔진-바이너리))
-3. 딥러닝 모델 파일 구성 변경
-    - 기존 두 개의 `*.eon` 파일을 하나로 합치고 용도별로 아래와 같이 구분함
-      | 모델  | 파일명                 | 비고
-      |:-----:|-----------------------|--------
-      | **S** | `tsanpr-KR-*S.eon`   | 기존 `lite` 모델 명칭 변경
-      | **M** | `tsanpr-KR-*M.eon`   | 기존 일반 모델 명칭 변경
-      | **L** | `tsanpr-KR-*L.eon`   | 신규 출시
-4. 인식률 향상
-5. `M` 모델 인식 속도 향상 (약 15% 단축)
-6. 인식 결과 데이터에 포함된 숫자를 소숫점 이하 네 자리 까지만 표기
-7. 친환경 전기차 구분용 `ev` 값을 `attrs`로 옮김 ([참고: 2.1. 차량 번호 인식 결과](DevGuide.md#213-json))
+     - Free trial license: Specify the country using the `country` setting in the application's initialization function. ([Details](DevGuide.md#11-anpr_initialize))
+     - Commercial license: The `country` specified in the initialization function is ignored; the supported country is determined by the purchased license.
 
+2. Added Region of Interest (RoI) / Region of Uninterest (RoU) Configuration
+   - Users can now define specific areas for license plate recognition within input images. ([Details](DevGuide.md#23-setting-region-of-interest-roi--region-of-uninterest-rou))
+     ![](img/options/roi.png)
+3. Added Minimum License Plate Size Configuration
 
-## 딥러닝 모델별 용도
-라이선스는 모든 딥러닝 모델에 공통으로 적용되며 용도에 적합한 모델을 선택하면 됩니다.
+   - License plate regions smaller than the configured minimum size will be ignored. ([Details](DevGuide#24-setting-minimum-license-plate-size))
 
-| 모델  | 성능   | 용도 예시
-|:-----:|:-----:|:---------------------------------------------
-| **S** | 속도 빠름<br/>(근거리용) |주차장 입출관리<br/><img src="img/models/small1.png" />
-| **M** | 속도 보통<br/>(중거리용) |주차면 만.공차 관리 / 주차 위치 찾기<br/><img src="img/models/medium1.png" /><br/>어안 렌즈 카메라 (360° 서라운드 인식)<br/><img src="img/models/medium2.png" /><br/>전복 차량 (360° 서라운드 인식)<br/><img src="img/models/medium3.png" />
-| **L** | 속도 느림<br/>(원거리용) |대규모 야외 주차장 / 차량 대수 카운트<br/><img src="img/models/large1.png" /><br/>다차로 차량 번호 인식<br/><img src="img/models/large2.png" /><br/>통행량 집계<br/><img src="img/models/large3.png" />
+4. Improved Recognition Accuracy
+   - Enhanced algorithm improves license plate recognition accuracy.
+5. `tscam` Module Separated
+   - `tscam` has been separated from `TS-ANPR` and is now distributed via [TS-CAM Releases](https://github.com/bobhyun/TS-CAM/releases).
+   - Support for HTTPS cameras using self-signed certificates
 
+## Deep Learning Model Types and Their Applications
 
-## 딥러닝 모델별 인식 속도 비교
-|CPU                 | 코어| 쓰레드| 클럭<sup>(1)</sup>| 운영체제 | S<sup>(2)</sup>| M<sup>(2)</sup>| L<sup>(2)</sup>|
-|--------------------|----:|-----:|-------:|:--------|------:|------:|------:|
-|인텔 i7-12700        |  12 |   20 | 2.1| 64비트 윈도우즈<br/>64비트 리눅스| 0.021| 0.036| 0.054
-|인텔 i5-6500        |   4 |    4 | 3.2| 64비트 윈도우즈<br/>64비트 리눅스 | 0.031| 0.078| 0.140
-| (상동)             |     |      |    | 32비트 윈도우즈        | 0.078| 0.172| 0.296
-|인텔 i3-8100        |   4 |    4 | 3.6| 64비트 윈도우즈<br/>64비트 리눅스 | 0.042| 0.087| 0.156
-| (상동)             |     |      |    | 32비트 윈도우즈        | 0.089| 0.204| 0.656
-|인텔 셀러론 J4005   |   2 |    2 | 2.0| 64비트 윈도우즈<br/>64비트 리눅스 | 0.396| 0.886| 1.563
-| (상동)             |     |      |    | 32비트 윈도우즈         | 0.629| 1.355| 2.368
-|인텔 셀러론 1037U<sup>(3)</sup>|   2 |    2 | 1.8| 32비트 윈도우즈         | 0.484| 1.061| 1.856
-|RK3588S<sup>(4)</sup>|   8 |    8 | 1.5| 64비트 리눅스    | 0.227| 0.462| 0.842
-|BCM2711<sup>(5)</sup>|   4 |    4 | 1.8| 64비트 리눅스    | 0.465| 1.024| 1.817
-- 차량 한대만 있는 이미지로 측정함
-- <sup>(1)</sup> 단위: GHz
-- <sup>(2)</sup> 단위: 초
-- <sup>(3)</sup> 32비트 전용 CPU [(제조사 사양 보기)](https://www.intel.co.kr/content/www/kr/ko/products/sku/71995/intel-celeron-processor-1037u-2m-cache-1-80-ghz/specifications.html)
-- <sup>(4)</sup> NanoPi R6S [(제조사 사양 보기)](https://www.friendlyelec.com/index.php?route=product/product&product_id=289)
-- <sup>(5)</sup> 라즈베리 파이4 [(제조사 사양 보기)](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/)
+Licenses apply to all deep learning models, so you just need to select the model that best fits your intended purpose.
 
-## 특장점
-#### 1. 차번 인식 성능
-아래와 같은 다양한 환경 요인에 대해 뛰어난 적응력을 보입니다.
-- 반사 필름
+| Model |     Recognition Speed      | Application Examples                                                                                                                                                                                                                                                                           |
+| :---: | :------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **S** | Fast<br/>(for short range) | Parking lot entry and exit management<br/><img src="img/models/small1.png" />                                                                                                                                                                                                                  |
+| **M** | Normal<br/>(for mid range) | Parking space occupancy management / Parking location search<br/><img src="img/models/medium1.png" /><br/>Fisheye lens camera (360° surround recognition)<br/><img src="img/models/medium2.png" /><br/>Overturned vehicle (360° surround recognition)<br/><img src="img/models/medium3.png" /> |
+| **L** | Slow<br/>(for long range)  | Large outdoor parking lot / Vehicle counting<br/><img src="img/models/large1.png" /><br/>Multi-lane vehicle license plate recognition<br/><img src="img/models/large2.png" /><br/>Traffic volume counting<br/><img src="img/models/large3.png" />                                              |
+
+## Comparison Table of Recognition Speed by Deep Learning Model
+
+| CPU                               | Cores | Threads | Clock<sup>(1)</sup> | OS                              | S<sup>(2)</sup> | M<sup>(2)</sup> | L<sup>(2)</sup> |
+| --------------------------------- | ----: | ------: | ------------------: | :------------------------------ | --------------: | --------------: | --------------: |
+| Intel i7-12700                    |    12 |      20 |                 2.1 | 64-bit Windows<br/>64-bit Linux |           0.021 |           0.036 |           0.054 |
+| Intel i5-6500                     |     4 |       4 |                 3.2 | 64-bit Windows<br/>64-bit Linux |           0.031 |           0.078 |           0.140 |
+| (Same)                            |       |         |                     | 32-bit Windows                  |           0.078 |           0.172 |           0.296 |
+| Intel i3-8100                     |     4 |       4 |                 3.6 | 64-bit Windows<br/>64-bit Linux |           0.042 |           0.087 |           0.156 |
+| (Same)                            |       |         |                     | 32-bit Windows                  |           0.089 |           0.204 |           0.656 |
+| Intel Celeron J4005               |     2 |       2 |                 2.0 | 64-bit Windows<br/>64-bit Linux |           0.396 |           0.886 |           1.563 |
+| (Same)                            |       |         |                     | 32-bit Windows                  |           0.629 |           1.355 |           2.368 |
+| Intel Celeron 1037U<sup>(3)</sup> |     2 |       2 |                 1.8 | 32-bit Windows                  |           0.484 |           1.061 |           1.856 |
+| Rockchip RK3588S<sup>(4)</sup>    |     8 |       8 |                 1.5 | 64-bit Linux                    |           0.227 |           0.462 |           0.842 |
+| Broadcom BCM2711<sup>(5)</sup>    |     4 |       4 |                 1.8 | 64-bit Linux                    |           0.465 |           1.024 |           1.817 |
+
+- Measured with an image containing only one vehicleMeasured with an image containing only one vehicle
+- <sup>(1)</sup> Unit: GHz
+- <sup>(2)</sup> Unit: Second
+- <sup>(3)</sup> 32-bit only CPU [(View manufacturer specs)](https://www.intel.co.kr/content/www/kr/ko/products/sku/71995/intel-celeron-processor-1037u-2m-cache-1-80-ghz/specifications.html)
+- <sup>(4)</sup> NanoPi R6S [(View manufacturer specs)](https://www.friendlyelec.com/index.php?route=product/product&product_id=289)
+- <sup>(5)</sup> Raspberry Pi4 [(View manufacturer specs)](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/)
+
+## Key Features
+
+#### 1. License plate recognition performance
+
+Has excellent adaptability to various environmental factors below.
+
+- Reflective film (Korean license plates)
   <div>
     <img style="margin-right:-5px" width="120" src="img/ex/film1.jpg" />
     <img style="margin-right:-5px" width="120" src="img/ex/film2.jpg" />
@@ -169,7 +127,7 @@ TS-ANPR은 딥러닝 기반의 대한민국 차량 번호 인식 엔진입니다
     <img style="margin-right:-5px" width="120" src="img/ex/film13.jpg" />
     <img style="margin-right:-5px" width="120" src="img/ex/film14.jpg" />
   <div>
-- 야간 노이즈
+- Night noise
   <div>
     <img style="margin-right:-5px" width="120" src="img/ex/noise1.jpg" />
     <img style="margin-right:-5px" width="120" src="img/ex/noise2.jpg" />
@@ -181,7 +139,7 @@ TS-ANPR은 딥러닝 기반의 대한민국 차량 번호 인식 엔진입니다
     <img style="margin-right:-5px" width="120" src="img/ex/noise8.jpg" />
     <img style="margin-right:-5px" width="120" src="img/ex/noise9.jpg" />
   <div>
-- 촬영 각도
+- Shooting angle
   <div>
     <img style="margin-right:-5px" width="120" src="img/ex/angle1.jpg" />
     <img style="margin-right:-5px" width="120" src="img/ex/angle3.jpg" />
@@ -196,7 +154,7 @@ TS-ANPR은 딥러닝 기반의 대한민국 차량 번호 인식 엔진입니다
     <img style="margin-right:-5px" width="120" src="img/ex/angle11.jpg" />
     <img style="margin-right:-5px" width="120" src="img/ex/angle12.jpg" />
   </div>
-- 날씨 / 조명
+- Weather / Lighting
   <div>
     <img style="margin-right:-5px" width="120" src="img/ex/light1.jpg" />
     <img style="margin-right:-5px" width="120" src="img/ex/light6.jpg" />
@@ -209,7 +167,7 @@ TS-ANPR은 딥러닝 기반의 대한민국 차량 번호 인식 엔진입니다
     <img style="margin-right:-5px" width="120" src="img/ex/light9.jpg" />
     <img style="margin-right:-5px" width="120" src="img/ex/light10.jpg" />
   </div>
-- 오염 / 훼손
+- Contamination / Damage
   <div>    
     <img style="margin-right:-5px" width="120" src="img/ex/dirty1.jpg" />
     <img style="margin-right:-5px" width="120" src="img/ex/dirty2.jpg" />
@@ -222,138 +180,178 @@ TS-ANPR은 딥러닝 기반의 대한민국 차량 번호 인식 엔진입니다
     <img style="margin-right:-5px" width="120" src="img/ex/dirty9.jpg" />
     <img style="margin-right:-5px" width="120" src="img/ex/dirty8.jpg" />
   </div>
-- 360도 어안 카메라 이미지
-  - *이미지를 펼치지 않고 원본 이미지에서 여러 대의 차량 번호를 인식합니다.*
+- 360-degree fisheye camera image.
+  - _Recognizes multiple vehicle license plates directly from the original image without dewarping._
   <div>
     <img style="margin-right:-5px" src="img/ex/fisheye1.jpg" />
   </div>
 
-#### 2. 각종 번호판 지원
-아래와 같은 다양한 번호판 규격을 지원합니다.
-- 덤프트럭, 중장비 번호판
-  <div>    
-    <img style="margin-right:-5px" width="120" src="img/ex/eq1.jpg" />
-    <img style="margin-right:-5px" width="120" src="img/ex/eq2.jpg" />
-    <img style="margin-right:-5px" width="120" src="img/ex/eq3.jpg" />
-    <img style="margin-right:-5px" width="120" src="img/ex/eq4.jpg" />
-    <img style="margin-right:-5px" width="120" src="img/ex/eq5.jpg" />
-    <img style="margin-right:-5px" width="120" src="img/ex/eq6.jpg" />
-  </div>
-- 특수 번호판 (임시, 외교, 군용)
-  <div>
-    <img style="margin-right:-5px" width="120" src="img/ex/temp1.jpg" />
-    <img style="margin-right:-5px" width="120" src="img/ex/temp2.jpg" />
-    <img style="margin-right:-5px" width="120" src="img/ex/temp3.jpg" />
-    <img style="margin-right:-5px" width="120" src="img/ex/temp4.jpg" />
-    <img style="margin-right:-5px" width="120" src="img/ex/dep1.jpg" />
-    <img style="margin-right:-5px" width="120" src="img/ex/dep2.jpg" />
-    <img style="margin-right:-5px" width="120" src="img/ex/dep3.jpg" />
-    <img style="margin-right:-5px" width="120" src="img/ex/dep4.jpg" />
-    <img style="margin-right:-5px" width="120" src="img/ex/dep5.jpg" />
-    <img style="margin-right:-5px" width="120" src="img/ex/mil1.jpg" />
-    <img style="margin-right:-5px" width="120" src="img/ex/mil2.jpg" />
-    <img style="margin-right:-5px" width="120" src="img/ex/mil3.jpg" />
-  </div>
-- 친환경 전기차 번호판
-  - *차번 인식 결과 데이터의  `ev`항목에 `true` 또는 `false`로 구분합니다.*
-  - *단, 영업용 차량 번호판처럼 번호판 규격상 내연기관 차량과 구분되지 않는 경우는 판단이 불가능합니다.*
-  <div>
-    <img style="margin-right:-5px" width="120" src="img/ex/ev2.jpg" />
-    <img style="margin-right:-5px" width="120" src="img/ex/ev1.jpg" />
-  </div>
-- ’80, ’90년대 구형 번호판
-  - *1996년도 번호판 규격 개정 이전에 사용되던 `처`, `퍼`, `차`, `파`, `추` ~ `후`, `그` ~ `흐` 문자를 지원합니다.*
-  - 구형 주한미군 번호판 형식을 지원합니다.
-  <div>    
-    <img style="margin-right:-5px" width="120" src="img/ex/801.jpg" />
-    <img style="margin-right:-5px" width="120" src="img/ex/802.jpg" />
-    <img style="margin-right:-5px" width="120" src="img/ex/803.jpg" />
-    <img style="margin-right:-5px" width="120" src="img/ex/804.jpg" />
-    <img style="margin-right:-5px" width="120" src="https://i.namu.wiki/i/wwI1jJQAIZlh_gSD3Vt-2rmuIzYkQ4BNTNTLWv6GU9RMTL01ujgvhxYpFKR0ckzqa-q6_O4L4v0V8AUliVczf7INwNgsbw3DBnDZlkk8aRzGVqkLovKDVfdxkhNYEZqpn4Z90-AeizRDVzFNriHWSQ.webp" />
-  </div>
-  
-#### 3. 주요 운영체제 / CPU 아키텍처 지원
-- 윈도우즈
-  - 인텔 계열 64비트(`windows-x86_64`), 32비트(`windows-x86`)
-  - 윈도우즈 7 이상 호환
-- 리눅스
-  - 인텔 계열 64비트(`linux-x86_64`), 
-  - ARM 계열 64비트(`linux-aarch64`)
-  - 배포판에 관계없이 `glibc 2.27` 이상 호환
+#### 2. Supports various license plate formats
 
-#### 4. 다양한 개발 환경 지원
-- 특정 프로그래밍 언어에 종속되지 않는 범용 라이브러리 인터페이스
-- [프로그래밍 언어별 예제 제공](DevGuide.md#4-%EC%98%88%EC%A0%9C) 
-  - `C`, `C++`, `C#`, `Visual Basic`, `Python`, `JavaScript/Node.js`, `Go`, `Pascal/Delphi`, `Perl`, `Ruby`
-- [입력 이미지 파일 형식](DevGuide.md#12-anpr_read_file)
+Supports various license plate formats as shown below.
+
+- Korean license plates
+
+  - Dump truck & heavy equipment license plates
+    <div>    
+      <img style="margin-right:-5px" width="120" src="img/ex/eq1.jpg" />
+      <img style="margin-right:-5px" width="120" src="img/ex/eq2.jpg" />
+      <img style="margin-right:-5px" width="120" src="img/ex/eq3.jpg" />
+      <img style="margin-right:-5px" width="120" src="img/ex/eq4.jpg" />
+      <img style="margin-right:-5px" width="120" src="img/ex/eq5.jpg" />
+      <img style="margin-right:-5px" width="120" src="img/ex/eq6.jpg" />
+    </div>
+  - Special license plates (temporary, diplomatic, military)
+    <div>
+      <img style="margin-right:-5px" width="120" src="img/ex/temp1.jpg" />
+      <img style="margin-right:-5px" width="120" src="img/ex/temp2.jpg" />
+      <img style="margin-right:-5px" width="120" src="img/ex/temp3.jpg" />
+      <img style="margin-right:-5px" width="120" src="img/ex/temp4.jpg" />
+      <img style="margin-right:-5px" width="120" src="img/ex/dep1.jpg" />
+      <img style="margin-right:-5px" width="120" src="img/ex/dep2.jpg" />
+      <img style="margin-right:-5px" width="120" src="img/ex/dep3.jpg" />
+      <img style="margin-right:-5px" width="120" src="img/ex/dep4.jpg" />
+      <img style="margin-right:-5px" width="120" src="img/ex/dep5.jpg" />
+      <img style="margin-right:-5px" width="120" src="img/ex/mil1.jpg" />
+      <img style="margin-right:-5px" width="120" src="img/ex/mil2.jpg" />
+      <img style="margin-right:-5px" width="120" src="img/ex/mil3.jpg" />
+    </div>
+  - Eco-friendly electric vehicle license plate
+    - The recognition result distinguishes whether it is an eco-friendly electric vehicle.
+    - However, if the license plate format does not distinguish electric vehicles from internal combustion vehicles, such as commercial plates, identification is not possible.
+    <div>
+      <img style="margin-right:-5px" width="120" src="img/ex/ev2.jpg" />
+      <img style="margin-right:-5px" width="120" src="img/ex/ev1.jpg" />
+    </div>
+  - 1980s and 1990s vintage license plates
+    - Supports the characters ‘처’, ‘퍼’, ‘차’, ‘파’, ‘추’ to ‘후’, and ‘그’ to ‘흐’ used before the 1996 license plate revision.
+    - Supports the old format of USFK license plates.
+    <div>    
+      <img style="margin-right:-5px" width="120" src="img/ex/801.jpg" />
+      <img style="margin-right:-5px" width="120" src="img/ex/802.jpg" />
+      <img style="margin-right:-5px" width="120" src="img/ex/803.jpg" />
+      <img style="margin-right:-5px" width="120" src="img/ex/804.jpg" />
+      <img style="margin-right:-5px" width="120" src="img/ex/805.jpg" />
+    </div>
+
+- Japanese license plates
+  - Special license plates (diplomatic, Self-Defense Forces)
+    <div>    
+      <img style="margin-right:-5px" width="120" src="img/ex/jp-mil1.jpg" />
+      <img style="margin-right:-5px" width="120" src="img/ex/jp-mil2.jpg" />
+      <img style="margin-right:-5px" width="120" src="img/ex/jp-mil3.jpg" />
+      <img style="margin-right:-5px" width="120" src="img/ex/jp-mil4.jpg" />
+      <img style="margin-right:-5px" width="120" src="img/ex/jp-mil5.jpg" />
+      <img style="margin-right:-5px" width="120" src="img/ex/jp-dep1.jpg" />
+      <img style="margin-right:-5px" width="120" src="img/ex/jp-dep2.jpg" />
+      <img style="margin-right:-5px" width="120" src="img/ex/jp-dep3.jpg" />
+      <img style="margin-right:-5px" width="120" src="img/ex/jp-dep4.jpg" />
+      <img style="margin-right:-5px" width="120" src="img/ex/jp-dep5.jpg" />
+    </div>
+  - 1960s vintage license plates
+    - Supports the old license plate format that used only a single kanji character (e.g., 東, 京, 名) for the region name.
+    <div>    
+      <img style="margin-right:-5px" width="120" src="img/ex/jp-601.jpg" />
+      <img style="margin-right:-5px" width="120" src="img/ex/jp-602.jpg" />
+      <img style="margin-right:-5px" width="120" src="img/ex/jp-603.jpg" />
+      <img style="margin-right:-5px" width="120" src="img/ex/jp-604.jpg" />
+      <img style="margin-right:-5px" width="120" src="img/ex/jp-605.jpg" />
+    </div>
+
+#### 3. Supported operating systems / CPU architectures
+
+- Windows
+  - Intel-based 64-bit (windows-x86_64) and 32-bit (windows-x86) architectures supported
+  - Compatible with Windows 7 or later
+- Linux
+  - Intel-based 64-bit (linux-x86_64) supported
+  - ARM-based 64-bit (linux-aarch64) supported
+  - Compatible with distributions running glibc 2.27 or higher, regardless of distribution type
+
+#### 4. Supports various development environments
+
+- General-purpose library interface not dependent on a specific programming language
+  - [Provides examples for each programming language](examples/)
+- [Input image file formats](DevGuide.md#12-anpr_read_file)
   - `bmp`, `jpg`, `png`, `pnm`, `pbm`, `pgm`, `ppm`, `jfif`, `webp`
-- [입력 이미지 메모리 버퍼 픽셀 형식](DevGuide.md#13-anpr_read_pixels)
+- [Input image memory buffer pixel formats](DevGuide.md#13-anpr_read_pixels)
   - `GRAY`, `BGRA`, `RGBA`, `RGB`, `BGR`, `BGR555`, `BGR565`, `HSV`, `YCrCb`, `I420`, `YV12`, `IYUV`, `NV12`, `NV21`
-- [인식 결과 출력 형식](DevGuide.md#2-output-format)
+- [Output format of recognition results](DevGuide.md#3-output-formats)
   - `text`, `csv`, `json`, `yaml`, `xml`
 
-#### 5. 다양한 라이선스 제공
-- 무료 평가판 라이선스
-  - 개발 및 데모용으로 시스템당 설치 이후 30일간 무료 사용 기간 제공
-- 상용 라이선스
-  - 매체별: USB 동글, 또는 소프트웨어 라이선스 중 선택
-  - 기능 및 성능별: `IoT`, `기본`, `객체인식`, `프로`, `서버` 중 응용 소프트웨어 요구사항에 따라 선택 가능 ([참고: TS-ANPR 엔진 바이너리](LICENSE.md#2-ts-anpr-엔진-바이너리))
+#### 5. Various license options available
 
-## 다양한 인식 옵션
-#### 1. 차량 부착 검사 (Vehicle Mounted)
-차체가 보이는 이미지에서 차량에 부착된 번호판인지 구분합니다.
-**차량 부착(v)** 옵션을 사용하면 차량에 부착된 번호판만 인식합니다.<br/>
+- Free trial license
+  - 30-day free trial period per system for development and demo purposes after installation
+- Commercial license
+  - By medium: Choose between USB dongle or software license
+  - By features and performance: Select from `Basic`, `Object Detection`, `Pro`, or `Server` according to application software requirements (Reference: [TS-ANPR Engine](LICENSE.md#2-ts-anpr-engine))
+
+## Various Recognition Options
+
+#### 1. Inspection of Vehicle-mounted License Plates
+
+Distinguishes whether a license plate is mounted on a vehicle in images where the vehicle body is visible.
+When the **Vehicle-mounted (v)** option is enabled, only license plates attached to vehicles are recognized.<br/>
 <img width="500" src="img/mounted1.jpg" />
 
-아래 이미지처럼 차량없이 번호판만 있거나 바이크 번호판 등은 무시합니다.<br/>
+License plates without vehicles, such as standalone plates or motorcycle plates as shown in the image below, are ignored.<br/>
 
 <img width="500" src="img/mounted2.jpg">
-<div style="font-size:0.8em">[이미지 출처: 연합뉴스]</div>
+<div style="font-size:0.8em">[Image source: 연합뉴스]</div>
 </img>
 
 <br/>
 
 <img width="500" src="img/mounted2-1.jpg">
-<div style="font-size:0.8em">[이미지 출처: 바이커즈랩]</div>
+<div style="font-size:0.8em">[Image source: 바이커즈랩]</div>
 </img>
 
 <br/>
 
-번호판만 근접 촬영된 경우는 차량 인식이 안되는 경우가 있는데, 이런 경우 **차량 부착(v)** 옵션을 사용하지 않으면 차량 번호를 인식할 수 있습니다.<br/>
+If only the license plate is photographed up close, vehicle recognition may not work. In such cases, if the **Vehicle-mounted (v)** option is not used, the license plate number can still be recognized.<br/>
 <img width="500" src="img/mounted3.jpg" />
 
-#### 2. 다중 인식 (Multiple Recognition)
-**다중 인식(m)** 옵션을 사용하면 이미지에 차량이 여러 대 있으면 모두 인식합니다.<br/>
+#### 2. Multiple Recognition
+
+When the **Multiple Recognition (m)** option is enabled, all vehicles in the image are recognized.<br/>
 <img width="800" src="img/multiple1.jpg" />
 
-**다중 인식(m)** 옵션을 사용하지 않으면 여러 대 차량 중 가장 번호판 신뢰도가 높은(잘 보이는) 것 하나만 인식합니다.<br/>
+If the **Multiple Recognition (m)** option is not used, only the license plate with the highest confidence (most visible) among multiple vehicles will be recognized.<br/>
 <img width="800" src="img/multiple2.jpg" />
 
+#### 3. 360° Surround Recognition
 
-#### 3. 360° 서라운드 인식 (Surround Recognition)
-**360° 서라운드 인식(s)** 옵션을 사용하면 전복된 차량 또는 어안 렌즈 카메라로 촬영한 차량 등 이미지 내의 차량이 사방으로 기울어져 있거나 넘어져 있는 경우도 차량 번호를 인식할 수 있습니다.<br/>
+When the **360° Surround Recognition (s)** option is enabled, license plates can be recognized even if vehicles in the image are tilted or overturned in various directions, such as overturned vehicles or those captured with a fisheye lens camera.<br/>
 
 <img width="800" src="img/surround1.jpg">
-<div style="font-size:0.8em">[이미지 출처: KBS]</div>
+<div style="font-size:0.8em">[Image source: KBS]</div>
 </img>
 
 <br/>
 
 <img width="800" src="img/surround2.jpg" />
 
-#### 4. 객체 인식 (Object Detection)
-**객체 인식(d)** 옵션을 사용하면 이미지 내의 객체를 인식합니다.
-출력된 차량 영역과 응용 프로그램에서 설정한 주차면 영역을 비교하면 만.공차 여부를 판단할 수 있습니다.<br/>
+#### 4. Object Detection
+
+When the **Object Detection (d)** option is enabled, objects in the image are detected.
+By comparing the detected vehicle area with the parking space area set in the application, it is possible to determine whether the space is occupied or vacant.<br/>
 
 <img width="800" src="img/options/dms.png" />
 
-#### 5. 객체(차량)의 차량 번호 인식 (Read License Plate)
-**객체 인식(d)** 과 **차량 번호 인식(r)** 옵션을 함께 사용하면 객체 인식된 차량의 번호까지 인식합니다.<br/>
+#### 5. License Plate Recognition of Detected Objects (Vehicles)
+
+When both **Object Detection (d)** and **License Plate Recognition (r)** options are enabled, the license plates of detected vehicles are also recognized.<br/>
 
 <img width="800" src="img/options/dmsr.png" />
 
+#### 5. Setting Region of Interest and Minimum License Plate Size
+
+By combining the settings for **Region of Interest (i)**, **Exclusion Zone (x)**, and **Minimum License Plate Size (a)**, you can prevent license plate recognition for vehicles outside the designated area.<br/>
+
+<img width="800" src="img/options/roi.png" />
+
 ---
 
-
-- 응용 프로그램 개발 전 단계의 기본적인 성능 테스트는 [차번 인식 라이브 데모](http://tsnvr.ipdisk.co.kr/)를 이용하실 수 있습니다.
-- 응용 프로그램 개발 단계에서는 [응용 프로그램 개발 가이드](DevGuide.md) 와 포함된 프로그래밍 언어별 예제들을 참고하시기 바랍니다.
+- For basic performance testing prior to application development, you can use the [Live Demo](http://tsnvr.ipdisk.co.kr/).
+- During the application development phase, please refer to the [Application Development Guide](DevGuide.md) and the included programming language-specific examples.

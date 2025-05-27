@@ -1,0 +1,12 @@
+resolver: lts-22.11
+
+packages:
+- .
+
+extra-deps:
+  - repa-3.4.2.0@sha256:7fc52911966c64cc1676843f5fee1777931d0161e2e55581bf925feac4ac30c2,3694
+
+extra-lib-dirs:
+  - /usr/lib/x86_64-linux-gnu
+extra-include-dirs:
+  - /usr/include
