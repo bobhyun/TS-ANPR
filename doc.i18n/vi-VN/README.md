@@ -4,7 +4,7 @@
 
 **TS-ANPR** là công cụ nhận diện biển số xe dựa trên học sâu, hỗ trợ tiêu chuẩn biển số của Hàn Quốc, Nhật Bản và Việt Nam.
 
-##### <img src="../../img/icons/video.png" style="vertical-align:bottom; width:20px;"/> Ví dụ về ứng dụng (TS-IVR)
+##### ✨ Ví dụ về ứng dụng (TS-IVR)
 
 https://github.com/user-attachments/assets/71a2977a-4d1f-479b-a909-21c03fd9f013
 
@@ -12,18 +12,18 @@ https://github.com/user-attachments/assets/71a2977a-4d1f-479b-a909-21c03fd9f013
 
 ##### [🚀 Tải xuống động cơ mới nhất](https://github.com/bobhyun/TS-ANPR/releases/)
 
-##### <img src="../../img/icons/coding.png" style="vertical-align:bottom; width:20px;"/> Mẫu mã nguồn bằng các ngôn ngữ phổ biến
+##### 🎨 Mẫu mã nguồn bằng các ngôn ngữ phổ biến
 
 - [C](../../examples/C/) | [C#](../../examples/C#/) | [C++](../../examples/C++/) | [Clojure](../../examples/Clojure/) | [Dart](../../examples/Dart/) | [Delphi](../../examples/Delphi/) | [F#](../../examples/F#/) | [Go](../../examples/Go/) | [Haskell](../../examples/Haskell/) | [Java](../../examples/Java/) | [JavaScript](../../examples/JavaScript/) | [Julia](../../examples/Julia/) | [Kotlin](../../examples/Kotlin/) | [Lua](../../examples/Lua/) | [Perl](../../examples/Perl/) | [Python](../../examples/Python/) | [Ruby](../../examples/Ruby/) | [Rust](../../examples/Rust/) | [Scala](../../examples/Scala/) | [Swift](../../examples/Swift/) | [TypeScript](../../examples/TypeScript/) | [VB.NET](../../examples/VB.NET/)
 
-##### <img src="../../img/icons/link.png" style="vertical-align:bottom; width:20px;"/> Hướng dẫn phát triển ứng dụng
+##### 📖 Hướng dẫn phát triển ứng dụng
 
 - [TS-ANPR](DevGuide.md)
 - [TS-CAM](https://github.com/bobhyun/TS-CAM/blob/main/DevGuide.md)
 
-##### [<img src="../../img/icons/install.png" style="vertical-align:bottom; width:20px;"/> Hướng dẫn cài đặt](Usage.md)
+##### [🎁 Hướng dẫn cài đặt](Usage.md)
 
-##### [<img src="../../img/icons/license.png" style="vertical-align:bottom; width:20px;"/> Giấy phép](LICENSE.md)
+##### [⚖️ Giấy phép](LICENSE.md)
 
 _Nếu bạn có bất kỳ câu hỏi hoặc yêu cầu nào, vui lòng gửi tại [Issues](https://github.com/bobhyun/TS-ANPR/issues).
 Chúng tôi luôn sẵn sàng hỗ trợ và rất mong nhận được phản hồi từ bạn!_

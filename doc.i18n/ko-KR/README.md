@@ -4,7 +4,7 @@
 
 **TS-ANPR**은 딥러닝 기반의 차량 번호 인식 엔진으로 대한민국, 일본, 베트남 번호판 규격을 지원합니다.
 
-##### <img src="../../img/icons/video.png" style="vertical-align:bottom; width:20px;"/> 응용 프로그램 예 (TS-IVR)
+##### ✨ 응용 프로그램 예 (TS-IVR)
 
 https://github.com/user-attachments/assets/71a2977a-4d1f-479b-a909-21c03fd9f013
 
@@ -12,18 +12,18 @@ https://github.com/user-attachments/assets/71a2977a-4d1f-479b-a909-21c03fd9f013
 
 ##### [🚀 최신 엔진 다운로드](https://github.com/bobhyun/TS-ANPR/releases/)
 
-##### <img src="../../img/icons/coding.png" style="vertical-align:bottom; width:20px;"/> 주요 언어별 코드 샘플
+##### 🎨 주요 언어별 코드 샘플
 
 - [C](../../examples/C/) | [C#](../../examples/C#/) | [C++](../../examples/C++/) | [Clojure](../../examples/Clojure/) | [Dart](../../examples/Dart/) | [Delphi](../../examples/Delphi/) | [F#](../../examples/F#/) | [Go](../../examples/Go/) | [Haskell](../../examples/Haskell/) | [Java](../../examples/Java/) | [JavaScript](../../examples/JavaScript/) | [Julia](../../examples/Julia/) | [Kotlin](../../examples/Kotlin/) | [Lua](../../examples/Lua/) | [Perl](../../examples/Perl/) | [Python](../../examples/Python/) | [Ruby](../../examples/Ruby/) | [Rust](../../examples/Rust/) | [Scala](../../examples/Scala/) | [Swift](../../examples/Swift/) | [TypeScript](../../examples/TypeScript/) | [VB.NET](../../examples/VB.NET/)
 
-##### <img src="../../img/icons/link.png" style="vertical-align:bottom; width:20px;"/> 응용 프로그램 개발 가이드
+##### 📖 응용 프로그램 개발 가이드
 
 - [TS-ANPR](DevGuide.md)
 - [TS-CAM](https://github.com/bobhyun/TS-CAM/blob/main/DevGuide.md)
 
-##### [<img src="../../img/icons/install.png" style="vertical-align:bottom; width:20px;"/> 설치 방법](Usage.md)
+##### [🎁 설치 방법](Usage.md)
 
-##### [<img src="../../img/icons/license.png" style="vertical-align:bottom; width:20px;"/> 라이선스](LICENSE.md)
+##### [⚖️ 라이선스](LICENSE.md)
 
 _질문이나 요청이 있으시면 언제든지 [Issues](https://github.com/bobhyun/TS-ANPR/issues) 남겨주세요.
 여러분의 소중한 의견과 피드백을 항상 환영합니다!_
