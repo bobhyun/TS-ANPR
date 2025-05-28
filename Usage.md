@@ -25,7 +25,7 @@ English | [日本語](doc.i18n/ja-JP/Usage.md) | [한국어](doc.i18n/ko-KR/Usag
 ```
 
 When you run the `tshelper.exe` file, a **30-day free trial license** will be automatically installed on your computer, giving you access to all the features of **TS-ANPR Pro** for the next 30 days.
-![](img/trialLicense.png)
+<img src="img/trialLicense.png" style="max-width:600px"/>
 
 ## for Linux
 

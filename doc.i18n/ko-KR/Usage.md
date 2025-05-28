@@ -25,7 +25,7 @@ anpr 엔진 파일을 설치할 디렉토리에 압축을 해제합니다.
 ```
 
 `tshelper.exe` 파일을 실행하면 해당 컴퓨터에 **30일 평가판 라이선스**가 자동으로 설치되며, 이 후 30일 동안 **TS-ANPR 프로**의 모든 기능을 사용해 볼 수 있습니다.
-![](../../img/ko-KR/trialLicense.png)
+<img src="../../img/ko-KR/trialLicense.png" style="max-width:600px"/>
 
 ## 리눅스용
 
