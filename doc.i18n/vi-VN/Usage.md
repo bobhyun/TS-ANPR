@@ -25,7 +25,7 @@ Giải nén các tệp động cơ ANPR vào thư mục cài đặt bạn muốn
 ```
 
 Chạy tệp `tshelper.exe` để tự động cài đặt **giấy phép dùng thử 30 ngày** trên máy tính này. Sau đó, bạn có thể sử dụng tất cả tính năng của **TS-ANPR Pro** trong 30 ngày.
-<img src="../../img/vi-VN/trialLicense.png" style="max-width:600px"/>
+<img src="../../img/vi-VN/trialLicense.png" width="600" />
 
 ## Dành cho Linux
 

@@ -25,7 +25,7 @@ anpr エンジンファイルをインストールするディレクトリに解
 ```
 
 `tshelper.exe`ファイルを実行すると、そのコンピュータに**30 日間の評価版ライセンス**が自動的にインストールされ、その後 30 日間 **TS-ANPR Pro** のすべての機能を試すことができます。
-<img src="../../img/ja-JP/trialLicense.png" style="max-width:600px"/>
+<img src="../../img/ja-JP/trialLicense.png" width="600" />
 
 ## Linux 用
 
