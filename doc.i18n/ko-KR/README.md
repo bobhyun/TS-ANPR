@@ -4,7 +4,7 @@
 
 **TS-ANPR**은 딥러닝 기반의 차량 번호 인식 엔진으로 대한민국, 일본, 베트남 번호판 규격을 지원합니다.
 
-##### ✨ 응용 프로그램 예 (TS-IVR)
+##### ✨ 응용 프로그램 예 (TS-IVR) <span style="font-size:.7em;font-weight:normal;color:grey"> [😎 영상 전체 보기](https://www.youtube.com/watch?v=d7UU71PAx5Y)</span>
 
 https://github.com/user-attachments/assets/71a2977a-4d1f-479b-a909-21c03fd9f013
 

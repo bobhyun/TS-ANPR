@@ -4,11 +4,11 @@ English | [한국어](doc.i18n/ko-KR/README.md) | [日本語](doc.i18n/ja-JP/REA
 
 **TS-ANPR** is a deep learning-based vehicle license plate recognition engine that supports the license plate standards of Korea, Japan, and Vietnam.
 
-##### ✨ Application Example (TS-IVR)
+##### ✨ Application Example (TS-IVR) <span style="font-size:.7em;font-weight:normal;color:grey"> [😎 Watch Full Video](https://www.youtube.com/watch?v=d7UU71PAx5Y)</span>
 
 https://github.com/user-attachments/assets/71a2977a-4d1f-479b-a909-21c03fd9f013
 
-##### [😍 Live Demo](http://tsnvr.ipdisk.co.kr/) <span style="font-size:.7em;font-weight:normal;color:grey">👈 Check the number recognition performance directly here.</span>
+##### [😍 Live Demo](http://tsnvr.ipdisk.co.kr/) <span style="font-size:.7em;font-weight:normal;color:grey"> 👈 Check the number recognition performance directly here.</span>
 
 ##### [🚀 Download the Latest Engine](https://github.com/bobhyun/TS-ANPR/releases/)
 

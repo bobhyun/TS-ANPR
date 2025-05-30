@@ -4,7 +4,7 @@
 
 **TS-ANPR**は、ディープラーニングベースの車両ナンバープレート認識エンジンで、韓国、日本、ベトナムのナンバープレート規格に対応しています。
 
-##### ✨ アプリケーションの例 (TS-IVR)
+##### ✨ アプリケーションの例 (TS-IVR) <span style="font-size:.7em;font-weight:normal;color:grey"> [😎 フル動画を視聴する](https://www.youtube.com/watch?v=d7UU71PAx5Y)</span>
 
 https://github.com/user-attachments/assets/71a2977a-4d1f-479b-a909-21c03fd9f013
 

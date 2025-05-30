@@ -4,7 +4,7 @@
 
 **TS-ANPR** là công cụ nhận diện biển số xe dựa trên học sâu, hỗ trợ tiêu chuẩn biển số của Hàn Quốc, Nhật Bản và Việt Nam.
 
-##### ✨ Ví dụ về ứng dụng (TS-IVR)
+##### ✨ Ví dụ về ứng dụng (TS-IVR) <span style="font-size:.7em;font-weight:normal;color:grey"> [😎 Xem video đầy đủ](https://www.youtube.com/watch?v=d7UU71PAx5Y)</span>
 
 https://github.com/user-attachments/assets/71a2977a-4d1f-479b-a909-21c03fd9f013
 
