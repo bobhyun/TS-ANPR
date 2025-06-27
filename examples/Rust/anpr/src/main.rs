@@ -202,6 +202,9 @@ fn read_license_plates(tsanpr: &TSANPR, country_code: &str) -> i32 {
     anpr_func(tsanpr, &format!("{}surround.jpg", image_dir_str), output_format, "dms");     // Recognize multiple surrounding objects (vehicles)
     anpr_func(tsanpr, &format!("{}surround.jpg", image_dir_str), output_format, "dmsr");    // Recognize multiple surrounding objects and license plates
 
+    // Recognize multiple surrounding objects and license plates within RoI
+    anpr_func(tsanpr, &format!("{}surround.jpg", image_dir_str), output_format, "dmsri549,700,549,2427,1289,2427,1289,700")
+  
     0
 }
 

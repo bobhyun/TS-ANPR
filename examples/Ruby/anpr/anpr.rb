@@ -156,6 +156,10 @@ def read_license_plates(tsanpr, country_code)
   read_func.call(tsanpr, File.join(image_dir, "surround.jpg"), output_format, "vms")  # Recognize multiple license plates attached to vehicles with surround detection
   read_func.call(tsanpr, File.join(image_dir, "surround.jpg"), output_format, "dms")  # Recognize multiple surrounding objects (vehicles)
   read_func.call(tsanpr, File.join(image_dir, "surround.jpg"), output_format, "dmsr") # Recognize multiple surrounding objects (vehicles) and license plates
+  
+  # Recognize multiple surrounding objects and license plates within RoI
+  read_func.call(tsanpr, File.join(image_dir, "surround.jpg"), output_format, "dmsri549,700,549,2427,1289,2427,1289,700")
+  
 end
 
 def main

@@ -150,7 +150,10 @@ func readLicensePlates(tsanpr: TSANPR, countryCode: String) -> Int {
     anprFunc(tsanpr, imageDir + "surround.jpg", outputFormat, "vms") // Recognize multiple license plates with surround detection
     anprFunc(tsanpr, imageDir + "surround.jpg", outputFormat, "dms") // Recognize multiple surrounding objects (vehicles)
     anprFunc(tsanpr, imageDir + "surround.jpg", outputFormat, "dmsr") // Recognize multiple surrounding objects and license plates
-
+    
+    // Recognize multiple surrounding objects and license plates within RoI
+    anprFunc(tsanpr, imageDir + "surround.jpg", outputFormat, "dmsri549,700,549,2427,1289,2427,1289,700")
+    
     return 0
 }
 

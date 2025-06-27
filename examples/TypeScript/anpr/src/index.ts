@@ -182,6 +182,9 @@ function readLicensePlates(tsanpr: TSANPR, countryCode: string): number {
   anprFunc(tsanpr, path.join(imageDir, "surround.jpg"), outputFormat, "dms"); // Recognize multiple surrounding objects (vehicles)
   anprFunc(tsanpr, path.join(imageDir, "surround.jpg"), outputFormat, "dmsr"); // Recognize multiple surrounding objects and license plates
 
+  // Recognize multiple surrounding objects and license plates within RoI
+  anprFunc(tsanpr, path.join(imageDir, "surround.jpg"), outputFormat, "dmsri549,700,549,2427,1289,2427,1289,700");
+
   return 0;
 }
 

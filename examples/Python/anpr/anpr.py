@@ -156,6 +156,9 @@ def read_license_plates(tsanpr, country_code):
     anpr_func(tsanpr, os.path.join(image_dir, "surround.jpg"), output_format, "dms")    # Recognize multiple surrounding objects (vehicles)
     anpr_func(tsanpr, os.path.join(image_dir, "surround.jpg"), output_format, "dmsr")   # Recognize multiple surrounding objects (vehicles) and license plates
 
+    # Recognize multiple surrounding objects and license plates within RoI
+    anpr_func(tsanpr, os.path.join(image_dir, "surround.jpg"), output_format, "dmsri549,700,549,2427,1289,2427,1289,700")
+    
 def main():
     engine_file_name = get_engine_file_name()
     if not engine_file_name or not os.path.exists(engine_file_name):

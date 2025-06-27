@@ -163,6 +163,10 @@ Module Program
     anprDelegate(imageDir & "surround.jpg", outputFormat, "vms")  ' Recognize multiple license plates attached to vehicles with surround detection
     anprDelegate(imageDir & "surround.jpg", outputFormat, "dms")  ' Recognize multiple surrounding objects (vehicles)
     anprDelegate(imageDir & "surround.jpg", outputFormat, "dmsr") ' Recognize multiple surrounding objects (vehicles) and license plates
+  
+    ' Recognize multiple surrounding objects and license plates within RoI
+    anprDelegate(imageDir & "surround.jpg", outputFormat, "dmsri549,700,549,2427,1289,2427,1289,700")
+
   End Sub
 
   Sub Main(args As String())
