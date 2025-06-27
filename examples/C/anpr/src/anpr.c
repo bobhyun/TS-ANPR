@@ -351,6 +351,7 @@ void readPixelBuffer(const char *imgfile, const char *outputFormat, const char *
     printf("%s\n", result);
     free(pixels);
 }
+
 int readLicensePlates(const char *countryCode)
 {
     // NOTICE:
