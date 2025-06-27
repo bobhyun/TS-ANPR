@@ -58,7 +58,7 @@ extern "C"
 #ifdef _WIN32
     int TSANPR_load(TSANPR *tsanpr, const wchar_t *engineFileName);
 #else
-int TSANPR_load(TSANPR *tsanpr, const char *engineFileName);
+    int TSANPR_load(TSANPR *tsanpr, const char *engineFileName);
 #endif
 
     void TSANPR_unload(void);
