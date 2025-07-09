@@ -1,4 +1,4 @@
-[English](../../Usage.md) | 日本語 | [한국어](../ko-KR/Usage.md) | [Tiếng Việt](../vi-VN/Usage.md)
+[English](../../Usage.md) | [한국어](../ko-KR/Usage.md) | 日本語 | [Tiếng Việt](../vi-VN/Usage.md)
 
 # エンジンおよびライセンスのインストール
 
