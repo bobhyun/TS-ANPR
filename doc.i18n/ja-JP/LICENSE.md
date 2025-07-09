@@ -1,4 +1,4 @@
-[English](../../LICENSE.md) | 日本語 | [한국어](../ko-KR/LICENSE.md) | [Tiếng Việt](../vi-VN/LICENSE.md)
+[English](../../LICENSE.md) | [한국어](../ko-KR/LICENSE.md) | 日本語 | [Tiếng Việt](../vi-VN/LICENSE.md)
 
 ## ライセンス
 
