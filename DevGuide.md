@@ -1,4 +1,4 @@
-English | [日本語](doc.i18n/ja-JP/DevGuide.md) | [한국어](doc.i18n/ko-KR/DevGuide.md) | [Tiếng Việt](doc.i18n/vi-VN/DevGuide.md)
+English | [한국어](doc.i18n/ko-KR/DevGuide.md) | [日本語](doc.i18n/ja-JP/DevGuide.md) | [Tiếng Việt](doc.i18n/vi-VN/DevGuide.md)
 
 # Application Development Guide
 
