@@ -1,4 +1,4 @@
-English | [日本語](doc.i18n/ja-JP/LICENSE.md) | [한국어](doc.i18n/ko-KR/LICENSE.md) | [Tiếng Việt](doc.i18n/vi-VN/LICENSE.md)
+English | [한국어](doc.i18n/ko-KR/LICENSE.md) | [日本語](doc.i18n/ja-JP/LICENSE.md) | [Tiếng Việt](doc.i18n/vi-VN/LICENSE.md)
 
 ## License
 
