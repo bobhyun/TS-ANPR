@@ -1,4 +1,4 @@
-English | [日本語](doc.i18n/ja-JP/Usage.md) | [한국어](doc.i18n/ko-KR/Usage.md) | [Tiếng Việt](doc.i18n/vi-VN/Usage.md)
+English | [한국어](doc.i18n/ko-KR/Usage.md) | [日本語](doc.i18n/ja-JP/Usage.md) | [Tiếng Việt](doc.i18n/vi-VN/Usage.md)
 
 # Engine and License Installation
 

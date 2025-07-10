@@ -1,4 +1,4 @@
-[English](../../DevGuide.md) | [日本語](../ja-JP/DevGuide.md) | [한국어](../ko-KR/DevGuide.md) | Tiếng Việt
+[English](../../DevGuide.md) | [한국어](../ko-KR/DevGuide.md) | [日本語](../ja-JP/DevGuide.md) | Tiếng Việt
 
 # Hướng dẫn phát triển ứng dụng
 

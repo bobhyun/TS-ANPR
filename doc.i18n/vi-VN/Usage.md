@@ -1,4 +1,4 @@
-[English](../../Usage.md) | [日本語](../ja-JP/Usage.md) | [한국어](../ko-KR/Usage.md) | Tiếng Việt
+[English](../../Usage.md) | [한국어](../ko-KR/Usage.md) | [日本語](../ja-JP/Usage.md) | Tiếng Việt
 
 # Cài đặt động cơ và giấy phép
 
