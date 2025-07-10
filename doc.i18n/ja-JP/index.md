@@ -6,7 +6,7 @@ author: "Bob Hyun <bobhyun@gmail.com>"
 lang: "ja"
 ---
 
-[English](/TS-ANPR/index.md) | [한국어](/TS-ANPR/doc.i18n/ko-KR/index.md) | 日本語 | [Tiếng Việt](/TS-ANPR/doc.i18n/vi-VN/index.md)
+[English](/TS-ANPR/) | [한국어](/TS-ANPR/doc.i18n/ko-KR/) | 日本語 | [Tiếng Việt](/TS-ANPR/doc.i18n/vi-VN/)
 
 # 😍TS-ANPR
 
