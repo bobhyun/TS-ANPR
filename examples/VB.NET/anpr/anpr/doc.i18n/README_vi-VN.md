@@ -1,4 +1,4 @@
-[English](../README.md) | [日本語](README_ja-JP.md) | [한국어](README_ko-KR.md) | Tiếng Việt
+[English](../README.md) | [한국어](README_ko-KR.md) | [日本語](README_ja-JP.md) | Tiếng Việt
 
 # Ví dụ Visual Basic(.NET)
 

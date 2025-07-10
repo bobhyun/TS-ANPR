@@ -1,4 +1,4 @@
-[English](../README.md) | [日本語](README_ja-JP.md) | 한국어 | [Tiếng Việt](README_vi-VN.md)
+[English](../README.md) | 한국어 | [日本語](README_ja-JP.md) | [Tiếng Việt](README_vi-VN.md)
 
 # Visual Basic(.NET) 예제
 

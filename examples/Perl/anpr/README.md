@@ -1,4 +1,4 @@
-English | [日本語](doc.i18n/README_ja-JP.md) | [한국어](doc.i18n/README_ko-KR.md) | [Tiếng Việt](doc.i18n/README_vi-VN.md)
+English | [한국어](doc.i18n/README_ko-KR.md) | [日本語](doc.i18n/README_ja-JP.md) | [Tiếng Việt](doc.i18n/README_vi-VN.md)
 
 # Perl example
 

@@ -1,4 +1,4 @@
-[English](../README.md) | 日本語 | [한국어](README_ko-KR.md) | [Tiếng Việt](README_vi-VN.md)
+[English](../README.md) | [한국어](README_ko-KR.md) | 日本語 | [Tiếng Việt](README_vi-VN.md)
 
 # TypeScript サンプル
 

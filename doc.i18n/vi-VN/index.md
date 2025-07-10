@@ -12,17 +12,37 @@ lang: "vi"
 
 **TS-ANPR** là công cụ nhận diện biển số xe dựa trên học sâu, hỗ trợ tiêu chuẩn biển số của Hàn Quốc, Nhật Bản và Việt Nam.
 
-##### ✨ Ví dụ về ứng dụng (TS-IVR) <span style="font-size:.7em;font-weight:normal;color:grey"> [😎 Xem video đầy đủ](https://www.youtube.com/watch?v=d7UU71PAx5Y)</span>
+##### ✨ Ví dụ về ứng dụng (TS-IVR)
+<iframe width="720" height="405" src="https://www.youtube.com/embed/d7UU71PAx5Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-https://github.com/user-attachments/assets/71a2977a-4d1f-479b-a909-21c03fd9f013
-
-##### [😍 Bản demo trực tiếp](http://tsnvr.ipdisk.co.kr/) <span style="font-size:.7em;font-weight:normal;color:grey">👈 Hãy trực tiếp kiểm tra hiệu suất nhận diện số tại đây.</span>
+##### [😍 Bản demo trực tiếp](http://tsnvr.ipdisk.co.kr/) <span style="font-size:.8em;font-weight:normal;color:grey">👈 Hãy trực tiếp kiểm tra hiệu suất nhận diện số tại đây.</span>
 
 ##### [🚀 Tải xuống động cơ mới nhất](https://github.com/bobhyun/TS-ANPR/releases/)
 
 ##### 🎨 Mẫu mã nguồn bằng các ngôn ngữ phổ biến
 
-- [C](../../examples/C/anpr/) | [C#](../../examples/C%23/anpr/) | [C++](../../examples/C++/anpr/) | [Clojure](../../examples/Clojure/anpr/) | [Dart](../../examples/Dart/anpr/) | [Delphi](../../examples/Delphi/anpr/) | [F#](../../examples/F%23/anpr/) | [Go](../../examples/Go/anpr/) | [Haskell](../../examples/Haskell/anpr/) | [Java](../../examples/Java/anpr/) | [JavaScript](../../examples/JavaScript/anpr/) | [Julia](../../examples/Julia/anpr/) | [Kotlin](../../examples/Kotlin/anpr/) | [Lua](../../examples/Lua/anpr/) | [Perl](../../examples/Perl/anpr/) | [Python](../../examples/Python/anpr/) | [Ruby](../../examples/Ruby/anpr/) | [Rust](../../examples/Rust/anpr/) | [Scala](../../examples/Scala/anpr/) | [Swift](../../examples/Swift/anpr/) | [TypeScript](../../examples/TypeScript/anpr/) | [VB.NET](../../examples/VB.NET/anpr/)
+- [C](../../examples/C/anpr/)
+- [C#](../../examples/C%23/anpr/)
+- [C++](../../examples/C++/anpr/)
+- [Clojure](../../examples/Clojure/anpr/)
+- [Dart](../../examples/Dart/anpr/)
+- [Delphi](../../examples/Delphi/anpr/)
+- [F#](../../examples/F%23/anpr/)
+- [Go](../../examples/Go/anpr/)
+- [Haskell](../../examples/Haskell/anpr/)
+- [Java](../../examples/Java/anpr/)
+- [JavaScript](../../examples/JavaScript/anpr/)
+- [Julia](../../examples/Julia/anpr/)
+- [Kotlin](../../examples/Kotlin/anpr/)
+- [Lua](../../examples/Lua/anpr/)
+- [Perl](../../examples/Perl/anpr/)
+- [Python](../../examples/Python/anpr/)
+- [Ruby](../../examples/Ruby/anpr/)
+- [Rust](../../examples/Rust/anpr/)
+- [Scala](../../examples/Scala/anpr/)
+- [Swift](../../examples/Swift/anpr/)
+- [TypeScript](../../examples/TypeScript/anpr/)
+- [VB.NET](../../examples/VB.NET/anpr/)
 
 ##### 📖 Hướng dẫn phát triển ứng dụng
 
