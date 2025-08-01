@@ -51,9 +51,9 @@ English | [한국어](/TS-ANPR/doc.i18n/ko-KR/) | [日本語](/TS-ANPR/doc.i18n/
 - [TS-ANPR](DevGuide.html)
 - [TS-CAM](https://github.com/bobhyun/TS-CAM/blob/main/DevGuide.md)
 
-##### [🎁 How to install](Usage.html)
+##### [🎁 How to install](Usage.md)
 
-##### [⚖️ License](LICENSE.html)
+##### [⚖️ License](LICENSE.md)
 
 _If you have any questions or requests, please feel free to open an [Issues](https://github.com/bobhyun/TS-ANPR/issues).
 We are happy to assist and welcome your feedback!_
