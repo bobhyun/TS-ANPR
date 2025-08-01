@@ -2,7 +2,7 @@
 
 # Ví dụ JavaScript
 
-https://github.com/bobhyun/TS-ANPR/tree/main/examples/JavaScript/anpr
+[https://github.com/bobhyun/TS-ANPR/tree/main/examples/JavaScript/anpr](https://github.com/bobhyun/TS-ANPR/tree/main/examples/JavaScript/anpr)
 
 ### 1. Sao chép tệp Engine
 

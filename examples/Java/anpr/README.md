@@ -2,7 +2,7 @@ English | [한국어](doc.i18n/ko-KR/) | [日本語](doc.i18n/ja-JP/) | [Tiếng
 
 # Java Example
 
-https://github.com/bobhyun/TS-ANPR/tree/main/examples/Java/anpr
+[https://github.com/bobhyun/TS-ANPR/tree/main/examples/Java/anpr](https://github.com/bobhyun/TS-ANPR/tree/main/examples/Java/anpr)
 
 ### 1. Copying the Engine Files
 

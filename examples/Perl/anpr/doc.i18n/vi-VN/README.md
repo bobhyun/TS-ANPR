@@ -2,7 +2,7 @@
 
 # Ví dụ Perl
 
-https://github.com/bobhyun/TS-ANPR/tree/main/examples/Perl/anpr
+[https://github.com/bobhyun/TS-ANPR/tree/main/examples/Perl/anpr](https://github.com/bobhyun/TS-ANPR/tree/main/examples/Perl/anpr)
 
 ### 1. Sao chép tệp Engine
 

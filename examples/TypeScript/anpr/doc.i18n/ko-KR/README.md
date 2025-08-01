@@ -2,7 +2,7 @@
 
 # TypeScript 예제
 
-https://github.com/bobhyun/TS-ANPR/tree/main/examples/TypeScript/anpr
+[https://github.com/bobhyun/TS-ANPR/tree/main/examples/TypeScript/anpr](https://github.com/bobhyun/TS-ANPR/tree/main/examples/TypeScript/anpr)
 
 ### 1. 엔진 파일 복사
 

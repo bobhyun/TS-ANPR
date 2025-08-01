@@ -2,7 +2,7 @@ English | [한국어](doc.i18n/ko-KR/) | [日本語](doc.i18n/ja-JP/) | [Tiếng
 
 # Ruby example
 
-https://github.com/bobhyun/TS-ANPR/tree/main/examples/Ruby/anpr
+[https://github.com/bobhyun/TS-ANPR/tree/main/examples/Ruby/anpr](https://github.com/bobhyun/TS-ANPR/tree/main/examples/Ruby/anpr)
 
 ### 1. Copying the Engine Files
 

@@ -2,7 +2,7 @@
 
 # Ví dụ Haskell
 
-https://github.com/bobhyun/TS-ANPR/tree/main/examples/Haskell/anpr
+[https://github.com/bobhyun/TS-ANPR/tree/main/examples/Haskell/anpr](https://github.com/bobhyun/TS-ANPR/tree/main/examples/Haskell/anpr)
 
 ### 1. Sao chép tệp Engine
 

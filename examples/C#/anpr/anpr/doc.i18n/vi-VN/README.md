@@ -2,7 +2,7 @@
 
 # Ví dụ C#(.NET)
 
-https://github.com/bobhyun/TS-ANPR/tree/main/examples/C%23/anpr
+[https://github.com/bobhyun/TS-ANPR/tree/main/examples/C%23/anpr](https://github.com/bobhyun/TS-ANPR/tree/main/examples/C%23/anpr)
 
 ### 1. Sao chép tệp Engine
 

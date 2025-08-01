@@ -2,7 +2,7 @@
 
 # Haskell サンプル
 
-https://github.com/bobhyun/TS-ANPR/tree/main/examples/Haskell/anpr
+[https://github.com/bobhyun/TS-ANPR/tree/main/examples/Haskell/anpr](https://github.com/bobhyun/TS-ANPR/tree/main/examples/Haskell/anpr)
 
 ### 1. エンジンファイルのコピー
 

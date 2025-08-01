@@ -2,7 +2,7 @@
 
 # Ví dụ Delphi
 
-https://github.com/bobhyun/TS-ANPR/tree/main/examples/Delphi/anpr
+[https://github.com/bobhyun/TS-ANPR/tree/main/examples/Delphi/anpr](https://github.com/bobhyun/TS-ANPR/tree/main/examples/Delphi/anpr)
 
 ### 1. Sao chép tệp Engine
 

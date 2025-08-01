@@ -2,7 +2,7 @@
 
 # Ví dụ C++
 
-https://github.com/bobhyun/TS-ANPR/tree/main/examples/C%2B%2B/anpr
+[https://github.com/bobhyun/TS-ANPR/tree/main/examples/C%2B%2B/anpr](https://github.com/bobhyun/TS-ANPR/tree/main/examples/C%2B%2B/anpr)
 
 ### 1. Sao chép tệp Engine
 

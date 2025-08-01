@@ -2,7 +2,7 @@
 
 # Ví dụ Go
 
-https://github.com/bobhyun/TS-ANPR/tree/main/examples/Go/anpr
+[https://github.com/bobhyun/TS-ANPR/tree/main/examples/Go/anpr](https://github.com/bobhyun/TS-ANPR/tree/main/examples/Go/anpr)
 
 ### 1. Sao chép tệp Engine
 

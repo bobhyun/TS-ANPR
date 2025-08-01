@@ -2,7 +2,7 @@
 
 # Ví dụ Lua
 
-https://github.com/bobhyun/TS-ANPR/tree/main/examples/Lua/anpr
+[https://github.com/bobhyun/TS-ANPR/tree/main/examples/Lua/anpr](https://github.com/bobhyun/TS-ANPR/tree/main/examples/Lua/anpr)
 
 ### 1. Sao chép tệp Engine
 

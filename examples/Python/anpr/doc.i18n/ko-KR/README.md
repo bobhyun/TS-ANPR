@@ -2,7 +2,7 @@
 
 # Python 예제
 
-https://github.com/bobhyun/TS-ANPR/tree/main/examples/Python/anpr
+[https://github.com/bobhyun/TS-ANPR/tree/main/examples/Python/anpr](https://github.com/bobhyun/TS-ANPR/tree/main/examples/Python/anpr)
 
 ### 1. 엔진 파일 복사
 

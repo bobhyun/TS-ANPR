@@ -2,7 +2,7 @@
 
 # Scala サンプル
 
-https://github.com/bobhyun/TS-ANPR/tree/main/examples/Scala/anpr
+[https://github.com/bobhyun/TS-ANPR/tree/main/examples/Scala/anpr](https://github.com/bobhyun/TS-ANPR/tree/main/examples/Scala/anpr)
 
 ### 1. エンジンファイルのコピー
 

@@ -2,7 +2,7 @@
 
 # Delphi サンプル
 
-https://github.com/bobhyun/TS-ANPR/tree/main/examples/Delphi/anpr
+[https://github.com/bobhyun/TS-ANPR/tree/main/examples/Delphi/anpr](https://github.com/bobhyun/TS-ANPR/tree/main/examples/Delphi/anpr)
 
 ### 1. エンジンファイルのコピー
 

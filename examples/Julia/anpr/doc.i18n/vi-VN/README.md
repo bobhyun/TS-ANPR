@@ -2,7 +2,7 @@
 
 # Ví dụ Julia
 
-https://github.com/bobhyun/TS-ANPR/tree/main/examples/Julia/anpr
+[https://github.com/bobhyun/TS-ANPR/tree/main/examples/Julia/anpr](https://github.com/bobhyun/TS-ANPR/tree/main/examples/Julia/anpr)
 
 ### 1. Sao chép tệp Engine
 

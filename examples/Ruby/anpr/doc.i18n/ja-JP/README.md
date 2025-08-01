@@ -2,7 +2,7 @@
 
 # Ruby サンプル
 
-https://github.com/bobhyun/TS-ANPR/tree/main/examples/Ruby/anpr
+[https://github.com/bobhyun/TS-ANPR/tree/main/examples/Ruby/anpr](https://github.com/bobhyun/TS-ANPR/tree/main/examples/Ruby/anpr)
 
 ### 1. エンジンファイルのコピー
 

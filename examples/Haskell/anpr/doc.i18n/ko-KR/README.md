@@ -2,7 +2,7 @@
 
 # Haskell 예제
 
-https://github.com/bobhyun/TS-ANPR/tree/main/examples/Haskell/anpr
+[https://github.com/bobhyun/TS-ANPR/tree/main/examples/Haskell/anpr](https://github.com/bobhyun/TS-ANPR/tree/main/examples/Haskell/anpr)
 
 ### 1. 엔진 파일 복사
 

@@ -2,7 +2,7 @@
 
 # Clojure サンプル
 
-https://github.com/bobhyun/TS-ANPR/tree/main/examples/Clojure/anpr
+[https://github.com/bobhyun/TS-ANPR/tree/main/examples/Clojure/anpr](https://github.com/bobhyun/TS-ANPR/tree/main/examples/Clojure/anpr)
 
 ### 1. エンジンファイルのコピー
 

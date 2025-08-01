@@ -2,7 +2,7 @@
 
 # Kotlin サンプル
 
-https://github.com/bobhyun/TS-ANPR/tree/main/examples/Kotlin/anpr
+[https://github.com/bobhyun/TS-ANPR/tree/main/examples/Kotlin/anpr](https://github.com/bobhyun/TS-ANPR/tree/main/examples/Kotlin/anpr)
 
 ### 1. エンジンファイルのコピー
 

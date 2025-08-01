@@ -2,7 +2,7 @@
 
 # Ví dụ TypeScript
 
-https://github.com/bobhyun/TS-ANPR/tree/main/examples/TypeScript/anpr
+[https://github.com/bobhyun/TS-ANPR/tree/main/examples/TypeScript/anpr](https://github.com/bobhyun/TS-ANPR/tree/main/examples/TypeScript/anpr)
 
 ### 1. Sao chép tệp Engine
 

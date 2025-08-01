@@ -2,7 +2,7 @@
 
 # Ví dụ Python
 
-https://github.com/bobhyun/TS-ANPR/tree/main/examples/Python/anpr
+[https://github.com/bobhyun/TS-ANPR/tree/main/examples/Python/anpr](https://github.com/bobhyun/TS-ANPR/tree/main/examples/Python/anpr)
 
 ### 1. Sao chép tệp Engine
 

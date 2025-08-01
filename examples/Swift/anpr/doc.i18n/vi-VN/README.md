@@ -2,7 +2,7 @@
 
 # Ví dụ Swift
 
-https://github.com/bobhyun/TS-ANPR/tree/main/examples/Swift/anpr
+[https://github.com/bobhyun/TS-ANPR/tree/main/examples/Swift/anpr](https://github.com/bobhyun/TS-ANPR/tree/main/examples/Swift/anpr)
 
 ### 1. Sao chép tệp Engine
 

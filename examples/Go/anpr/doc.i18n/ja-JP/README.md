@@ -2,7 +2,7 @@
 
 # Go サンプル
 
-https://github.com/bobhyun/TS-ANPR/tree/main/examples/Go/anpr
+[https://github.com/bobhyun/TS-ANPR/tree/main/examples/Go/anpr](https://github.com/bobhyun/TS-ANPR/tree/main/examples/Go/anpr)
 
 ### 1. エンジンファイルのコピー
 

@@ -2,7 +2,7 @@
 
 # Ví dụ Java
 
-https://github.com/bobhyun/TS-ANPR/tree/main/examples/Java/anpr
+[https://github.com/bobhyun/TS-ANPR/tree/main/examples/Java/anpr](https://github.com/bobhyun/TS-ANPR/tree/main/examples/Java/anpr)
 
 ### 1. Sao chép tệp Engine
 
