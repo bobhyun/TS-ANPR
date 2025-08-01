@@ -1,6 +1,8 @@
-English | [한국어](doc.i18n/README_ko-KR.md) | [日本語](doc.i18n/README_ja-JP.md) | [Tiếng Việt](doc.i18n/README_vi-VN.md)
+English | [한국어](doc.i18n/ko-KR/) | [日本語](doc.i18n/ja-JP/) | [Tiếng Việt](doc.i18n/vi-VN/)
 
 # Scala Example
+
+https://github.com/bobhyun/TS-ANPR/tree/main/examples/Scala/anpr
 
 ### 1. Copying the Engine Files
 

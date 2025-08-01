@@ -75,31 +75,10 @@ We are happy to assist and welcome your feedback!_
 
 ## Latest Version Information
 
-#### Release v3.0.0 (2025.5.27)🎉
+#### Release v3.1.0 (2025.8.1)🎉
 
-1. Added Japanese and Vietnamese vehicle license plate recognition features.
-
-   - Supports 140 regions in Japan, diplomatic, Self-Defense Forces, and old-style plates.
-
-   - Supports Vietnamese vehicle and motorcycle plates.
-
-   - Country support based on license:
-
-     - Free trial license: Specify the country using the `country` setting in the application's initialization function. ([Details](DevGuide.md#11-anpr_initialize))
-     - Commercial license: The `country` specified in the initialization function is ignored; the supported country is determined by the purchased license.
-
-2. Added Region of Interest (RoI) / Region of Uninterest (RoU) Configuration
-   - Users can now define specific areas for license plate recognition within input images. ([Details](DevGuide.md#23-setting-region-of-interest-roi--region-of-uninterest-rou))
-     ![](img/options/roi.png)
-3. Added Minimum License Plate Size Configuration
-
-   - License plate regions smaller than the configured minimum size will be ignored. ([Details](DevGuide.md#24-setting-minimum-license-plate-size))
-
-4. Improved Recognition Accuracy
-   - Enhanced algorithm improves license plate recognition accuracy.
-5. `tscam` Module Separated
-   - `tscam` has been separated from `TS-ANPR` and is now distributed via [TS-CAM Releases](https://github.com/bobhyun/TS-CAM/releases).
-   - Support for HTTPS cameras using self-signed certificates
+1. Improved Recognition Accuracy
+   - The recognition accuracy for Japanese and Korean license plates has been enhanced.
 
 ## Deep Learning Model Types and Their Applications
 

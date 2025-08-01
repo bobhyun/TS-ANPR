@@ -46,31 +46,10 @@ Chúng tôi luôn sẵn sàng hỗ trợ và rất mong nhận được phản h
 
 ## Thông tin phiên bản mới nhất
 
-#### v3.0.0 phát hành (2025.5.27)🎉
+#### v3.1.0 phát hành (2025.8.1)🎉
 
-1. Thêm chức năng nhận diện biển số xe Nhật Bản và Việt Nam
-
-   - Hỗ trợ 140 khu vực tại Nhật Bản, bao gồm biển số ngoại giao, Lực lượng Phòng vệ và biển số kiểu cũ.
-
-   - Hỗ trợ biển số xe ô tô và xe máy tại Việt Nam.
-
-   - Hỗ trợ quốc gia tùy theo loại giấy phép:
-
-     - Giấy phép dùng thử miễn phí: Chỉ định quốc gia bằng thiết lập country trong hàm khởi tạo của ứng dụng. ([Chi tiết](DevGuide.md#11-anpr_initialize))
-     - Giấy phép thương mại: Thiết lập country trong hàm khởi tạo sẽ bị bỏ qua và quốc gia được xác định theo giấy phép đã mua.
-
-2. Thêm tính năng thiết lập vùng quan tâm (RoI) / vùng không quan tâm (RoU)
-   - Có thể đặt vùng nhận diện biển số trong hình ảnh đầu vào. ([Chi tiết](DevGuide.md#23-thiết-lập-vùng-quan-tâm-roi--vùng-không-quan-tâm-rou))
-     ![](../../img/options/roi.png)
-3. Thêm tính năng cài đặt kích thước tối thiểu biển số
-
-   - Khi cài đặt kích thước tối thiểu, các vùng biển số nhỏ hơn sẽ bị bỏ qua. ([Chi tiết](DevGuide.md#24-thiết-lập-kích-thước-tối-thiểu-của-biển-số))
-
-4. Cải thiện tỷ lệ nhận diện
-   - Độ chính xác nhận diện biển số được nâng cao nhờ cải tiến thuật toán.
-5. Tách module `tscam`
-   - Module `tscam` được tách khỏi bản phân phối `TS-ANPR` và phát hành tại [TS-CAM Releases](https://github.com/bobhyun/TS-CAM/releases)
-   - Hỗ trợ camera HTTPS sử dụng chứng chỉ tự ký
+1. Cải thiện tỷ lệ nhận diện
+   - Tỷ lệ nhận diện biển số xe của Nhật Bản và Hàn Quốc đã được cải thiện.
 
 ## Các loại mô hình học sâu và ứng dụng của chúng
 
