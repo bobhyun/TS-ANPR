@@ -75,6 +75,10 @@ We are happy to assist and welcome your feedback!_
 
 ## Latest Version Information
 
+#### Release v3.1.1 (2025.8.18)🎉
+
+1. `Fixed`: There was an issue where vehicles without visible license plates were excluded from the results when using the `dr` option to detect both vehicles and license plates, and it has been fixed.
+
 #### Release v3.1.0 (2025.8.1)🎉
 
 1. Improved Recognition Accuracy
