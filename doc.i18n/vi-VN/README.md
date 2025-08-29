@@ -46,9 +46,13 @@ Chúng tôi luôn sẵn sàng hỗ trợ và rất mong nhận được phản h
 
 ## Thông tin phiên bản mới nhất
 
+#### v3.1.2 phát hành (2025.8.29)🎉
+
+1. Đã sửa lỗi có thể gây crash khi khởi tạo engine với tham số `sync` và gọi nhận dạng biển số xe đồng thời từ nhiều luồng.
+
 #### v3.1.1 phát hành (2025.8.18)🎉
 
-1. `Đã sửa`: Khi sử dụng tùy chọn `dr` để nhận diện cả phương tiện và biển số, đã xảy ra lỗi khiến các phương tiện không có biển số hiển thị bị loại khỏi kết quả, và lỗi này đã được sửa.
+1. Khi sử dụng tùy chọn `dr` để nhận diện cả phương tiện và biển số, đã xảy ra lỗi khiến các phương tiện không có biển số hiển thị bị loại khỏi kết quả, và lỗi này đã được sửa.
 
 #### v3.1.0 phát hành (2025.8.1)🎉
 

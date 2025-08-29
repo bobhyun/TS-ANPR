@@ -75,6 +75,10 @@ We are happy to assist and welcome your feedback!_
 
 ## Latest Version Information
 
+#### Release v3.1.2 (2025.8.29)🎉
+
+1. Fixed a potential crash issue that could occur when the engine was initialized with the 'sync' parameter and license plate recognition was invoked concurrently from multiple threads.
+
 #### Release v3.1.1 (2025.8.18)🎉
 
 1. `Fixed`: There was an issue where vehicles without visible license plates were excluded from the results when using the `dr` option to detect both vehicles and license plates, and it has been fixed.
