@@ -46,6 +46,12 @@ We are happy to assist and welcome your feedback!_
 
 ## Latest Version Information
 
+#### Release v3.1.3 (2025.9.29)🎉
+
+1. Improved recognition accuracy for Korean license plates (especially significant improvement in the `S` model)
+2. Prevent the error `103: Too many workers` when license plate recognition is called from new threads each time
+   - Improved to automatically clean up resources of terminated threads so that the error does not occur unless 256 or more threads are used simultaneously
+
 #### Release v3.1.2 (2025.8.29)🎉
 
 1. Fixed a potential crash issue that could occur when the engine was initialized with the `sync` parameter and license plate recognition was invoked concurrently from multiple threads.
