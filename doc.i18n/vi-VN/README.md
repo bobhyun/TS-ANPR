@@ -46,6 +46,12 @@ Chúng tôi luôn sẵn sàng hỗ trợ và rất mong nhận được phản h
 
 ## Thông tin phiên bản mới nhất
 
+#### v3.1.3 phát hành (2025.9.29)🎉
+
+1. Cải thiện độ chính xác nhận diện biển số Hàn Quốc (đặc biệt là mô hình `S` được cải thiện đáng kể)
+2. Ngăn lỗi `103: Too many workers` khi nhận diện biển số được gọi từ mỗi luồng mới
+   - Đã cải tiến để tự động giải phóng tài nguyên của các luồng đã kết thúc, vì vậy sẽ không xảy ra lỗi trừ khi sử dụng đồng thời hơn 256 luồng
+
 #### v3.1.2 phát hành (2025.8.29)🎉
 
 1. Đã sửa lỗi có thể gây crash khi khởi tạo engine với tham số `sync` và gọi nhận dạng biển số xe đồng thời từ nhiều luồng.
