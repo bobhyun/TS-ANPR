@@ -22,13 +22,16 @@ English | [한국어](/TS-ANPR/doc.i18n/ko-KR/) | [日本語](/TS-ANPR/doc.i18n/
 
 ##### 🎨 Code Samples in Popular Languages
 
+- [Ada](examples/Ada/anpr/)
 - [C](examples/C/anpr/)
 - [C#](examples/C%23/anpr/)
 - [C++](examples/C++/anpr/)
 - [Clojure](examples/Clojure/anpr/)
+- [COBOL](examples/COBOL/anpr/)
 - [Dart](examples/Dart/anpr/)
 - [Delphi](examples/Delphi/anpr/)
 - [F#](examples/F%23/anpr/)
+- [Fortran](examples/Fortran/anpr/)
 - [Go](examples/Go/anpr/)
 - [Haskell](examples/Haskell/anpr/)
 - [Java](examples/Java/anpr/)
@@ -44,6 +47,7 @@ English | [한국어](/TS-ANPR/doc.i18n/ko-KR/) | [日本語](/TS-ANPR/doc.i18n/
 - [Swift](examples/Swift/anpr/)
 - [TypeScript](examples/TypeScript/anpr/)
 - [VB.NET](examples/VB.NET/anpr/)
+- [Zig](examples/Zig/anpr/)
 
 ##### 📖 Application Development Guide
 

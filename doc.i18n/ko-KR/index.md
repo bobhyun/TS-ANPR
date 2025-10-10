@@ -22,13 +22,16 @@ lang: "ko"
 
 ##### 🎨 주요 언어별 코드 샘플
 
+- [Ada](../../examples/Ada/anpr/)
 - [C](../../examples/C/anpr/)
 - [C#](../../examples/C%23/anpr/)
 - [C++](../../examples/C++/anpr/)
 - [Clojure](../../examples/Clojure/anpr/)
+- [COBOL](../../examples/COBOL/anpr/)
 - [Dart](../../examples/Dart/anpr/)
 - [Delphi](../../examples/Delphi/anpr/)
 - [F#](../../examples/F%23/anpr/)
+- [Fortran](../../examples/Fortran/anpr/)
 - [Go](../../examples/Go/anpr/)
 - [Haskell](../../examples/Haskell/anpr/)
 - [Java](../../examples/Java/anpr/)
@@ -44,6 +47,7 @@ lang: "ko"
 - [Swift](../../examples/Swift/anpr/)
 - [TypeScript](../../examples/TypeScript/anpr/)
 - [VB.NET](../../examples/VB.NET/anpr/)
+- [Zig](../../examples/Zig/anpr/)
 
 ##### 📖 응용 프로그램 개발 가이드
 

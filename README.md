@@ -14,7 +14,7 @@ https://github.com/user-attachments/assets/71a2977a-4d1f-479b-a909-21c03fd9f013
 
 ##### 🎨 Code Samples in Popular Languages
 
-- [C](examples/C/anpr/) | [C#](examples/C%23/anpr/) | [C++](examples/C++/anpr/) | [Clojure](examples/Clojure/anpr/) | [Dart](examples/Dart/anpr/) | [Delphi](examples/Delphi/anpr/) | [F#](examples/F%23/anpr/) | [Go](examples/Go/anpr/) | [Haskell](examples/Haskell/anpr/) | [Java](examples/Java/anpr/) | [JavaScript](examples/JavaScript/anpr/) | [Julia](examples/Julia/anpr/) | [Kotlin](examples/Kotlin/anpr/) | [Lua](examples/Lua/anpr/) | [Perl](examples/Perl/anpr/) | [Python](examples/Python/anpr/) | [Ruby](examples/Ruby/anpr/) | [Rust](examples/Rust/anpr/) | [Scala](examples/Scala/anpr/) | [Swift](examples/Swift/anpr/) | [TypeScript](examples/TypeScript/anpr/) | [VB.NET](examples/VB.NET/anpr/)
+- [Ada](examples/Ada/anpr/) | [C](examples/C/anpr/) | [C#](examples/C%23/anpr/) | [C++](examples/C++/anpr/) | [Clojure](examples/Clojure/anpr/) | [COBOL](examples/COBOL/anpr/) | [Dart](examples/Dart/anpr/) | [Delphi](examples/Delphi/anpr/) | [F#](examples/F%23/anpr/) | [Fortran](examples/Fortran/anpr/) | [Go](examples/Go/anpr/) | [Haskell](examples/Haskell/anpr/) | [Java](examples/Java/anpr/) | [JavaScript](examples/JavaScript/anpr/) | [Julia](examples/Julia/anpr/) | [Kotlin](examples/Kotlin/anpr/) | [Lua](examples/Lua/anpr/) | [Perl](examples/Perl/anpr/) | [Python](examples/Python/anpr/) | [Ruby](examples/Ruby/anpr/) | [Rust](examples/Rust/anpr/) | [Scala](examples/Scala/anpr/) | [Swift](examples/Swift/anpr/) | [TypeScript](examples/TypeScript/anpr/) | [VB.NET](examples/VB.NET/anpr/) | [Zig](examples/Zig/anpr/)
 
 ##### 📖 Application Development Guide
 
