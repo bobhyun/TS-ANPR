@@ -91,11 +91,15 @@ var
   width, height: Integer;
   resultStr: string;
   ext: string;
+  pixelFormatStr: string;
 begin
   Write(imgFile, ' (outputFormat="', outputFormat, '", options="', options, '") => ');
   ext := LowerCase(ExtractFileExt(imgFile));
   bmp := TBitmap.Create;
   try
+    // To force grayscale conversion, uncomment the following line:
+    // bmp.PixelFormat := pf8bit;  // Force GRAY format
+
     if ext = '.jpg' then
     begin
       jpg := TJPEGImage.Create;
@@ -136,13 +140,27 @@ begin
     }
     width := bmp.Width;
     height := bmp.Height;
+
+    // Determine pixel format string based on TBitmap.PixelFormat
+    case bmp.PixelFormat of
+      pf24bit: pixelFormatStr := 'BGR';     // 24-bit BGR (most common)
+      pf32bit: pixelFormatStr := 'BGRA';    // 32-bit BGRA with alpha channel
+      pf16bit: pixelFormatStr := 'BGR565';  // 16-bit BGR 5-6-5
+      pf15bit: pixelFormatStr := 'BGR555';  // 15-bit BGR 5-5-5
+      pf8bit:  pixelFormatStr := 'GRAY';    // 8-bit grayscale
+    else
+      // For other formats, convert to 24-bit BGR
+      bmp.PixelFormat := pf24bit;
+      pixelFormatStr := 'BGR';
+    end;
+
     // Obtain the starting address of the first scanline of the image
     pixelBuffer := bmp.ScanLine[height - 1];
     stride := Integer(bmp.ScanLine[height - 2]) - Integer(pixelBuffer);
 
     // Calculate the number of bytes to the next scanline (stride).
     // Since the BMP image memory layout is bottom-up, the stride is negative.
-    resultStr := anpr_read_pixels(@tsanpr, pixelBuffer, width, height, stride, 'BGR', outputFormat, options);
+    resultStr := anpr_read_pixels(@tsanpr, pixelBuffer, width, height, stride, pixelFormatStr, outputFormat, options);
     Writeln(resultStr);
   finally
     bmp.Free;
