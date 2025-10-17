@@ -123,21 +123,6 @@ begin
     else
       bmp.LoadFromFile(imgFile);
 
-    {
-      NOTICE:
-      The memory layout of a BMP image is such that the image appears vertically flipped;
-      scanning proceeds from the bottom of the image upwards.
-
-      Memory buffer start address -> +-------------------------------+
-                                     |                               |
-                                  ^  |                               |
-                                  |  |                               |
-                                  |  |                               |
-                                  |  |                               |
-                 Scan direction   |  |                               |
-                                     |                               |
-          First scanline address  -> +-------------------------------+
-    }
     width := bmp.Width;
     height := bmp.Height;
 
@@ -154,12 +139,16 @@ begin
       pixelFormatStr := 'BGR';
     end;
 
-    // Obtain the starting address of the first scanline of the image
-    pixelBuffer := bmp.ScanLine[height - 1];
-    stride := Integer(bmp.ScanLine[height - 2]) - Integer(pixelBuffer);
+    pixelBuffer := bmp.ScanLine[0];
+    if height > 1 then
+    begin
+      stride := Integer(bmp.ScanLine[1]) - Integer(bmp.ScanLine[0]);
+    end
+    else
+    begin
+      stride := 0;
+    end;
 
-    // Calculate the number of bytes to the next scanline (stride).
-    // Since the BMP image memory layout is bottom-up, the stride is negative.
     resultStr := anpr_read_pixels(@tsanpr, pixelBuffer, width, height, stride, pixelFormatStr, outputFormat, options);
     Writeln(resultStr);
   finally
