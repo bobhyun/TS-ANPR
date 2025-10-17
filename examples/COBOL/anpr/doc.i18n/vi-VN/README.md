@@ -28,17 +28,18 @@ _**[Lưu ý]** Trong ví dụ này, tệp engine được giải nén vào thư 
 
 - Windows x86 64-bit: Giải nén vào thư mục `examples/bin/windows-x86_64`
   ```sh
-  tar xvf tsanpr*-windows-x86_64.tar.xz
+  7z x tsanpr*-windows-x86_64.7z
   ```
 - Windows x86 32-bit: Giải nén vào thư mục `examples/bin/windows-x86`
   ```sh
-  tar xvf tsanpr*-windows-x86.tar.xz
+  7z x tsanpr*-windows-x86.7z
   ```
 - Linux x86 64-bit: Giải nén vào thư mục `examples/bin/linux-x86_64`
   ```sh
   tar xvf tsanpr*-linux-x86_64.tar.xz
   ```
 - Linux arm 64-bit: Giải nén vào thư mục `examples/bin/linux-aarch64`
+
   ```sh
   tar xvf tsanpr*-linux-aarch64.tar.xz
   ```
@@ -155,6 +156,7 @@ _**[Lưu ý]** Trong ví dụ này, tệp engine được giải nén vào thư 
 ## Chương trình COBOL (`src/cobol/anpr.cbl`)
 
 Chương trình minh họa:
+
 - Nhận dạng biển số đơn
 - Nhận dạng nhiều biển số (vm)
 - Nhiều biển bao gồm xe máy (vmb)
@@ -183,6 +185,7 @@ Lỗi này xảy ra khi GnuCOBOL không thể tìm thấy thư viện wrapper C.
 ### Windows: Lỗi DLL not found
 
 Đảm bảo rằng:
+
 1. `bin/tsanpr_cobol.dll` tồn tại sau khi biên dịch
 2. Bạn đang chạy qua `run.bat` thiết lập `COB_LIBRARY_PATH`
 

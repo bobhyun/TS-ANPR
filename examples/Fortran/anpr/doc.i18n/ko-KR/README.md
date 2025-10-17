@@ -11,12 +11,12 @@ _**[참고]** 이 예제에서는 다른 예제들과 공유하기 위해 엔진
 - Windows x86 64비트용
   엔진 파일을 `examples/bin/windows-x86_64` 디렉토리에 압축 해제
   ```sh
-  tar xvf tsanpr*-windows-x86_64.tar.xz
+  7z x tsanpr*-windows-x86_64.7z
   ```
 - Windows x86 32비트용
   엔진 파일을 `examples/bin/windows-x86` 디렉토리에 압축 해제
   ```sh
-  tar xvf tsanpr*-windows-x86.tar.xz
+  7z x tsanpr*-windows-x86.7z
   ```
 - Linux x86 64비트용
   엔진 파일을 `examples/bin/linux-x86_64` 디렉토리에 압축 해제

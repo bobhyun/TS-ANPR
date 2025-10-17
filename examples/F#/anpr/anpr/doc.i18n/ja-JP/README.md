@@ -11,12 +11,12 @@ _**【参考】** この例では、他のサンプルとエンジンファイ�
 - Windows x86 64 ビット
   エンジンファイルを `examples/bin/windows-x86_64` ディレクトリに展開
   ```sh
-  unzip tsanpr*-windows-x86_64.zip
+  7z x tsanpr*-windows-x86_64.7z
   ```
 - Windows x86 32 ビット
   エンジンファイルを `examples/bin/windows-x86` ディレクトリに展開
   ```sh
-  unzip tsanpr*-windows-x86.zip
+  7z x tsanpr*-windows-x64.7z
   ```
 - Linux x86 64 ビット
   エンジンファイルを `examples/bin/linux-x86_64` ディレクトリに展開

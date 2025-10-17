@@ -9,12 +9,15 @@ English | [한국어](doc.i18n/ko-KR/) | [日本語](doc.i18n/ja-JP/) | [Tiếng
 _**[Note]** In this example, the engine file is extracted to the examples/bin/ directory to share it with other examples. However, for actual deployment, the engine file is typically copied to the directory where the application's executable file is located._
 
 - For Windows x86 64-bit
-  Extract the engine file to the `examples/bin/linux-x86_64` directory
-
+  Extract the engine file to the `examples/bin/windows-x86_64` directory
   ```sh
-  tar xvf tsanpr-linux-x86_64.tar.xz
+  7z x tsanpr*-windows-x86_64.7z
   ```
-
+- For Windows x86 32-bit
+  Extract the engine file to the `examples/bin/windows-x86` directory
+  ```sh
+  7z x tsanpr*-windows-x86.7z
+  ```
 - For Linux x86 64-bit
   Extract the engine file to the `examples/bin/linux-x86_64` directory
   ```sh

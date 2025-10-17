@@ -11,12 +11,12 @@ _**[Lưu ý]** Trong ví dụ này, tệp engine được giải nén vào thư 
 - Cho Windows x86 64-bit
   Giải nén tệp engine vào thư mục `examples/bin/windows-x86_64`
   ```sh
-  tar xvf tsanpr*-windows-x86_64.tar.xz
+  7z x tsanpr*-windows-x86_64.7z
   ```
 - Cho Windows x86 32-bit
   Giải nén tệp engine vào thư mục `examples/bin/windows-x86`
   ```sh
-  tar xvf tsanpr*-windows-x86.tar.xz
+  7z x tsanpr*-windows-x86.7z
   ```
 - Cho Linux x86 64-bit
   Giải nén tệp engine vào thư mục `examples/bin/linux-x86_64`

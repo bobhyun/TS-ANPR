@@ -11,12 +11,12 @@ _**[Note]** In this example, the engine file is extracted to the examples/bin/ d
 - For Windows x86 64-bit
   Extract the engine file to the `examples/bin/linux-x86_64` directory
   ```sh
-  tar xvf tsanpr*-linux-x86_64.tar.xz
+  7z x tsanpr*-windows-x86_64.7z
   ```
 - For Windows x86 32-bit
   Extract the engine file to the `examples/bin/linux-x86` directory
   ```sh
-  tar xvf tsanpr*-linux-x86.tar.xz
+  7z x tsanpr*-windows-x86.7z
   ```
 - For Linux x86 64-bit
   Extract the engine file to the `examples/bin/linux-x86_64` directory

@@ -11,12 +11,12 @@ _**[注意]** このサンプルでは、他のサンプルと共有するため
 - Windows x86 64 ビット用
   エンジンファイルを`examples/bin/windows-x86_64`ディレクトリに展開
   ```sh
-  tar xvf tsanpr*-windows-x86_64.tar.xz
+  7z x tsanpr*-windows-x86_64.7z
   ```
 - Windows x86 32 ビット用
   エンジンファイルを`examples/bin/windows-x86`ディレクトリに展開
   ```sh
-  tar xvf tsanpr*-windows-x86.tar.xz
+  7z x tsanpr*-windows-x86.7z
   ```
 - Linux x86 64 ビット用
   エンジンファイルを`examples/bin/linux-x86_64`ディレクトリに展開
@@ -121,7 +121,7 @@ _**[注意]** このサンプルでは、他のサンプルと共有するため
    ./build/anpr
    ```
 
-   またはWindowsで:
+   または Windows で:
 
    ```sh
    build/anpr.exe

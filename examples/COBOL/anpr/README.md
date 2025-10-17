@@ -29,12 +29,12 @@ _**[Note]** In this example, the engine file is extracted to the examples/bin/ d
 - For Windows x86 64-bit
   Extract the engine file to the `examples/bin/windows-x86_64` directory
   ```sh
-  tar xvf tsanpr*-windows-x86_64.tar.xz
+  7z x tsanpr*-windows-x86_64.7z
   ```
 - For Windows x86 32-bit
   Extract the engine file to the `examples/bin/windows-x86` directory
   ```sh
-  tar xvf tsanpr*-windows-x86.tar.xz
+  7z x tsanpr*-windows-x86.7z
   ```
 - For Linux x86 64-bit
   Extract the engine file to the `examples/bin/linux-x86_64` directory
@@ -183,6 +183,7 @@ The C wrapper provides three main functions:
 - `tsanpr_cobol_cleanup()`: Release resources
 
 The wrapper handles:
+
 - Dynamic loading of the TS-ANPR engine library
 - Platform detection (Windows/Linux, x86/ARM)
 - COBOL string conversion (fixed-length to null-terminated)
@@ -191,6 +192,7 @@ The wrapper handles:
 ### COBOL Program (`src/cobol/anpr.cbl`)
 
 The COBOL program demonstrates:
+
 - Single license plate recognition
 - Multiple license plate recognition (vm)
 - Multiple plates with motorcycles (vmb)
@@ -219,6 +221,7 @@ This error occurs when GnuCOBOL cannot find the C wrapper library. The run scrip
 ### Windows: DLL not found error
 
 Ensure that:
+
 1. `bin/tsanpr_cobol.dll` exists after compilation
 2. You're running via `run.bat` which sets `COB_LIBRARY_PATH`
 

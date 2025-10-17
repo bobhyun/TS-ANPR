@@ -4,11 +4,11 @@
 
 [https://github.com/bobhyun/TS-ANPR/tree/main/examples/COBOL/anpr](https://github.com/bobhyun/TS-ANPR/tree/main/examples/COBOL/anpr)
 
-このサンプルは、Cラッパーライブラリを使用してCOBOLアプリケーションにTS-ANPRエンジンを統合する方法を示します。
+このサンプルは、C ラッパーライブラリを使用して COBOL アプリケーションに TS-ANPR エンジンを統合する方法を示します。
 
 ## アーキテクチャ
 
-COBOLサンプルは階層化されたアーキテクチャを使用します：
+COBOL サンプルは階層化されたアーキテクチャを使用します：
 
 ```
 COBOLアプリケーション (anpr.cbl)
@@ -18,27 +18,28 @@ Cラッパーライブラリ (libtsanpr_cobol.so/.dll)
 TS-ANPRエンジン (libtsanpr.so/tsanpr.dll)
 ```
 
-- **COBOLアプリケーション**: Cラッパーを呼び出すメインプログラム
-- **Cラッパー**: TS-ANPRエンジンへのCOBOL対応インターフェースを提供
-- **TS-ANPRエンジン**: ディープラーニングベースのナンバープレート認識エンジン
+- **COBOL アプリケーション**: C ラッパーを呼び出すメインプログラム
+- **C ラッパー**: TS-ANPR エンジンへの COBOL 対応インターフェースを提供
+- **TS-ANPR エンジン**: ディープラーニングベースのナンバープレート認識エンジン
 
 ### 1. エンジンファイルのコピー
 
 _**【参考】** このサンプルでは、他のサンプルとエンジンファイルを共有するために `examples/bin/` ディレクトリに展開しますが、実際の配布時には通常、アプリケーションの実行ファイルがあるディレクトリにエンジンファイルをコピーします。_
 
-- Windows x86 64ビット: `examples/bin/windows-x86_64` ディレクトリに展開
+- Windows x86 64 ビット: `examples/bin/windows-x86_64` ディレクトリに展開
   ```sh
-  tar xvf tsanpr*-windows-x86_64.tar.xz
+  7z x tsanpr*-windows-x86_64.7z
   ```
-- Windows x86 32ビット: `examples/bin/windows-x86` ディレクトリに展開
+- Windows x86 32 ビット: `examples/bin/windows-x86` ディレクトリに展開
   ```sh
-  tar xvf tsanpr*-windows-x86.tar.xz
+  7z x tsanpr*-windows-x86.7z
   ```
-- Linux x86 64ビット: `examples/bin/linux-x86_64` ディレクトリに展開
+- Linux x86 64 ビット: `examples/bin/linux-x86_64` ディレクトリに展開
   ```sh
   tar xvf tsanpr*-linux-x86_64.tar.xz
   ```
-- Linux arm 64ビット: `examples/bin/linux-aarch64` ディレクトリに展開
+- Linux arm 64 ビット: `examples/bin/linux-aarch64` ディレクトリに展開
+
   ```sh
   tar xvf tsanpr*-linux-aarch64.tar.xz
   ```
@@ -72,16 +73,16 @@ _**【参考】** このサンプルでは、他のサンプルとエンジン�
 
 #### 2.1 Windows
 
-1. **GnuCOBOLのインストール**
+1. **GnuCOBOL のインストール**
 
    - [GnuCOBOL for Windows](https://sourceforge.net/projects/gnucobol/) をダウンロードしてインストール
    - または [SuperBOL](https://superbol.eu/developers/windows/) 経由でインストール（推奨）
-   - GnuCOBOL binディレクトリをPATHに追加
+   - GnuCOBOL bin ディレクトリを PATH に追加
 
-2. **GCCのインストール**
+2. **GCC のインストール**
 
-   - Cラッパーのビルドには GCC が必要です
-   - SuperBOLをインストールした場合、MinGW64 GCCが含まれています
+   - C ラッパーのビルドには GCC が必要です
+   - SuperBOL をインストールした場合、MinGW64 GCC が含まれています
    - それ以外の場合は、[MinGW-w64](https://www.mingw-w64.org/) をインストール
 
 3. **ビルド方法**
@@ -90,7 +91,7 @@ _**【参考】** このサンプルでは、他のサンプルとエンジン�
    compile.bat
    ```
 
-   またはMakeを使用：
+   または Make を使用：
 
    ```cmd
    make
@@ -102,7 +103,7 @@ _**【参考】** このサンプルでは、他のサンプルとエンジン�
    run.bat
    ```
 
-   またはMakeを使用：
+   または Make を使用：
 
    ```cmd
    make run
@@ -133,7 +134,7 @@ _**【参考】** このサンプルでは、他のサンプルとエンジン�
    ./compile.sh
    ```
 
-   またはMakeを使用：
+   または Make を使用：
 
    ```sh
    make
@@ -146,15 +147,16 @@ _**【参考】** このサンプルでは、他のサンプルとエンジン�
    ./run.sh
    ```
 
-   またはMakeを使用：
+   または Make を使用：
 
    ```sh
    make run
    ```
 
-## COBOLプログラム (`src/cobol/anpr.cbl`)
+## COBOL プログラム (`src/cobol/anpr.cbl`)
 
 以下の機能を実演します：
+
 - 単一ナンバープレート認識
 - 複数ナンバープレート認識 (vm)
 - バイクを含む複数プレート (vmb)
@@ -162,30 +164,31 @@ _**【参考】** このサンプルでは、他のサンプルとエンジン�
 - オブジェクト検出 (dms, dmsr)
 - 関心領域（ROI）検出 (dmsri)
 
-すべての機能は他の言語（C、Pythonなど）のサンプルと同等です。
+すべての機能は他の言語（C、Python など）のサンプルと同等です。
 
 ## パフォーマンスに関する注意事項
 
-- **Windows**: エンジン初期化は約1秒
-- **WSL/Linux on Windows filesystem (`/mnt/`)**: ファイルシステム間のパフォーマンスオーバーヘッドにより、初期化に5～7秒かかる場合があります
-- **Native Linux**: エンジン初期化は約1～2秒
+- **Windows**: エンジン初期化は約 1 秒
+- **WSL/Linux on Windows filesystem (`/mnt/`)**: ファイルシステム間のパフォーマンスオーバーヘッドにより、初期化に 5 ～ 7 秒かかる場合があります
+- **Native Linux**: エンジン初期化は約 1 ～ 2 秒
 
-WSLでより良いパフォーマンスを得るには、プロジェクト全体をWSLネイティブファイルシステム（例：`~/`）にコピーしてください。
+WSL でより良いパフォーマンスを得るには、プロジェクト全体を WSL ネイティブファイルシステム（例：`~/`）にコピーしてください。
 
 ## トラブルシューティング
 
 ### Linux: "libcob: error: module not found"
 
-このエラーは、GnuCOBOLがCラッパーライブラリを見つけられない場合に発生します。実行スクリプトは `LD_PRELOAD` を使用してライブラリを強制的にロードします。
+このエラーは、GnuCOBOL が C ラッパーライブラリを見つけられない場合に発生します。実行スクリプトは `LD_PRELOAD` を使用してライブラリを強制的にロードします。
 
 **解決方法**: バイナリを直接実行せず、常に `run.sh` または `make run` を使用してください。
 
 ### Windows: DLL not found エラー
 
 以下を確認してください：
+
 1. コンパイル後に `bin/tsanpr_cobol.dll` が存在するか
 2. `COB_LIBRARY_PATH` を設定する `run.bat` を通して実行しているか
 
 ## ライセンス
 
-このサンプルコードはMITライセンスの下で配布されています。
+このサンプルコードは MIT ライセンスの下で配布されています。
