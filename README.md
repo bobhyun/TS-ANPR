@@ -46,6 +46,11 @@ We are happy to assist and welcome your feedback!_
 
 ## Latest Version Information
 
+#### Release v3.1.4 (2025.10.17)🎉
+
+1. Fixed misrecognition issue in the `anpr_read_pixels` function when the `stride` value is negative.
+2. Fixed an issue where motorcycle objects were omitted from the results when using the `d` option without the `r` option for object detection.
+
 #### Release v3.1.3 (2025.9.29)🎉
 
 1. Improved recognition accuracy for Korean license plates (especially significant improvement in the `S` model)
