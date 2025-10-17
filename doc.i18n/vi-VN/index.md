@@ -79,6 +79,11 @@ Chúng tôi luôn sẵn sàng hỗ trợ và rất mong nhận được phản h
 
 ## Thông tin phiên bản mới nhất
 
+#### v3.1.4 phát hành (2025.10.17)🎉
+
+1. Đã sửa lỗi nhận dạng sai trong hàm `anpr_read_pixels` khi giá trị `stride` âm.
+2. Đã sửa lỗi khi sử dụng tùy chọn `d` mà không có `r` khiến đối tượng xe máy bị bỏ qua trong kết quả nhận dạng.
+
 #### v3.1.3 phát hành (2025.9.29)🎉
 
 1. Cải thiện độ chính xác nhận diện biển số Hàn Quốc (đặc biệt là mô hình `S` được cải thiện đáng kể)
