@@ -4,17 +4,13 @@ English | [한국어](doc.i18n/ko-KR/README.md) | [日本語](doc.i18n/ja-JP/REA
 
 **TS-ANPR** is a deep learning-based vehicle license plate recognition engine that supports the license plate standards of Korea, Japan, and Vietnam.
 
-##### ✨ Application Example (TS-IVR) <span style="font-size:.7em;font-weight:normal;color:grey"> [😎 Watch Full Video](https://www.youtube.com/watch?v=d7UU71PAx5Y)</span>
-
-https://github.com/user-attachments/assets/71a2977a-4d1f-479b-a909-21c03fd9f013
-
 ##### [😍 Live Demo](http://tsnvr.ipdisk.co.kr/) <span style="font-size:.7em;font-weight:normal;color:grey"> 👈 Check the number recognition performance directly here.</span>
 
 ##### [🚀 Download the Latest Engine](https://github.com/bobhyun/TS-ANPR/releases/)
 
 ##### 🎨 Code Samples in Popular Languages
 
-- [Ada](examples/Ada/anpr/) | [C](examples/C/anpr/) | [C#](examples/C%23/anpr/) | [C++](examples/C++/anpr/) | [Clojure](examples/Clojure/anpr/) | [COBOL](examples/COBOL/anpr/) | [Dart](examples/Dart/anpr/) | [Delphi](examples/Delphi/anpr/) | [F#](examples/F%23/anpr/) | [Fortran](examples/Fortran/anpr/) | [Go](examples/Go/anpr/) | [Haskell](examples/Haskell/anpr/) | [Java](examples/Java/anpr/) | [JavaScript](examples/JavaScript/anpr/) | [Julia](examples/Julia/anpr/) | [Kotlin](examples/Kotlin/anpr/) | [Lua](examples/Lua/anpr/) | [Perl](examples/Perl/anpr/) | [Python](examples/Python/anpr/) | [Ruby](examples/Ruby/anpr/) | [Rust](examples/Rust/anpr/) | [Scala](examples/Scala/anpr/) | [Swift](examples/Swift/anpr/) | [TypeScript](examples/TypeScript/anpr/) | [VB.NET](examples/VB.NET/anpr/) | [Zig](examples/Zig/anpr/)
+- [Ada](examples/Ada/anpr/) | [C](examples/C/anpr/) | [C#](examples/C%23/anpr/) | [C++](examples/C++/anpr/) | [Clojure](examples/Clojure/anpr/) | [COBOL](examples/COBOL/anpr/) | [Crystal](examples/Crystal/anpr/) [D](examples/D/anpr/) [Dart](examples/Dart/anpr/) | [Delphi](examples/Delphi/anpr/) | [F#](examples/F%23/anpr/) | [Fortran](examples/Fortran/anpr/) | [Go](examples/Go/anpr/) | [Haskell](examples/Haskell/anpr/) | [Java](examples/Java/anpr/) | [JavaScript](examples/JavaScript/anpr/) | [Julia](examples/Julia/anpr/) | [Kotlin](examples/Kotlin/anpr/) | [Lua](examples/Lua/anpr/) | [Perl](examples/Perl/anpr/) | [Python](examples/Python/anpr/) | [Ruby](examples/Ruby/anpr/) | [Rust](examples/Rust/anpr/) | [Scala](examples/Scala/anpr/) | [Swift](examples/Swift/anpr/) | [TypeScript](examples/TypeScript/anpr/) | [VB.NET](examples/VB.NET/anpr/) | [Zig](examples/Zig/anpr/)
 
 ##### 📖 Application Development Guide
 
@@ -24,6 +20,10 @@ https://github.com/user-attachments/assets/71a2977a-4d1f-479b-a909-21c03fd9f013
 ##### [🎁 How to install](Usage.md)
 
 ##### [⚖️ License](LICENSE.md)
+
+##### ✨ Application Example (TS-IVR) <span style="font-size:.7em;font-weight:normal;color:grey"> [😎 Watch Full Video](https://www.youtube.com/watch?v=d7UU71PAx5Y)</span>
+
+https://github.com/user-attachments/assets/71a2977a-4d1f-479b-a909-21c03fd9f013
 
 _If you have any questions or requests, please feel free to open an [Issues](https://github.com/bobhyun/TS-ANPR/issues).
 We are happy to assist and welcome your feedback!_

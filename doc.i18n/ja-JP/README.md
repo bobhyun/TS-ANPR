@@ -4,17 +4,13 @@
 
 **TS-ANPR**は、ディープラーニングベースの車両ナンバープレート認識エンジンで、韓国、日本、ベトナムのナンバープレート規格に対応しています。
 
-##### ✨ アプリケーションの例 (TS-IVR) <span style="font-size:.7em;font-weight:normal;color:grey"> [😎 フル動画を視聴する](https://www.youtube.com/watch?v=d7UU71PAx5Y)</span>
-
-https://github.com/user-attachments/assets/71a2977a-4d1f-479b-a909-21c03fd9f013
-
 ##### [😍 ライブデモ](http://tsnvr.ipdisk.co.kr/) <span style="font-size:.7em;font-weight:normal;color:grey">👈 ここで番号認識の性能を直接ご確認ください。</span>
 
 ##### [🚀 最新エンジンのダウンロード](https://github.com/bobhyun/TS-ANPR/releases/)
 
 ##### 🎨 人気のプログラミング言語によるコードサンプル
 
-- [Ada](../../examples/Ada/anpr/) | [C](../../examples/C/anpr/) | [C#](../../examples/C%23/anpr/) | [C++](../../examples/C++/anpr/) | [Clojure](../../examples/Clojure/anpr/) | [COBOL](../../examples/COBOL/anpr/) | [Dart](../../examples/Dart/anpr/) | [Delphi](../../examples/Delphi/anpr/) | [F#](../../examples/F%23/anpr/) | [Fortran](../../examples/Fortran/anpr/) | [Go](../../examples/Go/anpr/) | [Haskell](../../examples/Haskell/anpr/) | [Java](../../examples/Java/anpr/) | [JavaScript](../../examples/JavaScript/anpr/) | [Julia](../../examples/Julia/anpr/) | [Kotlin](../../examples/Kotlin/anpr/) | [Lua](../../examples/Lua/anpr/) | [Perl](../../examples/Perl/anpr/) | [Python](../../examples/Python/anpr/) | [Ruby](../../examples/Ruby/anpr/) | [Rust](../../examples/Rust/anpr/) | [Scala](../../examples/Scala/anpr/) | [Swift](../../examples/Swift/anpr/) | [TypeScript](../../examples/TypeScript/anpr/) | [VB.NET](../../examples/VB.NET/anpr/) | [Zig](../../examples/Zig/anpr/)
+- [Ada](../../examples/Ada/anpr/) | [C](../../examples/C/anpr/) | [C#](../../examples/C%23/anpr/) | [C++](../../examples/C++/anpr/) | [Clojure](../../examples/Clojure/anpr/) | [COBOL](../../examples/COBOL/anpr/) | [Crystal](../../examples/Crystal/anpr/) | [D](../../examples/D/anpr/) | [Dart](../../examples/Dart/anpr/) | [Delphi](../../examples/Delphi/anpr/) | [F#](../../examples/F%23/anpr/) | [Fortran](../../examples/Fortran/anpr/) | [Go](../../examples/Go/anpr/) | [Haskell](../../examples/Haskell/anpr/) | [Java](../../examples/Java/anpr/) | [JavaScript](../../examples/JavaScript/anpr/) | [Julia](../../examples/Julia/anpr/) | [Kotlin](../../examples/Kotlin/anpr/) | [Lua](../../examples/Lua/anpr/) | [Perl](../../examples/Perl/anpr/) | [Python](../../examples/Python/anpr/) | [Ruby](../../examples/Ruby/anpr/) | [Rust](../../examples/Rust/anpr/) | [Scala](../../examples/Scala/anpr/) | [Swift](../../examples/Swift/anpr/) | [TypeScript](../../examples/TypeScript/anpr/) | [VB.NET](../../examples/VB.NET/anpr/) | [Zig](../../examples/Zig/anpr/)
 
 ##### 📖 アプリ開発ガイド
 
@@ -24,6 +20,10 @@ https://github.com/user-attachments/assets/71a2977a-4d1f-479b-a909-21c03fd9f013
 ##### [🎁 インストール手順](Usage.md)
 
 ##### [⚖️ ライセンス](LICENSE.md)
+
+##### ✨ アプリケーションの例 (TS-IVR) <span style="font-size:.7em;font-weight:normal;color:grey"> [😎 フル動画を視聴する](https://www.youtube.com/watch?v=d7UU71PAx5Y)</span>
+
+https://github.com/user-attachments/assets/71a2977a-4d1f-479b-a909-21c03fd9f013
 
 _ご質問やご要望がございましたら、[Issues](https://github.com/bobhyun/TS-ANPR/issues) にお気軽にご投稿ください。
 皆さまからのフィードバックやご連絡をお待ちしております！_

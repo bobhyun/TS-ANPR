@@ -12,10 +12,6 @@ lang: "vi"
 
 **TS-ANPR** là công cụ nhận diện biển số xe dựa trên học sâu, hỗ trợ tiêu chuẩn biển số của Hàn Quốc, Nhật Bản và Việt Nam.
 
-##### ✨ Ví dụ về ứng dụng (TS-IVR)
-
-<iframe width="720" height="405" src="https://www.youtube.com/embed/d7UU71PAx5Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
 ##### [😍 Bản demo trực tiếp](http://tsnvr.ipdisk.co.kr/) <span style="font-size:.8em;font-weight:normal;color:grey">👈 Hãy trực tiếp kiểm tra hiệu suất nhận diện số tại đây.</span>
 
 ##### [🚀 Tải xuống động cơ mới nhất](https://github.com/bobhyun/TS-ANPR/releases/)
@@ -28,6 +24,8 @@ lang: "vi"
 - [C++](../../examples/C++/anpr/)
 - [Clojure](../../examples/Clojure/anpr/)
 - [COBOL](../../examples/COBOL/anpr/)
+- [Crystal](../../examples/Crystal/anpr/)
+- [D](../../examples/D/anpr/)
 - [Dart](../../examples/Dart/anpr/)
 - [Delphi](../../examples/Delphi/anpr/)
 - [F#](../../examples/F%23/anpr/)
@@ -57,6 +55,10 @@ lang: "vi"
 ##### [🎁 Hướng dẫn cài đặt](Usage.md)
 
 ##### [⚖️ Giấy phép](license_page.md)
+
+##### ✨ Ví dụ về ứng dụng (TS-IVR)
+
+<iframe width="720" height="405" src="https://www.youtube.com/embed/d7UU71PAx5Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 _Nếu bạn có bất kỳ câu hỏi hoặc yêu cầu nào, vui lòng gửi tại [Issues](https://github.com/bobhyun/TS-ANPR/issues).
 Chúng tôi luôn sẵn sàng hỗ trợ và rất mong nhận được phản hồi từ bạn!_

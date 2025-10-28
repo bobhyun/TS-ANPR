@@ -1,0 +1,23 @@
+{
+  "name": "anpr",
+  "description": "D example for TS-ANPR (Automatic Number Plate Recognition)",
+  "authors": ["TS-ANPR Team"],
+  "homepage": "https://github.com/bobhyun/TS-ANPR",
+  "license": "MIT",
+  "targetType": "executable",
+  "targetPath": "./bin",
+  "mainSourceFile": "anpr.d",
+  "sourceFiles": ["anpr.d", "tsanpr.d"],
+  "dependencies": {
+    "imageformats": "~>7.0"
+  },
+  "versions": ["VibeDefaultMain"],
+  "buildTypes": {
+    "release": {
+      "buildOptions": ["releaseMode", "optimize", "inline"]
+    },
+    "debug": {
+      "buildOptions": ["debugMode", "debugInfo"]
+    }
+  }
+}

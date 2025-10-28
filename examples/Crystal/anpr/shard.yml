@@ -1,0 +1,23 @@
+name: anpr
+version: 1.0.0
+
+description: |
+  Crystal example for TS-ANPR (Automatic Number Plate Recognition)
+
+authors:
+  - TS-ANPR Team
+
+crystal: ">= 1.0.0"
+
+license: MIT
+
+targets:
+  anpr:
+    main: anpr.cr
+
+dependencies:
+  stumpy_png:
+    github: stumpycr/stumpy_png
+    version: ~> 5.0
+  stumpy_jpeg:
+    github: stumpycr/stumpy_jpeg

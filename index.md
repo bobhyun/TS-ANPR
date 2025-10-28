@@ -12,10 +12,6 @@ English | [한국어](/TS-ANPR/doc.i18n/ko-KR/) | [日本語](/TS-ANPR/doc.i18n/
 
 **TS-ANPR** is a deep learning-based vehicle license plate recognition engine that supports the license plate standards of Korea, Japan, and Vietnam.
 
-##### ✨ Application Example (TS-IVR)
-
-<iframe width="720" height="405" src="https://www.youtube.com/embed/d7UU71PAx5Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
 ##### [😍 Live Demo](http://tsnvr.ipdisk.co.kr/) <span style="font-size:.8em;font-weight:normal;color:grey"> 👈 Check the number recognition performance directly here.</span>
 
 ##### [🚀 Download the Latest Engine](https://github.com/bobhyun/TS-ANPR/releases/)
@@ -28,6 +24,8 @@ English | [한국어](/TS-ANPR/doc.i18n/ko-KR/) | [日本語](/TS-ANPR/doc.i18n/
 - [C++](examples/C++/anpr/)
 - [Clojure](examples/Clojure/anpr/)
 - [COBOL](examples/COBOL/anpr/)
+- [Crystal](examples/Crystal/anpr/)
+- [D](examples/D/anpr/)
 - [Dart](examples/Dart/anpr/)
 - [Delphi](examples/Delphi/anpr/)
 - [F#](examples/F%23/anpr/)
@@ -57,6 +55,10 @@ English | [한국어](/TS-ANPR/doc.i18n/ko-KR/) | [日本語](/TS-ANPR/doc.i18n/
 ##### [🎁 How to install](Usage.md)
 
 ##### [⚖️ License](license_page.md)
+
+##### ✨ Application Example (TS-IVR)
+
+<iframe width="720" height="405" src="https://www.youtube.com/embed/d7UU71PAx5Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 _If you have any questions or requests, please feel free to open an [Issues](https://github.com/bobhyun/TS-ANPR/issues).
 We are happy to assist and welcome your feedback!_
