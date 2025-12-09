@@ -1,0 +1,19 @@
+# Rebar3 build artifacts
+_build/
+priv/tsanpr_nif.dll
+priv/tsanpr_nif.so
+*.beam
+
+# Old CMake build artifacts (to be removed)
+bin/
+build/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db

@@ -1,0 +1,27 @@
+# Makefile for building Erlang ANPR example NIF on Windows (MSVC)
+
+# Find Erlang
+ERL = erl
+ERLANG_ROOT = $(shell $(ERL) -eval "io:format(\"~s~n\", [code:root_dir()])" -s init stop -noshell)
+ERTS_VSN = $(shell $(ERL) -eval "io:format(\"~s~n\", [erlang:system_info(version)])" -s init stop -noshell)
+
+# Set include directory
+ERTS_INCLUDE_DIR = $(ERLANG_ROOT)/erts-$(ERTS_VSN)/include
+
+# MSVC compiler
+CC = cl.exe
+CFLAGS = /W3 /O2 /MD /EHsc /I"$(ERTS_INCLUDE_DIR)"
+LDFLAGS = /LD /OUT:"priv\tsanpr_nif.dll"
+
+.PHONY: all clean
+
+all: priv/tsanpr_nif.dll
+
+priv:
+	if not exist priv mkdir priv
+
+priv/tsanpr_nif.dll: priv c_src/tsanpr_nif.c
+	$(CC) $(CFLAGS) c_src\tsanpr_nif.c /link $(LDFLAGS)
+
+clean:
+	if exist priv rmdir /s /q priv

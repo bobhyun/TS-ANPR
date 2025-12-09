@@ -1,0 +1,16 @@
+# nmake Makefile for building Elixir ANPR NIF on Windows
+
+OUT=priv\tsanpr_nif.dll
+
+all: $(OUT)
+
+$(OUT):
+	call build_nif.bat
+
+clean:
+	-if exist $(OUT) del /q $(OUT)
+	-if exist priv rmdir /q /s priv
+
+.PHONY: all clean
+
+
