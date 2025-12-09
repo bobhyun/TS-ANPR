@@ -16,36 +16,25 @@ lang: "ja"
 
 ##### [🚀 最新エンジンのダウンロード](https://github.com/bobhyun/TS-ANPR/releases/)
 
-##### 🎨 人気のプログラミング言語によるコードサンプル
+##### 🎨 プログラミング言語別コード例
 
-- [Ada](../../examples/Ada/anpr/)
-- [C](../../examples/C/anpr/)
-- [C#](../../examples/C%23/anpr/)
-- [C++](../../examples/C++/anpr/)
-- [Clojure](../../examples/Clojure/anpr/)
-- [COBOL](../../examples/COBOL/anpr/)
-- [Crystal](../../examples/Crystal/anpr/)
-- [D](../../examples/D/anpr/)
-- [Dart](../../examples/Dart/anpr/)
-- [Delphi](../../examples/Delphi/anpr/)
-- [F#](../../examples/F%23/anpr/)
-- [Fortran](../../examples/Fortran/anpr/)
-- [Go](../../examples/Go/anpr/)
-- [Haskell](../../examples/Haskell/anpr/)
-- [Java](../../examples/Java/anpr/)
-- [JavaScript](../../examples/JavaScript/anpr/)
-- [Julia](../../examples/Julia/anpr/)
-- [Kotlin](../../examples/Kotlin/anpr/)
-- [Lua](../../examples/Lua/anpr/)
-- [Perl](../../examples/Perl/anpr/)
-- [Python](../../examples/Python/anpr/)
-- [Ruby](../../examples/Ruby/anpr/)
-- [Rust](../../examples/Rust/anpr/)
-- [Scala](../../examples/Scala/anpr/)
-- [Swift](../../examples/Swift/anpr/)
-- [TypeScript](../../examples/TypeScript/anpr/)
-- [VB.NET](../../examples/VB.NET/anpr/)
-- [Zig](../../examples/Zig/anpr/)
+| # | 言語 | 人気度 | # | 言語 | 人気度 |
+|--:|:---------|:-----------|--:|:---------|:-----------|
+| 1 | [Python](../../examples/Python/anpr/) | ⭐⭐⭐⭐⭐ | 2 | [JavaScript](../../examples/JavaScript/anpr/) | ⭐⭐⭐⭐⭐ |
+| 3 | [TypeScript](../../examples/TypeScript/anpr/) | ⭐⭐⭐⭐⭐ | 4 | [Java](../../examples/Java/anpr/) | ⭐⭐⭐⭐⭐ |
+| 5 | [C#](../../examples/C%23/anpr/) | ⭐⭐⭐⭐ | 6 | [C++](../../examples/C++/anpr/) | ⭐⭐⭐⭐ |
+| 7 | [Go](../../examples/Go/anpr/) | ⭐⭐⭐⭐ | 8 | [Rust](../../examples/Rust/anpr/) | ⭐⭐⭐⭐ |
+| 9 | [C](../../examples/C/anpr/) | ⭐⭐⭐⭐ | 10 | [Swift](../../examples/Swift/anpr/) | ⭐⭐⭐ |
+| 11 | [Kotlin](../../examples/Kotlin/anpr/) | ⭐⭐⭐ | 12 | [Ruby](../../examples/Ruby/anpr/) | ⭐⭐⭐ |
+| 13 | [Dart](../../examples/Dart/anpr/) | ⭐⭐⭐ | 14 | [Scala](../../examples/Scala/anpr/) | ⭐⭐⭐ |
+| 15 | [Perl](../../examples/Perl/anpr/) | ⭐⭐ | 16 | [Lua](../../examples/Lua/anpr/) | ⭐⭐ |
+| 17 | [Haskell](../../examples/Haskell/anpr/) | ⭐⭐ | 18 | [Elixir](../../examples/Elixir/anpr/) | ⭐⭐ |
+| 19 | [Erlang](../../examples/Erlang/anpr/) | ⭐⭐ | 20 | [F#](../../examples/F%23/anpr/) | ⭐⭐ |
+| 21 | [Julia](../../examples/Julia/anpr/) | ⭐⭐ | 22 | [Zig](../../examples/Zig/anpr/) | ⭐⭐ |
+| 23 | [Clojure](../../examples/Clojure/anpr/) | ⭐⭐ | 24 | [VB.NET](../../examples/VB.NET/anpr/) | ⭐⭐ |
+| 25 | [Crystal](../../examples/Crystal/anpr/) | ⭐ | 26 | [Delphi](../../examples/Delphi/anpr/) | ⭐ |
+| 27 | [D](../../examples/D/anpr/) | ⭐ | 28 | [Fortran](../../examples/Fortran/anpr/) | ⭐ |
+| 29 | [Ada](../../examples/Ada/anpr/) | ⭐ | 30 | [COBOL](../../examples/COBOL/anpr/) | ⭐ |
 
 ##### 📖 アプリ開発ガイド
 
@@ -80,6 +69,9 @@ _ご質問やご要望がございましたら、[Issues](https://github.com/bob
 ---
 
 ## 最新バージョン情報
+
+#### v3.1.5 リリース (2025.12.9)🎉
+1. 韓国ナンバープレート認識率の向上
 
 #### v3.1.4 リリース (2025.10.17)🎉
 
