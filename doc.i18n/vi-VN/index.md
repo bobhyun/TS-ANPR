@@ -70,8 +70,10 @@ Chúng tôi luôn sẵn sàng hỗ trợ và rất mong nhận được phản h
 
 ## Thông tin phiên bản mới nhất
 
-#### v3.1.5 phát hành (2025.12.9)🎉
+#### v3.1.6 phát hành (2025.12.10)🎉
 1. Cải thiện độ chính xác nhận diện biển số Hàn Quốc
+2. Đã sửa lỗi có thể gây ra sự cố trong một số điều kiện nhất định ở phiên bản v3.1.5.
+   - *Phiên bản v3.1.5 đã bị loại bỏ.*
 
 #### v3.1.4 phát hành (2025.10.17)🎉
 

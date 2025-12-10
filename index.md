@@ -70,8 +70,10 @@ We are happy to assist and welcome your feedback!_
 
 ## Latest Version Information
 
-#### Release v3.1.5 (2025.12.9)🎉
+#### Release v3.1.6 (2025.12.10)🎉
 1. Improved recognition accuracy for Korean license plates
+2. Fixed a potential crash under certain conditions in v3.1.5.
+    - *v3.1.5 has been deprecated.*
 
 #### Release v3.1.4 (2025.10.17)🎉
 
