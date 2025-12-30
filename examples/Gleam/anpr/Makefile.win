@@ -1,0 +1,31 @@
+# Makefile for building Gleam ANPR example NIF on Windows (MSVC)
+# The MIT License (MIT)
+# Copyright © 2022-2025 TS-Solution Corp.
+
+# Use the short name for Program Files (usually PROGRA~1 for 64-bit, PROGRA~2 for 32-bit)
+ERLANG_ROOT = C:\PROGRA~1\erl-26.2.1
+ERTS_VSN = 14.2.2
+
+# Set include directory
+ERTS_INCLUDE_DIR = $(ERLANG_ROOT)\erts-$(ERTS_VSN)\include
+
+# Set engine directory
+ENGINE_DIR = ..\..\bin\windows-x86_64
+
+# MSVC compiler
+CC = cl.exe
+CFLAGS = /W3 /O2 /MD /EHsc /I"$(ERTS_INCLUDE_DIR)"
+LDFLAGS = /DLL /OUT:priv\tsanpr_nif.dll advapi32.lib user32.lib kernel32.lib /LIBPATH:"$(ENGINE_DIR)"
+
+.PHONY: all clean
+
+all: priv\tsanpr_nif.dll
+
+priv:
+	if not exist priv mkdir priv
+
+priv\tsanpr_nif.dll: priv c_src\tsanpr_nif.c
+	$(CC) $(CFLAGS) c_src\tsanpr_nif.c /link $(LDFLAGS)
+
+clean:
+	if exist priv rmdir /s /q priv

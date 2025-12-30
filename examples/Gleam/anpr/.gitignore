@@ -1,0 +1,30 @@
+# Build artifacts
+/build/
+/_build/
+
+# NIF compiled libraries
+/priv/*.dll
+/priv/*.so
+/priv/*.dylib
+
+# MSVC compiler intermediate files
+*.obj
+*.lib
+*.exp
+*.pdb
+*.ilk
+
+# Gleam build cache
+/.gleam/
+
+# Dependencies
+/deps/
+
+# Beam files
+*.beam
+
+# Editor files
+*.swp
+*~
+.idea/
+.vscode/

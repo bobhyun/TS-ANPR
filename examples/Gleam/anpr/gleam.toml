@@ -1,0 +1,13 @@
+name = "anpr"
+version = "1.0.0"
+description = "Gleam example for TS-ANPR (Automatic Number Plate Recognition)"
+licences = ["MIT"]
+repository = { type = "github", user = "bobhyun", repo = "TS-ANPR" }
+
+target = "erlang"
+
+[dependencies]
+gleam_stdlib = ">= 0.34.0 and < 2.0.0"
+
+[dev-dependencies]
+gleeunit = ">= 1.0.0 and < 2.0.0"
