@@ -12,21 +12,22 @@
 
 | # | Ngôn ngữ | Độ phổ biến | # | Ngôn ngữ | Độ phổ biến |
 |--:|:---------|:-----------|--:|:---------|:-----------|
-| 1 | [Python](../../examples/Python/anpr/) | ⭐⭐⭐⭐⭐ | 2 | [JavaScript](../../examples/JavaScript/anpr/) | ⭐⭐⭐⭐⭐ |
-| 3 | [TypeScript](../../examples/TypeScript/anpr/) | ⭐⭐⭐⭐⭐ | 4 | [Java](../../examples/Java/anpr/) | ⭐⭐⭐⭐⭐ |
-| 5 | [C#](../../examples/C%23/anpr/) | ⭐⭐⭐⭐ | 6 | [C++](../../examples/C++/anpr/) | ⭐⭐⭐⭐ |
-| 7 | [Go](../../examples/Go/anpr/) | ⭐⭐⭐⭐ | 8 | [Rust](../../examples/Rust/anpr/) | ⭐⭐⭐⭐ |
-| 9 | [C](../../examples/C/anpr/) | ⭐⭐⭐⭐ | 10 | [Swift](../../examples/Swift/anpr/) | ⭐⭐⭐ |
-| 11 | [Kotlin](../../examples/Kotlin/anpr/) | ⭐⭐⭐ | 12 | [Ruby](../../examples/Ruby/anpr/) | ⭐⭐⭐ |
-| 13 | [Dart](../../examples/Dart/anpr/) | ⭐⭐⭐ | 14 | [Scala](../../examples/Scala/anpr/) | ⭐⭐⭐ |
-| 15 | [Perl](../../examples/Perl/anpr/) | ⭐⭐ | 16 | [Lua](../../examples/Lua/anpr/) | ⭐⭐ |
-| 17 | [Haskell](../../examples/Haskell/anpr/) | ⭐⭐ | 18 | [Elixir](../../examples/Elixir/anpr/) | ⭐⭐ |
-| 19 | [Erlang](../../examples/Erlang/anpr/) | ⭐⭐ | 20 | [F#](../../examples/F%23/anpr/) | ⭐⭐ |
-| 21 | [Julia](../../examples/Julia/anpr/) | ⭐⭐ | 22 | [Zig](../../examples/Zig/anpr/) | ⭐⭐ |
-| 23 | [Clojure](../../examples/Clojure/anpr/) | ⭐⭐ | 24 | [VB.NET](../../examples/VB.NET/anpr/) | ⭐⭐ |
-| 25 | [Crystal](../../examples/Crystal/anpr/) | ⭐ | 26 | [Delphi](../../examples/Delphi/anpr/) | ⭐ |
-| 27 | [D](../../examples/D/anpr/) | ⭐ | 28 | [Fortran](../../examples/Fortran/anpr/) | ⭐ |
-| 29 | [Ada](../../examples/Ada/anpr/) | ⭐ | 30 | [COBOL](../../examples/COBOL/anpr/) | ⭐ |
+| 1 | [Python](../../examples/Python/anpr/) | ⭐⭐⭐⭐⭐ | 2 | [C](../../examples/C/anpr/) | ⭐⭐⭐⭐⭐ |
+| 3 | [Java](../../examples/Java/anpr/) | ⭐⭐⭐⭐⭐ | 4 | [C++](../../examples/C++/anpr/) | ⭐⭐⭐⭐⭐ |
+| 5 | [C#](../../examples/C%23/anpr/) | ⭐⭐⭐⭐⭐ | 6 | [JavaScript](../../examples/JavaScript/anpr/) | ⭐⭐⭐⭐ |
+| 7 | [VB.NET](../../examples/VB.NET/anpr/) | ⭐⭐⭐⭐ | 8 | [Delphi](../../examples/Delphi/anpr/) | ⭐⭐⭐ |
+| 9 | [Perl](../../examples/Perl/anpr/) | ⭐⭐⭐ | 10 | [Fortran](../../examples/Fortran/anpr/) | ⭐⭐⭐ |
+| 11 | [Rust](../../examples/Rust/anpr/) | ⭐⭐⭐ | 12 | [MATLAB](../../examples/MATLAB/anpr/) | ⭐⭐⭐ |
+| 13 | [Go](../../examples/Go/anpr/) | ⭐⭐⭐ | 14 | [Ada](../../examples/Ada/anpr/) | ⭐⭐⭐ |
+| 15 | [Kotlin](../../examples/Kotlin/anpr/) | ⭐⭐ | 16 | [COBOL](../../examples/COBOL/anpr/) | ⭐⭐ |
+| 17 | [Swift](../../examples/Swift/anpr/) | ⭐⭐ | 18 | [Dart](../../examples/Dart/anpr/) | ⭐⭐ |
+| 19 | [Ruby](../../examples/Ruby/anpr/) | ⭐⭐ | 20 | [Julia](../../examples/Julia/anpr/) | ⭐⭐ |
+| 21 | [Lua](../../examples/Lua/anpr/) | ⭐⭐ | 22 | [TypeScript](../../examples/TypeScript/anpr/) | ⭐⭐ |
+| 23 | [Scala](../../examples/Scala/anpr/) | ⭐⭐ | 24 | [Haskell](../../examples/Haskell/anpr/) | ⭐⭐ |
+| 25 | [Elixir](../../examples/Elixir/anpr/) | ⭐ | 26 | [Zig](../../examples/Zig/anpr/) | ⭐ |
+| 27 | [Erlang](../../examples/Erlang/anpr/) | ⭐ | 28 | [Clojure](../../examples/Clojure/anpr/) | ⭐ |
+| 29 | [F#](../../examples/F%23/anpr/) | ⭐ | 30 | [D](../../examples/D/anpr/) | ⭐ |
+| 31 | [Crystal](../../examples/Crystal/anpr/) | ⭐ | 32 | [Gleam](../../examples/Gleam/anpr/) | ⭐ |
 
 ##### 📖 Hướng dẫn phát triển ứng dụng
 
@@ -61,6 +62,9 @@ Chúng tôi luôn sẵn sàng hỗ trợ và rất mong nhận được phản h
 ---
 
 ## Thông tin phiên bản mới nhất
+
+#### v3.1.7 phát hành (2026.1.15)🎉
+1. Hỗ trợ định dạng biển số tạm thời 5 ký tự của Hàn Quốc
 
 #### v3.1.6 phát hành (2025.12.10)🎉
 1. Cải thiện độ chính xác nhận diện biển số Hàn Quốc
