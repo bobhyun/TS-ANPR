@@ -1,0 +1,36 @@
+{
+  "name": "ts-solution/tsanpr-php-example",
+  "description": "TS-ANPR PHP Example - Automatic Number Plate Recognition",
+  "type": "project",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "TS-Solution Corp."
+    }
+  ],
+  "require": {
+    "php": ">=8.0",
+    "ext-ffi": "*",
+    "ext-imagick": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "TSAnpr\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "TSAnpr\\Tests\\": "tests/"
+    }
+  },
+  "scripts": {
+    "test": "phpunit",
+    "anpr": "php anpr.php"
+  },
+  "config": {
+    "optimize-autoloader": true,
+    "sort-packages": true
+  },
+  "minimum-stability": "stable",
+  "prefer-stable": true
+}
