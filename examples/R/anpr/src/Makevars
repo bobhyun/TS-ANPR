@@ -1,0 +1,3 @@
+# Makevars for Linux/macOS
+PKG_CFLAGS = -fPIC
+PKG_LIBS = -ldl

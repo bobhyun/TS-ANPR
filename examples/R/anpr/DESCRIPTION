@@ -1,0 +1,37 @@
+Package: TSANPRExample
+Type: Package
+Title: TS-ANPR R Example - Automatic Number Plate Recognition
+Version: 1.0.0
+Date: 2025-01-19
+Authors@R: c(
+    person("TS-Solution Corp.", role = c("aut", "cre"), 
+           email = "support@ts-solution.co.kr")
+)
+Description: R example implementation for TS-ANPR (TS-Solution Automatic Number 
+    Plate Recognition) library. Provides R interface to the native TSANPR library
+    for license plate recognition and analysis. Includes data analysis capabilities
+    and statistical processing of recognition results.
+License: MIT + file LICENSE
+URL: https://github.com/bobhyun/TS-ANPR
+BugReports: https://github.com/bobhyun/TS-ANPR/issues
+Depends: 
+    R (>= 4.0.0)
+Imports:
+    R6 (>= 2.4.0),
+    magrittr (>= 2.0.0)
+Suggests:
+    magick (>= 2.7.0),
+    jsonlite (>= 1.7.0),
+    data.table (>= 1.14.0),
+    ggplot2 (>= 3.3.0),
+    shiny (>= 1.6.0),
+    DT (>= 0.18),
+    rmarkdown (>= 2.0),
+    knitr (>= 1.30),
+    testthat (>= 3.0.0)
+SystemRequirements: 
+    TSANPR native library (libtsanpr.so on Linux, tsanpr.dll on Windows)
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.2.0
+VignetteBuilder: knitr

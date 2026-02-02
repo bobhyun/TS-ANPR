@@ -1,0 +1,3 @@
+# Makevars for Windows
+PKG_CFLAGS =
+PKG_LIBS =
