@@ -1,0 +1,8 @@
+(library
+ (name tsanpr)
+ (public_name anpr.tsanpr)
+ (libraries ctypes ctypes-foreign unix bigarray)
+ (foreign_stubs
+  (language c)
+  (names stb_image_stubs)
+  (flags (:standard -O2))))

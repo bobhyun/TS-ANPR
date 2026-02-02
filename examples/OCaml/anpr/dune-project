@@ -1,0 +1,20 @@
+(lang dune 3.0)
+
+(name anpr)
+
+(generate_opam_files true)
+
+(package
+ (name anpr)
+ (depends
+  (ocaml (>= 4.12))
+  dune
+  ctypes
+  ctypes-foreign)
+ (authors "TS-ANPR Team")
+ (maintainers "TS-ANPR Team")
+ (license MIT)
+ (documentation https://github.com/bobhyun/TS-ANPR)
+ (homepage https://github.com/bobhyun/TS-ANPR)
+ (bug_reports https://github.com/bobhyun/TS-ANPR/issues)
+ (synopsis "OCaml example for TS-ANPR (Automatic Number Plate Recognition)"))
