@@ -50,10 +50,13 @@ _**[注意]** このサンプルでは、他のサンプルと共有するため
   │       └── tshelper
   ├── img                        # 画像ディレクトリ
   └── Nim
-      └── anpr                   # ソースディレクトリ
-          ├── anpr.nim
+      └── anpr                   # プロジェクトディレクトリ
           ├── anpr.nimble
-          └── tsanpr.nim
+          └── src                # ソースディレクトリ
+              ├── anpr.nim
+              ├── tsanpr.nim
+              ├── stb_image.h
+              └── stb_image_impl.c
   ```
 
 ### 2. 実行方法
@@ -75,5 +78,5 @@ _**[注意]** このサンプルでは、他のサンプルと共有するため
 
    ```sh
    cd examples/Nim/anpr
-   nimble run
+   nimble run anpr
    ```

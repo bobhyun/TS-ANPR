@@ -22,6 +22,11 @@
 import os, strutils
 import tsanpr
 
+# stb_image bindings for loading images
+{.compile: "stb_image_impl.c".}
+proc stbi_load(filename: cstring, x, y, channels_in_file: ptr cint, desired_channels: cint): ptr UncheckedArray[uint8] {.importc, header: "stb_image.h".}
+proc stbi_image_free(retval_from_stbi_load: pointer) {.importc, header: "stb_image.h".}
+
 proc getExamplesBaseDir(): string =
   ## Get the examples base directory at runtime.
   parentDir(parentDir(getCurrentDir()))
@@ -83,11 +88,29 @@ proc getPixelFormat(channels: int): string =
     else: ""
 
 proc readPixelBuffer(tsanpr: TSANPR, imgfile: string, outputFormat: string, options: string) =
-  ## Use the pixel buffer-based ANPR function.
-  ## Note: This is a simplified version. In a real implementation,
-  ## you would need to integrate with an image processing library.
+  ## Use the pixel buffer-based ANPR function with stb_image for decoding.
   stdout.write("$1 (outputFormat=\"$2\", options=\"$3\") => " % [imgfile, outputFormat, options])
-  echo "Pixel buffer reading not implemented in this example"
+
+  var width, height, channels: cint
+  let pixels = stbi_load(imgfile.cstring, addr width, addr height, addr channels, 3)  # Force 3 channels (RGB)
+
+  if pixels == nil:
+    echo "Failed to load image"
+    return
+
+  defer: stbi_image_free(pixels)
+
+  let stride = width * 3  # 3 bytes per pixel (RGB)
+  let result = tsanpr.anprReadPixels(
+    pixels,
+    width.uint64,
+    height.uint64,
+    stride.int64,
+    "RGB",
+    outputFormat,
+    options
+  )
+  echo result
 
 proc readLicensePlates(tsanpr: TSANPR, countryCode: string) =
   ## NOTICE:

@@ -50,10 +50,13 @@ _**[Lưu ý]** Trong ví dụ này, tệp engine được giải nén vào thư 
   │       └── tshelper
   ├── img                        # thư mục hình ảnh
   └── Nim
-      └── anpr                   # thư mục nguồn
-          ├── anpr.nim
+      └── anpr                   # thư mục dự án
           ├── anpr.nimble
-          └── tsanpr.nim
+          └── src                # thư mục nguồn
+              ├── anpr.nim
+              ├── tsanpr.nim
+              ├── stb_image.h
+              └── stb_image_impl.c
   ```
 
 ### 2. Cách chạy
@@ -75,5 +78,5 @@ _**[Lưu ý]** Trong ví dụ này, tệp engine được giải nén vào thư 
 
    ```sh
    cd examples/Nim/anpr
-   nimble run
+   nimble run anpr
    ```

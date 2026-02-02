@@ -50,10 +50,13 @@ _**[Note]** In this example, the engine file is extracted to the examples/bin/ d
   │       └── tshelper
   ├── img                        # image directory
   └── Nim
-      └── anpr                   # source directory
-          ├── anpr.nim
+      └── anpr                   # project directory
           ├── anpr.nimble
-          └── tsanpr.nim
+          └── src                # source directory
+              ├── anpr.nim
+              ├── tsanpr.nim
+              ├── stb_image.h
+              └── stb_image_impl.c
   ```
 
 ### 2. How to Run
@@ -75,5 +78,5 @@ _**[Note]** In this example, the engine file is extracted to the examples/bin/ d
 
    ```sh
    cd examples/Nim/anpr
-   nimble run
+   nimble run anpr
    ```
