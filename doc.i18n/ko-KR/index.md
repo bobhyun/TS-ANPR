@@ -8,8 +8,7 @@ lang: "ko"
 
 [English](/TS-ANPR/) | 한국어 | [日本語](/TS-ANPR/doc.i18n/ja-JP/) | [Tiếng Việt](/TS-ANPR/doc.i18n/vi-VN/)
 
-<a href="https://www.seconexpo.com/2026/kor/main.asp"><img src="../../img/SECON2026.jpg" alt="SECON 2026" /></a>
-**[SECON 2026](https://www.seconexpo.com/2026/kor/main.asp)** - 국제 보안 전시회에서 만나요!
+<a href="https://www.seconexpo.com/2026/kor/main.asp"><img src="../../img/SECON2026.jpg" alt="SECON 2026" /></a><br/>**[SECON 2026](https://www.seconexpo.com/2026/kor/main.asp)** - 국제 보안 전시회에서 만나요!
 📅 2026년 3월 11-13일 &nbsp;|&nbsp; 📍 킨텍스 &nbsp;|&nbsp; 🏢 [TS-Solution 부스](https://exhibitors.informamarkets-info.com/event/2026SEC/en-US/exhibitor/470637/ts-solution-co---ltd)
 
 # 😍TS-ANPR
