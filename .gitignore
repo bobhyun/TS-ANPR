@@ -285,3 +285,12 @@ __pycache__/
 # Visual studio
 enc_temp_folder/
 .vscode/
+
+# Examples build artifacts
+examples/Crystal/anpr/lib/
+examples/Elixir/anpr/_build/
+examples/Elixir/anpr/deps/
+examples/Elixir/anpr/priv/
+examples/Erlang/anpr/priv/
+examples/Gleam/anpr/build/
+examples/Gleam/anpr/priv/
