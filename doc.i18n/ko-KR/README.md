@@ -15,19 +15,24 @@
 | 1 | [Python](../../examples/Python/anpr/) | ⭐⭐⭐⭐⭐ | 2 | [C](../../examples/C/anpr/) | ⭐⭐⭐⭐⭐ |
 | 3 | [Java](../../examples/Java/anpr/) | ⭐⭐⭐⭐⭐ | 4 | [C++](../../examples/C++/anpr/) | ⭐⭐⭐⭐⭐ |
 | 5 | [C#](../../examples/C%23/anpr/) | ⭐⭐⭐⭐⭐ | 6 | [JavaScript](../../examples/JavaScript/anpr/) | ⭐⭐⭐⭐ |
-| 7 | [VB.NET](../../examples/VB.NET/anpr/) | ⭐⭐⭐⭐ | 8 | [Delphi](../../examples/Delphi/anpr/) | ⭐⭐⭐ |
-| 9 | [Perl](../../examples/Perl/anpr/) | ⭐⭐⭐ | 10 | [Fortran](../../examples/Fortran/anpr/) | ⭐⭐⭐ |
-| 11 | [Rust](../../examples/Rust/anpr/) | ⭐⭐⭐ | 12 | [MATLAB](../../examples/MATLAB/anpr/) | ⭐⭐⭐ |
-| 13 | [Go](../../examples/Go/anpr/) | ⭐⭐⭐ | 14 | [Ada](../../examples/Ada/anpr/) | ⭐⭐⭐ |
-| 15 | [Kotlin](../../examples/Kotlin/anpr/) | ⭐⭐ | 16 | [COBOL](../../examples/COBOL/anpr/) | ⭐⭐ |
-| 17 | [Swift](../../examples/Swift/anpr/) | ⭐⭐ | 18 | [Dart](../../examples/Dart/anpr/) | ⭐⭐ |
-| 19 | [Ruby](../../examples/Ruby/anpr/) | ⭐⭐ | 20 | [Julia](../../examples/Julia/anpr/) | ⭐⭐ |
-| 21 | [Lua](../../examples/Lua/anpr/) | ⭐⭐ | 22 | [TypeScript](../../examples/TypeScript/anpr/) | ⭐⭐ |
-| 23 | [Scala](../../examples/Scala/anpr/) | ⭐⭐ | 24 | [Haskell](../../examples/Haskell/anpr/) | ⭐⭐ |
-| 25 | [Elixir](../../examples/Elixir/anpr/) | ⭐ | 26 | [Zig](../../examples/Zig/anpr/) | ⭐ |
-| 27 | [Erlang](../../examples/Erlang/anpr/) | ⭐ | 28 | [Clojure](../../examples/Clojure/anpr/) | ⭐ |
-| 29 | [F#](../../examples/F%23/anpr/) | ⭐ | 30 | [D](../../examples/D/anpr/) | ⭐ |
-| 31 | [Crystal](../../examples/Crystal/anpr/) | ⭐ | 32 | [Gleam](../../examples/Gleam/anpr/) | ⭐ |
+| 7 | [VB.NET](../../examples/VB.NET/anpr/) | ⭐⭐⭐⭐ | 8 | [TypeScript](../../examples/TypeScript/anpr/) | ⭐⭐⭐ |
+| 9 | [Go](../../examples/Go/anpr/) | ⭐⭐⭐ | 10 | [Rust](../../examples/Rust/anpr/) | ⭐⭐⭐ |
+| 11 | [Kotlin](../../examples/Kotlin/anpr/) | ⭐⭐⭐ | 12 | [Swift](../../examples/Swift/anpr/) | ⭐⭐⭐ |
+| 13 | [Ruby](../../examples/Ruby/anpr/) | ⭐⭐⭐ | 14 | [Dart](../../examples/Dart/anpr/) | ⭐⭐ |
+| 15 | [Scala](../../examples/Scala/anpr/) | ⭐⭐ | 16 | [R](../../examples/R/anpr/)&nbsp;<sup style="background:red;color:white;padding:1px 4px;border-radius:999px">New</sup> | ⭐⭐ |
+| 17 | [Perl](../../examples/Perl/anpr/) | ⭐⭐ | 18 | [Lua](../../examples/Lua/anpr/) | ⭐⭐ |
+| 19 | [Julia](../../examples/Julia/anpr/) | ⭐⭐ | 20 | [MATLAB](../../examples/MATLAB/anpr/) | ⭐⭐ |
+| 21 | [Delphi](../../examples/Delphi/anpr/) | ⭐⭐ | 22 | [Haskell](../../examples/Haskell/anpr/) | ⭐⭐ |
+| 23 | [Elixir](../../examples/Elixir/anpr/) | ⭐⭐ | 24 | [PHP](../../examples/PHP/anpr/)&nbsp;<sup style="background:red;color:white;padding:1px 4px;border-radius:999px">New</sup> | ⭐⭐ |
+| 25 | [Groovy](../../examples/Groovy/anpr/)&nbsp;<sup style="background:red;color:white;padding:1px 4px;border-radius:999px">New</sup> | ⭐⭐ | 26 | [Clojure](../../examples/Clojure/anpr/) | ⭐ |
+| 27 | [F#](../../examples/F%23/anpr/) | ⭐ | 28 | [OCaml](../../examples/OCaml/anpr/)&nbsp;<sup style="background:red;color:white;padding:1px 4px;border-radius:999px">New</sup> | ⭐ |
+| 29 | [Erlang](../../examples/Erlang/anpr/) | ⭐ | 30 | [Fortran](../../examples/Fortran/anpr/) | ⭐ |
+| 31 | [COBOL](../../examples/COBOL/anpr/) | ⭐ | 32 | [Ada](../../examples/Ada/anpr/) | ⭐ |
+| 33 | [Pascal](../../examples/Pascal/anpr/)&nbsp;<sup style="background:red;color:white;padding:1px 4px;border-radius:999px">New</sup> | ⭐ | 34 | [D](../../examples/D/anpr/) | ⭐ |
+| 35 | [Nim](../../examples/Nim/anpr/)&nbsp;<sup style="background:red;color:white;padding:1px 4px;border-radius:999px">New</sup> | ⭐ | 36 | [Crystal](../../examples/Crystal/anpr/) | ⭐ |
+| 37 | [Zig](../../examples/Zig/anpr/) | ⭐ | 38 | [V](../../examples/V/anpr/)&nbsp;<sup style="background:red;color:white;padding:1px 4px;border-radius:999px">New</sup> | ⭐ |
+| 39 | [Odin](../../examples/Odin/anpr/)&nbsp;<sup style="background:red;color:white;padding:1px 4px;border-radius:999px">New</sup> | ⭐ | 40 | [Gleam](../../examples/Gleam/anpr/) | ⭐ |
+| 41 | [Mojo](../../examples/Mojo/anpr/)&nbsp;<sup style="background:red;color:white;padding:1px 4px;border-radius:999px">New</sup> | ⭐ | 42 | [Pony](../../examples/Pony/anpr/)&nbsp;<sup style="background:red;color:white;padding:1px 4px;border-radius:999px">New</sup> | ⭐ |
 
 ##### 📖 응용 프로그램 개발 가이드
 
