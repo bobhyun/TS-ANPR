@@ -1,7 +1,6 @@
 English | [한국어](doc.i18n/ko-KR/README.md) | [日本語](doc.i18n/ja-JP/README.md) | [Tiếng Việt](doc.i18n/vi-VN/README.md)
 
-<a href="https://www.seconexpo.com/2026/eng/main.asp"><img src="img/SECON2026.jpg" alt="SECON 2026" /></a><br/>**[SECON 2026](https://www.seconexpo.com/2026/eng/main.asp)** - Visit us at the International Security Exhibition & Conference!
-📅 March 11-13, 2026 &nbsp;|&nbsp; 📍 KINTEX, Korea &nbsp;|&nbsp; 🏢 [TS-Solution Booth](https://exhibitors.informamarkets-info.com/event/2026SEC/en-US/exhibitor/470637/ts-solution-co---ltd)
+<a href="https://www.seconexpo.com/2026/eng/main.asp"><img src="img/SECON2026.jpg" alt="SECON 2026" /></a><br/>**[SECON 2026](https://www.seconexpo.com/2026/eng/main.asp)** - Visit us at the International Security Exhibition & Conference!<br/>📅 March 11-13, 2026 &nbsp;|&nbsp; 📍 KINTEX, Korea &nbsp;|&nbsp; 🏢 [TS-Solution Booth](https://exhibitors.informamarkets-info.com/event/2026SEC/en-US/exhibitor/470637/ts-solution-co---ltd)
 
 
 # 😍TS-ANPR
