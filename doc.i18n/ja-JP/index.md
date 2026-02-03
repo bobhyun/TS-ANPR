@@ -8,6 +8,10 @@ lang: "ja"
 
 [English](/TS-ANPR/) | [한국어](/TS-ANPR/doc.i18n/ko-KR/) | 日本語 | [Tiếng Việt](/TS-ANPR/doc.i18n/vi-VN/)
 
+<a href="https://www.seconexpo.com/2026/eng/main.asp"><img src="../../img/SECON2026.jpg" alt="SECON 2026" /></a>
+**[SECON 2026](https://www.seconexpo.com/2026/eng/main.asp)** - 国際セキュリティ展示会でお会いしましょう！
+📅 2026年3月11-13日 &nbsp;|&nbsp; 📍 KINTEX、韓国 &nbsp;|&nbsp; 🏢 [TS-Solutionブース](https://exhibitors.informamarkets-info.com/event/2026SEC/en-US/exhibitor/470637/ts-solution-co---ltd)
+
 # 😍TS-ANPR
 
 **TS-ANPR**は、ディープラーニングベースの車両ナンバープレート認識エンジンで、韓国、日本、ベトナムのナンバープレート規格に対応しています。

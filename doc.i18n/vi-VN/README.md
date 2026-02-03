@@ -1,5 +1,9 @@
 [English](../../README.md) | [한국어](../ko-KR/README.md) | [日本語](../ja-JP/README.md) | Tiếng Việt
 
+<a href="https://www.seconexpo.com/2026/eng/main.asp"><img src="../../img/SECON2026.jpg" alt="SECON 2026" /></a>
+**[SECON 2026](https://www.seconexpo.com/2026/eng/main.asp)** - Gặp chúng tôi tại Triển lãm An ninh Quốc tế!
+📅 11-13 Tháng 3, 2026 &nbsp;|&nbsp; 📍 KINTEX, Hàn Quốc &nbsp;|&nbsp; 🏢 [Gian hàng TS-Solution](https://exhibitors.informamarkets-info.com/event/2026SEC/en-US/exhibitor/470637/ts-solution-co---ltd)
+
 # 😍TS-ANPR
 
 **TS-ANPR** là công cụ nhận diện biển số xe dựa trên học sâu, hỗ trợ tiêu chuẩn biển số của Hàn Quốc, Nhật Bản và Việt Nam.
