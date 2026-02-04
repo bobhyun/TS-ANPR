@@ -10,7 +10,7 @@ lang: "ko"
 
 <a href="https://www.seconexpo.com/2026/kor/main.asp"><img src="../../img/SECON2026.jpg" alt="SECON 2026" /></a>
 **[SECON 2026](https://www.seconexpo.com/2026/kor/main.asp)** - 국제 보안 전시회에서 만나요!
-📅 2026년 3월 11-13일 &nbsp;|&nbsp; 📍 킨텍스 &nbsp;|&nbsp; 🏢 [TS-Solution 부스](https://exhibitors.informamarkets-info.com/event/2026SEC/en-US/exhibitor/470637/ts-solution-co---ltd)
+📅 2026년 3월 18-20일 &nbsp;|&nbsp; 📍 킨텍스 &nbsp;|&nbsp; 🏢 [TS-Solution 부스](https://exhibitors.informamarkets-info.com/event/2026SEC/en-US/exhibitor/470637/ts-solution-co---ltd)
 
 # 😍TS-ANPR
 
